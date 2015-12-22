@@ -4,15 +4,22 @@
 //
 //  Created by LosBarkitos on 22/12/15.
 //  Copyright © 2015 LosBarkitos. All rights reserved.
-// jeje COMMIT
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, datosBDD {
 
+    var webService : webServiceCallAPI = webServiceCallAPI()
+    
+    
+    @IBAction func boton(sender: NSButtonCell) {
+        webService.obtenerBarcas()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        webService.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +27,10 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    func barcas(respuesta: [String : AnyObject]) {
+        print("hola")
     }
 
 
