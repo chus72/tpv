@@ -29,8 +29,8 @@ class ViewController: NSViewController, datosBDD {
         }
     }
     
-    func barcas(respuesta: [String : AnyObject]) {
-        print("hola")
+    func barcas(respuesta: AnyObject) {
+        print("respuesta : \(respuesta)")
     }
 
 

@@ -11,9 +11,9 @@ import Foundation
 
 protocol datosBDD {
     // Devuelve json con las barcas disponibles
-    func barcas(respuesta : [String : AnyObject])
-    
+    func barcas(_: AnyObject)
 }
+
 
 class webServiceCallAPI: NSObject {
     var delegate : datosBDD?
@@ -23,6 +23,7 @@ class webServiceCallAPI: NSObject {
             .responseJSON { response in
                 print(response.request)
                 print(response.response)
+                self.delegate?.barcas(response.result.value!)
                 
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
