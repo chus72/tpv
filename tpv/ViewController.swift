@@ -13,7 +13,7 @@ class ViewController: NSViewController, datosBDD {
     
     
     @IBAction func boton(sender: NSButtonCell) {
-        webService.obtenerBarcas()
+        webService.primeraLibre()
     }
     
     override func viewDidLoad() {
@@ -29,10 +29,9 @@ class ViewController: NSViewController, datosBDD {
         }
     }
     
-    func barcas(respuesta: AnyObject) {
-        print("respuesta : \(respuesta)")
+    func primeraLibre(respuesta : [String : AnyObject]) {
+        print("respuesta del servidor : \(respuesta)")
     }
-
 
 }
 

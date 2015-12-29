@@ -10,24 +10,33 @@ import Alamofire
 import Foundation
 
 protocol datosBDD {
-    // Devuelve json con las barcas disponibles
-    func barcas(_: AnyObject)
-}
+    /* Devuelve json con el resultado
+        {electrica = {control = 0; libre = "hh:mm:ss", nombre = "electrica 1"}
+         whaly = {}
+         gold = {}
+         rio = {}
+        }*/
+    func primeraLibre(_: [String : AnyObject])
+    }
+
+
 
 
 class webServiceCallAPI: NSObject {
     var delegate : datosBDD?
     
-    func obtenerBarcas() {
-        Alamofire.request(.GET, "https://httpbin.org/get")
+    func primeraLibre() {
+        Alamofire.request(.GET, "https://losbarkitos.herokuapp.com/primera_libre/")
             .responseJSON { response in
-                print(response.request)
-                print(response.response)
-                self.delegate?.barcas(response.result.value!)
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                /*print("response.request: \(response.request)")
+                print("response.response: \(response.response)")
+                print("response.data: \(response.data)")
+                print("response.error: \(response.result)")
+                print("response.result.value: \(response.result.value)")*/
+            
+                if let diccionario = response.result.value {
+                    self.delegate?.primeraLibre(diccionario as! [String : AnyObject])
                 }
-        }
+            }
     }
 }
