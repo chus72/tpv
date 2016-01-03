@@ -13,9 +13,12 @@ class ViewController: NSViewController, datosBDD {
     
     
     @IBAction func boton(sender: NSButtonCell) {
-        webService.primeraLibre()
+        webService.MFinsertar_ticket(400)
     }
     
+    @IBAction func recuperar(sender: NSButtonCell) {
+        webService.MFrecuperar_ticket(14)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +32,26 @@ class ViewController: NSViewController, datosBDD {
         }
     }
     
-    func primeraLibre(respuesta : [String : AnyObject]) {
+//  METODOS DELEGADOS DE datosBDD
+    func ticketInsertado(respuesta : [String : AnyObject]) {
         print("respuesta del servidor : \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "error" && v as! Int == 1 {
+                 print("ERROR EN EL SERVIDOR")
+            } else if k as String == "error" && v as! Int == 0 {
+                print("REGISTRO INSERTADO CORRECTAMENTE")
+            }
+        }
+        
     }
-
+    
+    func ticketRecuperado(respuesta : [String : AnyObject]) {
+        print("respuesta del servidor : \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "numero" {
+                print("REGISTRO \(v as! String) RECUPERADO CORRECTAMENTE")
+            }
+        }
+    }
 }
 

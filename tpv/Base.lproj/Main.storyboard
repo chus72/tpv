@@ -674,12 +674,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxe-gx-CJN">
-                                <rect key="frame" x="180" y="154" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TNu-uY-Sfj">
+                                <rect key="frame" x="11" y="222" width="87" height="32"/>
+                                <buttonCell key="cell" type="push" title="Insertar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TNu-uY-Sfj">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <connections>
                                         <action selector="boton:" target="XfG-lQ-9wD" id="sOG-8V-14X"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrh-t0-cam">
+                                <rect key="frame" x="109" y="222" width="103" height="32"/>
+                                <buttonCell key="cell" type="push" title="Recuperar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Yc-M0-3od">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="recuperar:" target="XfG-lQ-9wD" id="7cu-K0-qLc"/>
                                     </connections>
                                 </buttonCell>
                             </button>
