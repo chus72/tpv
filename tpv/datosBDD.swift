@@ -14,6 +14,14 @@ protocol datosBDD {
     func ticketInsertado(_ : [String : AnyObject])
     // Devuelve los datos de un ticket determinado
     func ticketRecuperado(_ : [String : AnyObject])
+    // Devuelve el total de Euros en un periodo determinado
+    func ticketBorrado(_ : [String :AnyObject])
+    // Devuelve los euros de un periodo determinado
+    func euros(_ : [String : Int])
+    // Devuelve la media de un periodo determinado
+    func media(_: [String : Float])
+    // Funcion genérica que llama a la BDD y genera respuesta [String : Anyobject]
+ //   func respuesta(_ : [String : AnyObject])
     
 }
 
@@ -23,6 +31,15 @@ protocol datosBDD {
 class webServiceCallAPI: NSObject {
     var delegate : datosBDD?
     
+/*    func MFrequestBDD(url : String) {
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.respuesta(diccionario)
+                }
+        }
+    }
+*/
     // url(r'^MFinsertar_ticket/(\d{1,})/$', MFinsertarTicket),
     // data = {'error' : 1, 'tipo error' : 'Error en la grabacion del ticket'}
     func MFinsertar_ticket(precio : Int) {
@@ -46,4 +63,45 @@ class webServiceCallAPI: NSObject {
                 }
             }
     }
+    
+    //url(r'^MFborrar_ticket/(\d{1,})/$', MFborrarTicket),
+    //data = {'error' : 0, 'numero' : numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha,"%H:%M:%S")}
+    func MFborrar_ticket(numero : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFborrar_ticket/" + String(numero)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.ticketBorrado(diccionario)
+                }
+        }
+    }
+    
+    //url(r'^MFeuros/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFeuros),
+    //datos = {'error' : 0, 'total' : total}
+    func MFeuros(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFeuros/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : Int] = response.result.value {
+                    self.delegate?.euros(diccionario)
+                }
+                
+        }
+    }
+    
+    //url(r'^MFmedia/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFmedia),
+    //datos = {'error' : 0, 'media' : media}
+    func MFmedia(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFmedia/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : Float] = response.result.value {
+                    self.delegate?.media(diccionario)
+                }
+                
+        }
+
+
+    }
+
 }

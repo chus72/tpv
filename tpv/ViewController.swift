@@ -14,11 +14,23 @@ class ViewController: NSViewController, datosBDD {
     
     @IBAction func boton(sender: NSButtonCell) {
         webService.MFinsertar_ticket(400)
+/*        let precio : Int = 400
+        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(precio)
+        webService.MFrequestBDD(url)
+*/
     }
     
     @IBAction func recuperar(sender: NSButtonCell) {
         webService.MFrecuperar_ticket(14)
+/*        let numero : Int = 14
+        let url : String = "https://losbarkitos.herokuapp.com/MFrecuperar_ticket/" + String(numero)
+        webService.MFrequestBDD(url)
+*/
     }
+    @IBAction func borrar(sender: NSButton) {
+        webService.MFborrar_ticket(14)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,5 +65,37 @@ class ViewController: NSViewController, datosBDD {
             }
         }
     }
+    
+    func ticketBorrado(respuesta: [String : AnyObject]) {
+        print("respuesta del servidor : \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "numero" {
+                print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
+            }
+        }
+    }
+    
+    func euros(respuesta : [String : Int]) {
+        print("respuesta del servidor : total = \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "total" {
+                print("Total Euros : " + String(v))
+            }
+        }
+    }
+    
+    func media(respuesta : [String : Int]) {
+        print("respuesta del servidor : media = \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "media" {
+                print("Media : " + String(v))
+            }
+        }
+    }
+
+/*    func respuesta(respuesta : [String : AnyObject]) {
+        print("respuesta del servidor : \(respuesta)")
+    }
+*/
 }
 

@@ -693,6 +693,16 @@
                                     </connections>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q0d-4T-icp">
+                                <rect key="frame" x="227" y="222" width="78" height="32"/>
+                                <buttonCell key="cell" type="push" title="Borrar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q2O-dE-1Dg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="borrar:" target="XfG-lQ-9wD" id="zQP-SL-rwJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
