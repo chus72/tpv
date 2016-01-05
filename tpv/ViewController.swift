@@ -31,6 +31,13 @@ class ViewController: NSViewController, datosBDD {
         webService.MFborrar_ticket(14)
     }
     
+    @IBAction func eurosPush(sender: NSButton) {
+        webService.MFeuros(1, mesI: 1, anyoI: 15, diaF: 31, mesF: 12, anyoF: 15)
+    }
+    @IBAction func mediaPush(sender: NSButton) {
+        webService.MFmedia(1, mesI: 1, anyoI: 15, diaF: 31, mesF: 12, anyoF: 15)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +81,7 @@ class ViewController: NSViewController, datosBDD {
             }
         }
     }
-    
+
     func euros(respuesta : [String : Int]) {
         print("respuesta del servidor : total = \(respuesta)")
         for (k,v) in respuesta {
@@ -82,9 +89,11 @@ class ViewController: NSViewController, datosBDD {
                 print("Total Euros : " + String(v))
             }
         }
+
     }
     
-    func media(respuesta : [String : Int]) {
+    
+    func media(respuesta : [String : Float]) {
         print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "media" {
