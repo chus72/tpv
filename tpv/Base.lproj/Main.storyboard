@@ -663,7 +663,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-101" y="126"/>
+            <point key="canvasLocation" x="-535" y="141"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="nBm-xQ-pYi">
@@ -686,20 +686,85 @@
                 </tabViewController>
                 <customObject id="ctF-CY-CRk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-96" y="727"/>
+            <point key="canvasLocation" x="-535" y="745"/>
         </scene>
         <!--MARINAFERRY-->
         <scene sceneID="NBE-MG-SaR">
             <objects>
                 <viewController title="MARINAFERRY" id="oxq-Bs-qxr" customClass="MFViewController" customModule="tpv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="QvI-0d-4FF">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                    <view key="view" wantsLayer="YES" horizontalHuggingPriority="244" id="QvI-0d-4FF">
+                        <rect key="frame" x="0.0" y="0.0" width="961" height="744"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="99K-m1-SKR">
+                                <rect key="frame" x="4" y="689" width="123" height="43"/>
+                                <buttonCell key="cell" type="push" title="Individual" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zyg-mP-iR3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <connections>
+                                        <action selector="individualPushButton:" target="oxq-Bs-qxr" id="zHq-Zs-Yf6"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-Gc-e0M">
+                                <rect key="frame" x="10" y="573" width="172" height="94"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-CY-pyu">
+                                        <rect key="frame" x="96" y="46" width="49" height="32"/>
+                                        <buttonCell key="cell" type="push" title="9" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fgn-6Z-Vb8">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="yq9-nG-km3"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llm-bT-ux7">
+                                        <rect key="frame" x="93" y="13" width="54" height="32"/>
+                                        <buttonCell key="cell" type="push" title="12" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScE-VD-eHq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="kxR-qA-h1U"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQf-yb-vpj">
+                                        <rect key="frame" x="28" y="46" width="49" height="32"/>
+                                        <buttonCell key="cell" type="push" title="8" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a9p-s6-JyS">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="NVu-CE-qDj"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-WH-IGh">
+                                        <rect key="frame" x="25" y="13" width="55" height="32"/>
+                                        <buttonCell key="cell" type="push" title="10" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QYH-F4-eFv">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="KRt-uM-d5s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </customView>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="individualButton" destination="99K-m1-SKR" id="mJi-We-0mm"/>
+                        <outlet property="precioIndividualView" destination="aGo-Gc-e0M" id="yob-Hn-ebn"/>
+                        <outlet property="precio_10_Individual" destination="pCO-WH-IGh" id="TMh-8W-oiM"/>
+                        <outlet property="precio_12_Individual" destination="llm-bT-ux7" id="ZYz-e9-swQ"/>
+                        <outlet property="precio_8_Individual" destination="aQf-yb-vpj" id="hw6-Iz-NQi"/>
+                        <outlet property="precio_9_Individual" destination="8sd-CY-pyu" id="0wm-H2-REJ"/>
+                    </connections>
                 </viewController>
                 <customObject id="b15-uT-GYD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="376"/>
+            <point key="canvasLocation" x="414.5" y="717"/>
         </scene>
         <!--LOSBARKITOS-->
         <scene sceneID="eQp-jS-jNt">
@@ -712,7 +777,20 @@
                 </viewController>
                 <customObject id="nbA-o1-JbP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="1001"/>
+            <point key="canvasLocation" x="197" y="1386"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wMQ-sD-nHw">
+            <objects>
+                <viewController id="fJw-N6-9oT" sceneMemberID="viewController">
+                    <view key="view" id="tEH-Mz-5dw">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="F6T-Os-A2h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="68"/>
         </scene>
     </scenes>
 </document>
