@@ -11,7 +11,25 @@ class MFViewController: NSViewController, datosBDD {
     
     var webService : webServiceCallAPI = webServiceCallAPI()
     
+    @IBOutlet weak var individualButton: NSButton!
+    @IBOutlet weak var gruposButton: NSButton!
     
+    @IBOutlet weak var precio_8_Individual: NSButton!
+    @IBOutlet weak var precio_9_Individual: NSButton!
+    @IBOutlet weak var precio_10_Individual: NSButton!
+    @IBOutlet weak var precio_12_Individual: NSButton!
+    @IBOutlet weak var precio_750_Grupos: NSButton!
+    @IBOutlet weak var precio_770_Grupos: NSButton!
+    @IBOutlet weak var precio_8_Grupos: NSButton!
+    @IBOutlet weak var precio_850_Grupos: NSButton!
+    @IBOutlet weak var precio_9_Grupos: NSButtonCell!
+    @IBOutlet weak var precio_10_Grupos: NSButtonCell!
+    @IBOutlet weak var precio_11_Grupos: NSButton!
+    @IBOutlet weak var precio_12_Grupos: NSButton!
+    
+    @IBOutlet weak var precioGruposView: NSView!
+    @IBOutlet weak var precioIndividualView: NSView!
+
     @IBAction func boton(sender: NSButtonCell) {
         webService.MFinsertar_ticket(400)
         /*        let precio : Int = 400
@@ -38,37 +56,50 @@ class MFViewController: NSViewController, datosBDD {
         webService.MFmedia(1, mesI: 1, anyoI: 15, diaF: 31, mesF: 12, anyoF: 15)
     }
     
+
     @IBAction func individualPushButton(sender: NSButtonCell) {
         
         if sender.state == NSOnState {
             self.precioIndividualView.hidden = false
+            self.precioGruposView.hidden = true
+            self.gruposButton.state = NSOffState
         } else {
             self.precioIndividualView.hidden = true
+            self.precioGruposView.hidden = true
         }
         
     }
-    @IBOutlet weak var individualButton: NSButton!
+    @IBAction func gruposPushButton(sender: NSButtonCell) {
+        
+        if sender.state == NSOnState {
+            self.precioGruposView.hidden = false
+            self.precioIndividualView.hidden = true
+            self.individualButton.state = NSOffState
+        } else {
+            self.precioGruposView.hidden = true
+            self.precioIndividualView.hidden = true
+        }
+    }
     
-    @IBOutlet weak var precio_8_Individual: NSButton!
-    
-    @IBOutlet weak var precio_9_Individual: NSButton!
-   
-    @IBOutlet weak var precio_10_Individual: NSButton!
-    
-    @IBOutlet weak var precio_12_Individual: NSButton!
     
     @IBAction func precioIndividualPushButton(sender: NSButton) {
         print(sender.title)
-        print(Int(sender.title))
-        if let precio : Int? = Int(sender.title) {
+        print(Float(sender.title))
+        if let precio : Float? = Float(sender.title) {
             webService.MFinsertar_ticket(precio!)
         }
     }
     
     
+    @IBAction func precioGruposPushButton(sender: NSButton) {
+        print(sender.title)
+        print(Float(sender.title))
+        if let precio : Float? = Float(sender.title) {
+            // webservice.MFinsertar_ticket(precio)
+        }
+    }
     
-    @IBOutlet weak var precioIndividualView: NSView!
-    
+       
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +107,10 @@ class MFViewController: NSViewController, datosBDD {
         webService.delegate = self
         
         self.individualButton.setButtonType(NSButtonType.PushOnPushOffButton)
+        self.gruposButton.setButtonType(NSButtonType.PushOnPushOffButton)
         
         self.precioIndividualView.hidden = true
+        self.precioGruposView.hidden = true
 
     }
     

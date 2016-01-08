@@ -668,7 +668,7 @@
         <!--Tab View Controller-->
         <scene sceneID="nBm-xQ-pYi">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="YFd-uM-zqg" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="YFd-uM-zqg" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="1rG-KO-CDG"/>
                         <tabViewItem identifier="" id="7A5-h6-K1y"/>
@@ -696,69 +696,187 @@
                         <rect key="frame" x="0.0" y="0.0" width="961" height="744"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="99K-m1-SKR">
-                                <rect key="frame" x="4" y="689" width="123" height="43"/>
-                                <buttonCell key="cell" type="push" title="Individual" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zyg-mP-iR3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="16"/>
-                                    <connections>
-                                        <action selector="individualPushButton:" target="oxq-Bs-qxr" id="zHq-Zs-Yf6"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-Gc-e0M">
-                                <rect key="frame" x="10" y="573" width="172" height="94"/>
+                                <rect key="frame" x="20" y="326" width="335" height="244"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-CY-pyu">
-                                        <rect key="frame" x="96" y="46" width="49" height="32"/>
-                                        <buttonCell key="cell" type="push" title="9" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fgn-6Z-Vb8">
+                                        <rect key="frame" x="195" y="137" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="9" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fgn-6Z-Vb8">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="yq9-nG-km3"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llm-bT-ux7">
-                                        <rect key="frame" x="93" y="13" width="54" height="32"/>
-                                        <buttonCell key="cell" type="push" title="12" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScE-VD-eHq">
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-WH-IGh">
+                                        <rect key="frame" x="20" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="10" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QYH-F4-eFv">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="KRt-uM-d5s"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llm-bT-ux7">
+                                        <rect key="frame" x="195" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="12" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScE-VD-eHq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="kxR-qA-h1U"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQf-yb-vpj">
-                                        <rect key="frame" x="28" y="46" width="49" height="32"/>
-                                        <buttonCell key="cell" type="push" title="8" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a9p-s6-JyS">
+                                        <rect key="frame" x="20" y="137" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="8" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a9p-s6-JyS">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="NVu-CE-qDj"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-WH-IGh">
-                                        <rect key="frame" x="25" y="13" width="55" height="32"/>
-                                        <buttonCell key="cell" type="push" title="10" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QYH-F4-eFv">
+                                </subviews>
+                                <shadow key="shadow" blurRadius="4">
+                                    <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                </shadow>
+                            </customView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klj-nL-yNZ">
+                                <rect key="frame" x="433" y="211" width="508" height="359"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1f-as-Xgx">
+                                        <rect key="frame" x="195" y="135" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="9" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bz6-lB-feT">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="KRt-uM-d5s"/>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="EHm-nr-W2P"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sn0-4b-rr4">
+                                        <rect key="frame" x="368" y="252" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="8.50" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0nl-Ht-0h7">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="5ku-hd-46c"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0l-0v-BJ6">
+                                        <rect key="frame" x="368" y="135" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="10" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tn6-3i-Xvi">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="TcV-gT-y6Z"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIp-TX-1fW">
+                                        <rect key="frame" x="195" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="12" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nq4-cB-WqE">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="EQl-Yo-hV6"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toJ-V7-x3I">
+                                        <rect key="frame" x="368" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="?" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4u0-4P-fyu">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNk-Cf-wXZ">
+                                        <rect key="frame" x="195" y="252" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="7.70" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Yc-qE-eQE">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="S9X-Yp-hUS"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeg-YO-Zgg">
+                                        <rect key="frame" x="20" y="135" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="8" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kKb-7p-Pks">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="3iT-Tj-Mvi"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rj-C4-mFQ">
+                                        <rect key="frame" x="20" y="252" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="7.50" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m8l-Ie-lqg">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="xRX-Q3-fYU"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgc-ff-Oww">
+                                        <rect key="frame" x="20" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="11" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ful-vh-Tvr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="obN-bt-Dt1"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                </shadow>
                             </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-VA-TOM">
+                                <rect key="frame" x="581" y="614" width="213" height="75"/>
+                                <buttonCell key="cell" type="square" title="Ticket Grupos" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0uf-sq-M9h">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="18" name="HelveticaNeue-Bold"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="gruposPushButton:" target="oxq-Bs-qxr" id="Ydh-F9-Ssu"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="99K-m1-SKR">
+                                <rect key="frame" x="81" y="614" width="213" height="75"/>
+                                <buttonCell key="cell" type="square" title="Ticket Particular" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zyg-mP-iR3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="18" name="HelveticaNeue-Bold"/>
+                                    <connections>
+                                        <action selector="individualPushButton:" target="oxq-Bs-qxr" id="zHq-Zs-Yf6"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="gruposButton" destination="Onb-VA-TOM" id="csp-2n-VuW"/>
                         <outlet property="individualButton" destination="99K-m1-SKR" id="mJi-We-0mm"/>
+                        <outlet property="precioGruposView" destination="klj-nL-yNZ" id="fro-6C-eIr"/>
                         <outlet property="precioIndividualView" destination="aGo-Gc-e0M" id="yob-Hn-ebn"/>
+                        <outlet property="precio_10_Grupos" destination="Tn6-3i-Xvi" id="XZn-dx-QF6"/>
                         <outlet property="precio_10_Individual" destination="pCO-WH-IGh" id="TMh-8W-oiM"/>
+                        <outlet property="precio_11_Grupos" destination="Rgc-ff-Oww" id="P36-59-FFP"/>
+                        <outlet property="precio_12_Grupos" destination="WIp-TX-1fW" id="CdM-lg-xM1"/>
                         <outlet property="precio_12_Individual" destination="llm-bT-ux7" id="ZYz-e9-swQ"/>
+                        <outlet property="precio_750_Grupos" destination="0Rj-C4-mFQ" id="qvm-Ga-h9S"/>
+                        <outlet property="precio_770_Grupos" destination="wNk-Cf-wXZ" id="bjm-SS-33o"/>
+                        <outlet property="precio_850_Grupos" destination="sn0-4b-rr4" id="Zz3-9S-2Hz"/>
+                        <outlet property="precio_8_Grupos" destination="zeg-YO-Zgg" id="4Ro-Jb-STI"/>
                         <outlet property="precio_8_Individual" destination="aQf-yb-vpj" id="hw6-Iz-NQi"/>
+                        <outlet property="precio_9_Grupos" destination="Bz6-lB-feT" id="opA-Tg-IBR"/>
                         <outlet property="precio_9_Individual" destination="8sd-CY-pyu" id="0wm-H2-REJ"/>
                     </connections>
                 </viewController>

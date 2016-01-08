@@ -42,7 +42,7 @@ class webServiceCallAPI: NSObject {
 */
     // url(r'^MFinsertar_ticket/(\d{1,})/$', MFinsertarTicket),
     // data = {'error' : 1, 'tipo error' : 'Error en la grabacion del ticket'}
-    func MFinsertar_ticket(precio : Int) {
+    func MFinsertar_ticket(precio : Float) {
         let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(precio)
         Alamofire.request(.GET, url)
             .responseJSON { response in
