@@ -693,59 +693,11 @@
             <objects>
                 <viewController title="MARINAFERRY" id="oxq-Bs-qxr" customClass="MFViewController" customModule="tpv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" horizontalHuggingPriority="244" id="QvI-0d-4FF">
-                        <rect key="frame" x="0.0" y="0.0" width="961" height="744"/>
+                        <rect key="frame" x="0.0" y="0.0" width="961" height="793"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-Gc-e0M">
-                                <rect key="frame" x="20" y="326" width="335" height="244"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-CY-pyu">
-                                        <rect key="frame" x="195" y="137" width="120" height="87"/>
-                                        <buttonCell key="cell" type="square" title="9" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fgn-6Z-Vb8">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="yq9-nG-km3"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-WH-IGh">
-                                        <rect key="frame" x="20" y="20" width="120" height="87"/>
-                                        <buttonCell key="cell" type="square" title="10" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QYH-F4-eFv">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="KRt-uM-d5s"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llm-bT-ux7">
-                                        <rect key="frame" x="195" y="20" width="120" height="87"/>
-                                        <buttonCell key="cell" type="square" title="12" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScE-VD-eHq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="kxR-qA-h1U"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQf-yb-vpj">
-                                        <rect key="frame" x="20" y="137" width="120" height="87"/>
-                                        <buttonCell key="cell" type="square" title="8" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a9p-s6-JyS">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="NVu-CE-qDj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <shadow key="shadow" blurRadius="4">
-                                    <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                                </shadow>
-                            </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klj-nL-yNZ">
-                                <rect key="frame" x="433" y="211" width="508" height="359"/>
+                                <rect key="frame" x="12" y="296" width="508" height="359"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1f-as-Xgx">
                                         <rect key="frame" x="195" y="135" width="120" height="87"/>
@@ -839,18 +791,56 @@
                                     <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                                 </shadow>
                             </customView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-VA-TOM">
-                                <rect key="frame" x="581" y="614" width="213" height="75"/>
-                                <buttonCell key="cell" type="square" title="Ticket Grupos" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0uf-sq-M9h">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="18" name="HelveticaNeue-Bold"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="gruposPushButton:" target="oxq-Bs-qxr" id="Ydh-F9-Ssu"/>
-                                </connections>
-                            </button>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-Gc-e0M">
+                                <rect key="frame" x="20" y="374" width="335" height="244"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-CY-pyu">
+                                        <rect key="frame" x="195" y="137" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="9" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fgn-6Z-Vb8">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="yq9-nG-km3"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCO-WH-IGh">
+                                        <rect key="frame" x="20" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="10" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QYH-F4-eFv">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="KRt-uM-d5s"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llm-bT-ux7">
+                                        <rect key="frame" x="195" y="20" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="12" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ScE-VD-eHq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="kxR-qA-h1U"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQf-yb-vpj">
+                                        <rect key="frame" x="20" y="137" width="120" height="87"/>
+                                        <buttonCell key="cell" type="square" title="8" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a9p-s6-JyS">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="precioIndividualPushButton:" target="oxq-Bs-qxr" id="NVu-CE-qDj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <shadow key="shadow" blurRadius="4">
+                                    <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                </shadow>
+                            </customView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="99K-m1-SKR">
-                                <rect key="frame" x="81" y="614" width="213" height="75"/>
+                                <rect key="frame" x="20" y="663" width="213" height="75"/>
                                 <buttonCell key="cell" type="square" title="Ticket Particular" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zyg-mP-iR3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="18" name="HelveticaNeue-Bold"/>
@@ -859,11 +849,113 @@
                                     </connections>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-VA-TOM">
+                                <rect key="frame" x="307" y="663" width="213" height="75"/>
+                                <buttonCell key="cell" type="square" title="Ticket Grupos" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0uf-sq-M9h">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="18" name="HelveticaNeue-Bold"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="gruposPushButton:" target="oxq-Bs-qxr" id="Ydh-F9-Ssu"/>
+                                </connections>
+                            </button>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="vIq-us-lh9">
+                                <rect key="frame" x="552" y="296" width="5" height="454"/>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <font key="titleFont" metaFont="system"/>
+                            </box>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-zL-dtx">
+                                <rect key="frame" x="12" y="267" width="918" height="5"/>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <font key="titleFont" metaFont="system"/>
+                            </box>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1W1-Yi-C5I">
+                                <rect key="frame" x="12" y="13" width="918" height="239"/>
+                                <subviews>
+                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYQ-Nh-UjI">
+                                        <rect key="frame" x="20" y="20" width="740" height="199"/>
+                                        <clipView key="contentView" ambiguous="YES" id="0bB-o7-0lM">
+                                            <rect key="frame" x="1" y="1" width="738" height="197"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" viewBased="YES" id="eTW-v5-d9b">
+                                                    <rect key="frame" x="0.0" y="0.0" width="738" height="197"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn width="735" minWidth="40" maxWidth="1000" id="zPg-46-Uf3">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
+                                                                <font key="font" metaFont="cellTitle"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="qyt-RI-PVu">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView identifier="Celda" id="pHy-HV-ajD">
+                                                                    <rect key="frame" x="1" y="1" width="735" height="40"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0M-Zv-4U4">
+                                                                            <rect key="frame" x="0.0" y="23" width="100" height="40"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="ejemplo" id="9R0-CN-CeF">
+                                                                                <font key="font" metaFont="system" size="16"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="L0M-Zv-4U4" id="mey-Za-Kdy"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="oxq-Bs-qxr" id="LPc-Pl-ev6"/>
+                                                        <outlet property="delegate" destination="oxq-Bs-qxr" id="zDd-ad-Foa"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="euK-d8-fO7">
+                                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="RBg-Sm-KHT">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                            </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4i-GU-dEy">
+                                <rect key="frame" x="577" y="641" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2MZ-27-YJ2">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="boton:" target="oxq-Bs-qxr" id="fJj-qg-xsr"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="gruposButton" destination="Onb-VA-TOM" id="csp-2n-VuW"/>
                         <outlet property="individualButton" destination="99K-m1-SKR" id="mJi-We-0mm"/>
+                        <outlet property="listadoTableView" destination="eTW-v5-d9b" id="utX-Fi-Xbh"/>
+                        <outlet property="listadoView" destination="1W1-Yi-C5I" id="I1D-7M-ixt"/>
                         <outlet property="precioGruposView" destination="klj-nL-yNZ" id="fro-6C-eIr"/>
                         <outlet property="precioIndividualView" destination="aGo-Gc-e0M" id="yob-Hn-ebn"/>
                         <outlet property="precio_10_Grupos" destination="Tn6-3i-Xvi" id="XZn-dx-QF6"/>
@@ -882,7 +974,7 @@
                 </viewController>
                 <customObject id="b15-uT-GYD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414.5" y="717"/>
+            <point key="canvasLocation" x="281.5" y="751.5"/>
         </scene>
         <!--LOSBARKITOS-->
         <scene sceneID="eQp-jS-jNt">

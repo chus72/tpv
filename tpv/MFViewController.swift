@@ -7,9 +7,10 @@
 
 import Cocoa
 
-class MFViewController: NSViewController, datosBDD {
+class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NSTableViewDelegate
     
     var webService : webServiceCallAPI = webServiceCallAPI()
+    var listadoTickets = [[String : AnyObject]]()
     
     @IBOutlet weak var individualButton: NSButton!
     @IBOutlet weak var gruposButton: NSButton!
@@ -30,12 +31,15 @@ class MFViewController: NSViewController, datosBDD {
     @IBOutlet weak var precioGruposView: NSView!
     @IBOutlet weak var precioIndividualView: NSView!
 
+    @IBOutlet weak var listadoView: NSView!
+    
+    @IBOutlet weak var listadoTableView: NSTableView!
+    
     @IBAction func boton(sender: NSButtonCell) {
-        webService.MFinsertar_ticket(400)
-        /*        let precio : Int = 400
-        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(precio)
-        webService.MFrequestBDD(url)
-        */
+       // webService.MFinsertar_ticket(400)
+        //        let precio : Int = 400
+        webService.MFlistado(1, mesI: 1, anyoI: 15, diaF: 31, mesF: 12, anyoF: 15)
+        
     }
     
     @IBAction func recuperar(sender: NSButtonCell) {
@@ -95,7 +99,7 @@ class MFViewController: NSViewController, datosBDD {
         print(sender.title)
         print(Float(sender.title))
         if let precio : Float? = Float(sender.title) {
-            // webservice.MFinsertar_ticket(precio)
+             webService.MFinsertar_ticket(precio!)
         }
     }
     
@@ -111,6 +115,11 @@ class MFViewController: NSViewController, datosBDD {
         
         self.precioIndividualView.hidden = true
         self.precioGruposView.hidden = true
+        
+        self.precioIndividualView.setFrameOrigin(NSPoint(x : 20, y : 325))
+        self.precioGruposView.setFrameOrigin(NSPoint(x : 20, y : 325))
+        
+        self.listadoTableView.reloadData()
 
     }
     
@@ -131,6 +140,7 @@ class MFViewController: NSViewController, datosBDD {
             }
         }
         
+        
     }
     
     func ticketRecuperado(respuesta : [String : AnyObject]) {
@@ -149,6 +159,17 @@ class MFViewController: NSViewController, datosBDD {
                 print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
             }
         }
+    }
+    
+    func listadoMF(respuesta: [[String : AnyObject]]) {
+        print("respuesta del servidor : \(respuesta)")
+        for (k ,v) in respuesta {
+            if k != "error" && k != "numero_tickets" {
+                let reg : [String : AnyObject] = v as! [String : AnyObject]
+                self.listadoTickets.append(reg)
+            }
+        }
+        self.listadoTableView.reloadData()
     }
     
     func euros(respuesta : [String : Int]) {
@@ -175,4 +196,16 @@ class MFViewController: NSViewController, datosBDD {
     print("respuesta del servidor : \(respuesta)")
     }
     */
+    
+    // MARK - TableView
+    
+ /*   func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+        
+        return self.listadoTickets.count
+    }
+    
+    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var cellView = tableView.makeViewWithIdentifier("Celda", owner: self) as! NSTableCellView
+        cellView.textField!.stringValue = self.listadoTickets.
+    }*/
 }

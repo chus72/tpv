@@ -20,8 +20,8 @@ protocol datosBDD {
     func euros(_ : [String : Int])
     // Devuelve la media de un periodo determinado
     func media(_: [String : Float])
-    // Funcion genérica que llama a la BDD y genera respuesta [String : Anyobject]
- //   func respuesta(_ : [String : AnyObject])
+    // Funcion que devuelva el listado segun las fechas indicadas
+    func listadoMF(_ : [[String : AnyObject]])
     
 }
 
@@ -43,7 +43,7 @@ class webServiceCallAPI: NSObject {
     // url(r'^MFinsertar_ticket/(\d{1,})/$', MFinsertarTicket),
     // data = {'error' : 1, 'tipo error' : 'Error en la grabacion del ticket'}
     func MFinsertar_ticket(precio : Float) {
-        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(precio)
+        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(Int(precio * 100))
         Alamofire.request(.GET, url)
             .responseJSON { response in
                 if case let diccionario as [String : AnyObject] = response.result.value {
@@ -73,6 +73,20 @@ class webServiceCallAPI: NSObject {
                 if case let diccionario as [String : AnyObject] = response.result.value {
                     self.delegate?.ticketBorrado(diccionario)
                 }
+        }
+    }
+    
+    //url(r'^MFlistado/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFlistado),
+    // datos = {'numero' : ticket.numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha, "%d-%m-%Y %H:%M:%S"), 'punto_venta' : 1, 'vendedor' : 1, 'particular' : ticket.part, 'blanco' : ticket.blanco}
+        //dict_tickets[str(i)] = datos
+    func MFlistado(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFlistado/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [[String : AnyObject]] = response.result.value {
+                    self.delegate?.listadoMF(diccionario)
+                }
+                
         }
     }
     
