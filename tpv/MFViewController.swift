@@ -7,9 +7,10 @@
 
 import Cocoa
 
-class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NSTableViewDelegate
+class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTableViewDelegate {
     
     var webService : webServiceCallAPI = webServiceCallAPI()
+    //var listadoTickets = [[String : AnyObject]]?()
     var listadoTickets = [[String : AnyObject]]()
     
     @IBOutlet weak var individualButton: NSButton!
@@ -121,6 +122,9 @@ class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NS
         
         webService.MFlistado(10, mesI: 1, anyoI: 15, diaF: 10, mesF: 1, anyoF: 15)
         
+        listadoTableView.setDelegate(self)
+        listadoTableView.setDataSource(self)
+        
         self.listadoTableView.reloadData()
 
     }
@@ -164,11 +168,18 @@ class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NS
     }
     
     func listadoMF(respuesta: [String : AnyObject]) {
+        var registro : [String : AnyObject] = [:]
+        self.listadoTickets = []
         print("respuesta del servidor : \(respuesta)")
-        for (k ,v) in respuesta {
-            if k != "error" && k != "numero_tickets" {
-                self.listadoTickets.append(v as! [String : AnyObject])
-            }
+        for (k,v) in respuesta {
+            print(k)
+            print(v)
+            registro["numero"] = v["numero"] as! Int
+            registro["punto_venta"] = v["punto_venta"] as! String
+            registro["fecha"] = v["fecha"] as! String
+            registro["precio"] = v["precio"] as! Float
+            
+            self.listadoTickets.append(registro)
         }
         print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
@@ -201,13 +212,37 @@ class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NS
     
     // MARK - TableView
     
- /*   func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
-        return self.listadoTickets.count
+        return self.listadoTickets.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var cellView = tableView.makeViewWithIdentifier("Celda", owner: self) as! NSTableCellView
-        cellView.textField!.stringValue = self.listadoTickets.
-    }*/
+        
+        var text : String = ""
+        var celdaIdentificador : String = ""
+        // Item contiene el registro a meter en la tableView
+        let item = self.listadoTickets[row]
+        
+        if tableColumn == tableView.tableColumns[0] { // Número
+            text = item["numero"]! as! String
+            celdaIdentificador = "numeroCellId"
+        } else if tableColumn == tableView.tableColumns[1] { // punto_venta
+            text = item["punto_venta"]! as! String
+            celdaIdentificador = "puntoVentaCellId"
+        } else if tableColumn == tableView.tableColumns[2] { // fecha
+            text = item["fecha"]! as! String
+            celdaIdentificador = "fechaCellId"
+        } else if tableColumn == tableView.tableColumns[3] { // precio
+            text = item["precio"]! as! String
+            celdaIdentificador = "precioCellId"
+        }
+
+        if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
+            celda.textField?.stringValue = text
+            return celda
+        }
+        return nil
+    }
+
 }
