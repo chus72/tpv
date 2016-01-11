@@ -174,12 +174,19 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         for (k,v) in respuesta {
             print(k)
             print(v)
-            registro["numero"] = v["numero"] as! Int
-            registro["punto_venta"] = v["punto_venta"] as! String
-            registro["fecha"] = v["fecha"] as! String
-            registro["precio"] = v["precio"] as! Float
+            if k != "error" && k != "numero_tickets" {
+                registro["numero"] = v["numero"] as! Int
+                if v["punto_venta"] as! Int == 1 {
+                    registro["punto_venta"] = "MarinaFerry"
+                } else {
+                    registro["punto_venta"] = "iPad"
+                }
+                registro["fecha"] = v["fecha"] as! String
+                
+                registro["precio"] = v["precio"] as! Float
             
-            self.listadoTickets.append(registro)
+                self.listadoTickets.append(registro)
+            }
         }
         print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
@@ -225,16 +232,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         let item = self.listadoTickets[row]
         
         if tableColumn == tableView.tableColumns[0] { // Número
-            text = item["numero"]! as! String
+            text = String(item["numero"]! as! Int)
             celdaIdentificador = "numeroCellId"
         } else if tableColumn == tableView.tableColumns[1] { // punto_venta
-            text = item["punto_venta"]! as! String
+            text = String(item["punto_venta"]! as! String)
             celdaIdentificador = "puntoVentaCellId"
         } else if tableColumn == tableView.tableColumns[2] { // fecha
-            text = item["fecha"]! as! String
+            text = String(item["fecha"]! as! String)
             celdaIdentificador = "fechaCellId"
         } else if tableColumn == tableView.tableColumns[3] { // precio
-            text = item["precio"]! as! String
+            text = String(item["precio"]! as! Float)
             celdaIdentificador = "precioCellId"
         }
 
