@@ -119,6 +119,8 @@ class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NS
         self.precioIndividualView.setFrameOrigin(NSPoint(x : 20, y : 325))
         self.precioGruposView.setFrameOrigin(NSPoint(x : 20, y : 325))
         
+        webService.MFlistado(10, mesI: 1, anyoI: 15, diaF: 10, mesF: 1, anyoF: 15)
+        
         self.listadoTableView.reloadData()
 
     }
@@ -161,14 +163,14 @@ class MFViewController: NSViewController, datosBDD{//, NSTableViewDataSource, NS
         }
     }
     
-    func listadoMF(respuesta: [[String : AnyObject]]) {
+    func listadoMF(respuesta: [String : AnyObject]) {
         print("respuesta del servidor : \(respuesta)")
         for (k ,v) in respuesta {
             if k != "error" && k != "numero_tickets" {
-                let reg : [String : AnyObject] = v as! [String : AnyObject]
-                self.listadoTickets.append(reg)
+                self.listadoTickets.append(v as! [String : AnyObject])
             }
         }
+        print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
     }
     

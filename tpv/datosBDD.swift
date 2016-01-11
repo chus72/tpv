@@ -21,7 +21,7 @@ protocol datosBDD {
     // Devuelve la media de un periodo determinado
     func media(_: [String : Float])
     // Funcion que devuelva el listado segun las fechas indicadas
-    func listadoMF(_ : [[String : AnyObject]])
+    func listadoMF(_ : [String : AnyObject])
     
 }
 
@@ -83,7 +83,7 @@ class webServiceCallAPI: NSObject {
         let url : String = "http://losbarkitos.herokuapp.com/MFlistado/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
             .responseJSON { response in
-                if case let diccionario as [[String : AnyObject]] = response.result.value {
+                if case let diccionario as [String : AnyObject] = response.result.value {
                     self.delegate?.listadoMF(diccionario)
                 }
                 
