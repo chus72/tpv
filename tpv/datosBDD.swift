@@ -20,12 +20,11 @@ protocol datosBDD {
     func euros(_ : [String : Float])
     func media(_: [String : Float]) // Devuelve la media de un periodo determinado
     func numeroTickets (_ : [String : Int])
+    func estadisticas(_ : [String : AnyObject])
     // Funcion que devuelva el listado segun las fechas indicadas
     func listadoMF(_ : [String : AnyObject])
     
 }
-
-
 
 
 class webServiceCallAPI: NSObject {
@@ -103,7 +102,7 @@ class webServiceCallAPI: NSObject {
         }
     }
     
-    //url(r'^MFmedia/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFmedia),
+    ///url(r'^MFmedia/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFmedia),
     //datos = {'error' : 0, 'media' : media}
     func MFmedia(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/MFmedia/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
@@ -130,6 +129,19 @@ class webServiceCallAPI: NSObject {
         
         
     }
-
-
+    
+    ///  url(r'^MFestadisticas/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$'
+    /// datos = {'error' : 0, 'media' : media, 'total_tickets' : total_tickets, 'euros' : total_euros}
+    func MFestadisticas(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFestadisticas/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.estadisticas(diccionario)
+                }
+                
+        }
+    
+    }
+    
 }

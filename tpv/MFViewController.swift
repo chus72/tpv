@@ -14,6 +14,25 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     var listadoTickets = [[String : AnyObject]]()
     var diaHoy = (dia : 1, mes : 1, año : 1)
     
+    /// Estas variables controlan los nstextview del listado
+ /*   var total€ : Float = 0.0 {
+        willSet {
+            self.totalEurosNSTextField.stringValue = String(total€)
+        }
+
+    }
+    var media€ : Float = 0.0 {
+        willSet {
+            self.mediaNSTextField.stringValue = String(media€)
+        }
+    }
+    var numeroTickets : Int = 0 {
+        willSet {
+            self.totalTicketsNSTextField.stringValue = String(numeroTickets)
+        }
+    }*/
+    
+    
     @IBOutlet weak var individualButton: NSButton!
     @IBOutlet weak var gruposButton: NSButton!
     
@@ -129,11 +148,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
             diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         
-        webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-        
-
-        webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-        webService.MFnumeroTickets(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+       // webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+       // webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+       // webService.MFnumeroTickets(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+        webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
 
         
         listadoTableView.setDelegate(self)
@@ -159,10 +177,11 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("REGISTRO INSERTADO CORRECTAMENTE")
                 webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
                                      diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-                webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                //webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 
                 
-                webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                //webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
 
             }
         }
@@ -227,6 +246,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             if k as String == "total" {
                 print("Total Euros : " + String(v))
                 self.totalEurosNSTextField.stringValue = String(v)
+               // self.total€ = Float(v)
             }
         }
         
@@ -239,6 +259,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             if k as String == "media" {
                 print("Media : " + String(v))
                 self.mediaNSTextField.stringValue = String(v)
+                //self.media€ = Float(v)
             }
         }
         
@@ -250,10 +271,32 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             if k as String == "media" {
                 print("Numero Tickets : " + String(v))
                 self.mediaNSTextField.stringValue = String(v)
+                //self.numeroTickets = Int(v)
             }
         }
         
     }
+    
+    func estadisticas(respuesta : [String : AnyObject]) {
+        print("respuesta del servidor : media = \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "media" {
+                print("Media : " + String(Float(v as! NSNumber)))
+                self.mediaNSTextField.stringValue = String(v)
+            } else if k as String == "euros" {
+                print("Euros : " + String(Float(v as! NSNumber)))
+                self.totalEurosNSTextField.stringValue = String(v)
+            } else if k as String == "total_tickets" {
+                print("Tickets : " + String(Int(v as! NSNumber)))
+                self.totalTicketsNSTextField.stringValue = String(v)
+                
+            }
+                //self.numeroTickets = Int(v)
+        }
+    }
+        
+
+    
 
     
     /*    func respuesta(respuesta : [String : AnyObject]) {
