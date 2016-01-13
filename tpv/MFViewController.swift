@@ -12,6 +12,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     var webService : webServiceCallAPI = webServiceCallAPI()
     //var listadoTickets = [[String : AnyObject]]?()
     var listadoTickets = [[String : AnyObject]]()
+    var diaHoy = (dia : 1, mes : 1, año : 1)
     
     @IBOutlet weak var individualButton: NSButton!
     @IBOutlet weak var gruposButton: NSButton!
@@ -109,6 +110,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.diaHoy = self.buscarFechaHoy()
+        
         webService.delegate = self
         
         self.individualButton.setButtonType(NSButtonType.PushOnPushOffButton)
@@ -120,7 +123,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.precioIndividualView.setFrameOrigin(NSPoint(x : 20, y : 325))
         self.precioGruposView.setFrameOrigin(NSPoint(x : 20, y : 325))
         
-        webService.MFlistado(10, mesI: 1, anyoI: 15, diaF: 10, mesF: 1, anyoF: 15)
+       // webService.MFlistado(13, mesI: 1, anyoI: 16, diaF: 13, mesF: 1, anyoF: 16)
         
         listadoTableView.setDelegate(self)
         listadoTableView.setDataSource(self)
@@ -143,6 +146,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("ERROR EN EL SERVIDOR")
             } else if k as String == "error" && v as! Int == 0 {
                 print("REGISTRO INSERTADO CORRECTAMENTE")
+                webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
+                                     diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
             }
         }
         
@@ -181,12 +186,19 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 } else {
                     registro["punto_venta"] = "iPad"
                 }
-                registro["fecha"] = v["fecha"] as! String
+                let formato = NSDateFormatter()
+                formato.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                let fec = formato.dateFromString(v["fecha"] as! String)
+                registro["fecha"] = formato.stringFromDate(fec!)
+                //registro["fecha"] = v["fecha"] as! String
                 
                 registro["precio"] = v["precio"] as! Float
             
                 self.listadoTickets.append(registro)
             }
+        }
+        self.listadoTickets.sortInPlace { (primero : [String : AnyObject], segundo : [String : AnyObject]) -> Bool in
+            return segundo["numero"] as! Int > primero["numero"] as! Int
         }
         print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
@@ -252,4 +264,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         return nil
     }
 
+    func buscarFechaHoy() -> (Int, Int, Int) {
+        let formato = NSDateFormatter()
+        let fechaHoy = NSDate()
+        formato.dateFormat = "dd"
+        let dia = formato.stringFromDate(fechaHoy)
+        formato.dateFormat = "MM"
+        let mes = formato.stringFromDate(fechaHoy)
+        formato.dateFormat = "yyyy"
+        let año = formato.stringFromDate(fechaHoy)
+        
+        return (Int(dia)!, Int(mes)!, Int(año)!)
+    }
 }
