@@ -17,9 +17,9 @@ protocol datosBDD {
     // Devuelve el total de Euros en un periodo determinado
     func ticketBorrado(_ : [String :AnyObject])
     // Devuelve los euros de un periodo determinado
-    func euros(_ : [String : Int])
-    // Devuelve la media de un periodo determinado
-    func media(_: [String : Float])
+    func euros(_ : [String : Float])
+    func media(_: [String : Float]) // Devuelve la media de un periodo determinado
+    func numeroTickets (_ : [String : Int])
     // Funcion que devuelva el listado segun las fechas indicadas
     func listadoMF(_ : [String : AnyObject])
     
@@ -96,7 +96,7 @@ class webServiceCallAPI: NSObject {
         let url : String = "http://losbarkitos.herokuapp.com/MFeuros/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
             .responseJSON { response in
-                if case let diccionario as [String : Int] = response.result.value {
+                if case let diccionario as [String : Float] = response.result.value {
                     self.delegate?.euros(diccionario)
                 }
                 
@@ -117,5 +117,19 @@ class webServiceCallAPI: NSObject {
 
 
     }
+    
+    func MFnumeroTickets(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFnum_tickets/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : Int] = response.result.value {
+                    self.delegate?.numeroTickets(diccionario)
+                }
+                
+        }
+        
+        
+    }
+
 
 }

@@ -36,6 +36,9 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var listadoView: NSView!
     
     @IBOutlet weak var listadoTableView: NSTableView!
+    @IBOutlet weak var totalTicketsNSTextField: NSTextField!
+    @IBOutlet weak var totalEurosNSTextField: NSTextField!
+    @IBOutlet weak var mediaNSTextField: NSTextField!
     
     @IBAction func boton(sender: NSButtonCell) {
        // webService.MFinsertar_ticket(400)
@@ -123,7 +126,15 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.precioIndividualView.setFrameOrigin(NSPoint(x : 20, y : 325))
         self.precioGruposView.setFrameOrigin(NSPoint(x : 20, y : 325))
         
-       // webService.MFlistado(13, mesI: 1, anyoI: 16, diaF: 13, mesF: 1, anyoF: 16)
+        webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
+            diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+        
+        webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+        
+
+        webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+        webService.MFnumeroTickets(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
         
         listadoTableView.setDelegate(self)
         listadoTableView.setDataSource(self)
@@ -148,6 +159,11 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("REGISTRO INSERTADO CORRECTAMENTE")
                 webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
                                      diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                
+                
+                webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
             }
         }
         
@@ -187,7 +203,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                     registro["punto_venta"] = "iPad"
                 }
                 let formato = NSDateFormatter()
-                formato.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                formato.dateFormat = "dd-MM-yy HH:mm:ss"
                 let fec = formato.dateFromString(v["fecha"] as! String)
                 registro["fecha"] = formato.stringFromDate(fec!)
                 //registro["fecha"] = v["fecha"] as! String
@@ -202,13 +218,15 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
+        
     }
     
-    func euros(respuesta : [String : Int]) {
+    func euros(respuesta : [String : Float]) {
         print("respuesta del servidor : total = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "total" {
                 print("Total Euros : " + String(v))
+                self.totalEurosNSTextField.stringValue = String(v)
             }
         }
         
@@ -220,9 +238,23 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         for (k,v) in respuesta {
             if k as String == "media" {
                 print("Media : " + String(v))
+                self.mediaNSTextField.stringValue = String(v)
             }
         }
+        
     }
+    
+    func numeroTickets(respuesta : [String : Int]) {
+        print("respuesta del servidor : media = \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "media" {
+                print("Numero Tickets : " + String(v))
+                self.mediaNSTextField.stringValue = String(v)
+            }
+        }
+        
+    }
+
     
     /*    func respuesta(respuesta : [String : AnyObject]) {
     print("respuesta del servidor : \(respuesta)")
@@ -271,7 +303,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         let dia = formato.stringFromDate(fechaHoy)
         formato.dateFormat = "MM"
         let mes = formato.stringFromDate(fechaHoy)
-        formato.dateFormat = "yyyy"
+        formato.dateFormat = "yy"
         let año = formato.stringFromDate(fechaHoy)
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
