@@ -58,12 +58,20 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var totalTicketsNSTextField: NSTextField!
     @IBOutlet weak var totalEurosNSTextField: NSTextField!
     @IBOutlet weak var mediaNSTextField: NSTextField!
-    
-    @IBAction func boton(sender: NSButtonCell) {
-       // webService.MFinsertar_ticket(400)
-        //        let precio : Int = 400
-        webService.MFlistado(1, mesI: 1, anyoI: 15, diaF: 31, mesF: 12, anyoF: 15)
+  
+    @IBAction func imprimir(sender: NSButton) {
+        let printInfo = NSPrintInfo.sharedPrintInfo()
+        printInfo.rightMargin = 0.0
+        printInfo.horizontalPagination = NSPrintingPaginationMode.AutoPagination
+        printInfo.verticalPagination = NSPrintingPaginationMode.AutoPagination
+        printInfo.verticallyCentered = true
+        printInfo.horizontallyCentered = true
         
+        let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
+        _ = NSPrintPanelOptions.ShowsPageSetupAccessory
+        let panel : NSPanel = NSPanel()
+        panel.print(self.listadoView)
+        textPrint.runOperation()
     }
     
     @IBAction func recuperar(sender: NSButtonCell) {
