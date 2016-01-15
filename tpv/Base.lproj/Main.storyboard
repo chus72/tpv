@@ -1083,6 +1083,19 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu">
+                                        <rect key="frame" x="20" y="44" width="163" height="96"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-Vq-iWK">
+                                                <rect key="frame" x="63" y="40" width="40" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="HOLA" id="45c-QY-NPK">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                    </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="8pf-z4-bne" firstAttribute="leading" secondItem="q6T-mE-Whw" secondAttribute="leading" id="qo7-gB-k1d"/>
@@ -1127,6 +1140,7 @@
                         <outlet property="precio_8_Individual" destination="aQf-yb-vpj" id="hw6-Iz-NQi"/>
                         <outlet property="precio_9_Grupos" destination="Bz6-lB-feT" id="opA-Tg-IBR"/>
                         <outlet property="precio_9_Individual" destination="8sd-CY-pyu" id="0wm-H2-REJ"/>
+                        <outlet property="ticketNSView" destination="kUz-Ce-Ueu" id="aAh-4K-jv9"/>
                         <outlet property="totalEuros" destination="rKY-9F-hTN" id="o7C-sD-buH"/>
                         <outlet property="totalEurosNSTextField" destination="rKY-9F-hTN" id="85N-6V-EcJ"/>
                         <outlet property="totalTickets" destination="Jb2-he-HDp" id="jmc-mh-4AU"/>

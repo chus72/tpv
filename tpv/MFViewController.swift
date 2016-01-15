@@ -59,16 +59,21 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var totalEurosNSTextField: NSTextField!
     @IBOutlet weak var mediaNSTextField: NSTextField!
   
+    @IBOutlet weak var ticketNSView: NSView!
     @IBAction func imprimir(sender: NSButton) {
         let printInfo = NSPrintInfo.sharedPrintInfo()
+
+        printInfo.printer = NSPrinter(name: String("SAMSUNG SRP-350"))!
+        printInfo.paperSize = NSSize.init(width: 12, height: 20)
         printInfo.rightMargin = 0.0
         printInfo.horizontalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticallyCentered = true
         printInfo.horizontallyCentered = true
+        self.ticketNSView.frame.size.width = 120
         
-        let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
-       // _ = NSPrintPanelOptions.ShowsPageSetupAccessory
+        let textPrint = NSPrintOperation(view: self.ticketNSView, printInfo: printInfo)
+        // _ = NSPrintPanelOptions.ShowsPageSetupAccessory
         //let panel : NSPanel = NSPanel()
         //panel.print(self.listadoView)
         textPrint.runOperation()
