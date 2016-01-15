@@ -68,9 +68,9 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         printInfo.horizontallyCentered = true
         
         let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
-        _ = NSPrintPanelOptions.ShowsPageSetupAccessory
-        let panel : NSPanel = NSPanel()
-        panel.print(self.listadoView)
+       // _ = NSPrintPanelOptions.ShowsPageSetupAccessory
+        //let panel : NSPanel = NSPanel()
+        //panel.print(self.listadoView)
         textPrint.runOperation()
     }
     
