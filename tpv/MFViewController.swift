@@ -60,6 +60,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var mediaNSTextField: NSTextField!
   
     @IBOutlet weak var ticketNSView: NSView!
+    
     @IBAction func imprimir(sender: NSButton) {
         let printInfo = NSPrintInfo.sharedPrintInfo()
 
@@ -364,4 +365,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
     }
+    
+    
 }
