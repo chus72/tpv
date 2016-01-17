@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B774E011C4BBEF40010E114 /* listadoPrintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B774E001C4BBEF40010E114 /* listadoPrintingView.swift */; };
 		4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8458C01C295DEF0024C33D /* AppDelegate.swift */; };
 		4B8458C51C295DEF0024C33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C41C295DEF0024C33D /* Assets.xcassets */; };
 		4B8458C81C295DEF0024C33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C61C295DEF0024C33D /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		4B74E7F41C39482300CA2DC7 /* tpv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = tpv.xcodeproj; sourceTree = "<group>"; };
+		4B774E001C4BBEF40010E114 /* listadoPrintingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listadoPrintingView.swift; sourceTree = "<group>"; };
 		4B8458BD1C295DEF0024C33D /* tpv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tpv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8458C01C295DEF0024C33D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B8458C41C295DEF0024C33D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				F9757ADD1C29F5EC00181CD7 /* datosBDD.swift */,
 				4B8458C01C295DEF0024C33D /* AppDelegate.swift */,
 				F9C99AA91C3DB4BC00D4738C /* MFViewController.swift */,
+				4B774E001C4BBEF40010E114 /* listadoPrintingView.swift */,
 				F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
@@ -290,6 +293,7 @@
 			files = (
 				F9757ADE1C29F5EC00181CD7 /* datosBDD.swift in Sources */,
 				4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */,
+				4B774E011C4BBEF40010E114 /* listadoPrintingView.swift in Sources */,
 				F9C99AAA1C3DB4BD00D4738C /* MFViewController.swift in Sources */,
 				F9C99AAD1C3DB4D600D4738C /* LBViewController.swift in Sources */,
 			);
