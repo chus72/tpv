@@ -19,6 +19,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     var tic : Ticket = Ticket()
     
+    let printInfo : NSPrintInfo = NSPrintInfo.sharedPrintInfo()
     /// Estas variables controlan los nstextview del listado
  /*   var total€ : Float = 0.0 {
         willSet {
@@ -69,16 +70,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBAction func imprimir(sender: NSButton) {
         let printInfo = NSPrintInfo.sharedPrintInfo()
 
-        printInfo.printer = NSPrinter(name: String("SAMSUNG SRP-350"))!
-        printInfo.paperSize = NSSize.init(width: 12, height: 20)
+        printInfo.printer = NSPrinter(name: String("KONICA MINOLTA bizhub C203(5D:FD:04)"))!
+        printInfo.paperSize = NSSize.init(width: 120, height: 200)
         printInfo.rightMargin = 0.0
         printInfo.horizontalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticallyCentered = true
         printInfo.horizontallyCentered = true
-        self.ticketNSView.frame.size.width = 120
+        self.listadoView.frame.size.width = 120
         
-        let textPrint = NSPrintOperation(view: self.ticketNSView, printInfo: printInfo)
+        let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
         // _ = NSPrintPanelOptions.ShowsPageSetupAccessory
         //let panel : NSPanel = NSPanel()
         //panel.print(self.listadoView)
@@ -261,7 +262,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 t.precio = registro["precio"] as! Float
                 t.base   = registro["punto_venta"] as! String
                 
-                
+                tickets.append(t)
                 
             }
         }
@@ -385,5 +386,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         return (Int(dia)!, Int(mes)!, Int(año)!)
     }
     
+     func printOperationWithSettings(printSetting : [NSObject : AnyObject], error outError : NSErrorPointer) -> NSPrintOperation? {
+        let ticketsPrintingView = listadoPrintingView(tickets: tickets)
+        //let printInfo : NSPrintInfo = printInfo
+        let printOperation = NSPrintOperation(view: ticketsPrintingView, printInfo: printInfo)
+        return printOperation
+    }
+
     
 }

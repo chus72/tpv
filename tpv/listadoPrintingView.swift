@@ -14,7 +14,6 @@ private let lineHeight : CGFloat = font.capHeight * 2.0
 
 class listadoPrintingView: NSView {
     
-
     let tickets  : [Ticket]
     var pageRect = NSRect()
     var linesPerPage : Int = 0
@@ -43,8 +42,8 @@ class listadoPrintingView: NSView {
         
         rangeOut.location = 1
         
-        rangeOut.length = 20 // Aqui va el numero de lineas : seria: = numero lineas / linesPerPage
-        if 20 % linesPerPage > 0 { // 20 -> numero de lineas listado
+        rangeOut.length = tickets.count // Aqui va el numero de lineas : seria: = numero lineas / linesPerPage
+        if tickets.count % linesPerPage > 0 { //  -> numero de lineas listado
             rangeOut.length += 1
         }
         
@@ -81,12 +80,12 @@ class listadoPrintingView: NSView {
             
             // Draw raise
             raiseRect.origin.y = nameRect.minY
-            let raise = String(format: "%4.1f%%", tic.fecha)
+            let raise = String(format: "%4.1f%%", "hola")//tic.fecha)
             let raiseString = raise
             raiseString.drawInRect(raiseRect, withAttributes: textAttributes)
         }
 
         // Drawing code here.
     }
-    
+        
 }
