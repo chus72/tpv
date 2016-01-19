@@ -7,12 +7,17 @@
 
 import Cocoa
 
+public var tickets : [Ticket] = []
+public var numeroTic : Int = 0
+
 class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTableViewDelegate {
     
     var webService : webServiceCallAPI = webServiceCallAPI()
     //var listadoTickets = [[String : AnyObject]]?()
     var listadoTickets = [[String : AnyObject]]()
     var diaHoy = (dia : 1, mes : 1, año : 1)
+    
+    var tic : Ticket = Ticket()
     
     /// Estas variables controlan los nstextview del listado
  /*   var total€ : Float = 0.0 {
@@ -172,7 +177,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         listadoTableView.setDataSource(self)
         
         self.listadoTableView.reloadData()
-
+        
     }
     
     override var representedObject: AnyObject? {
@@ -196,7 +201,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 
                 //webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-
+                
+                
+                numeroTic += 1
+                
             }
         }
         
@@ -244,6 +252,17 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 registro["precio"] = v["precio"] as! Float
             
                 self.listadoTickets.append(registro)
+                
+                // Insercion en la lista para impresion
+                let t : Ticket = Ticket()
+        
+                t.numero = registro["numero"] as! Int
+                t.fecha  = registro["fecha"] as! String
+                t.precio = registro["precio"] as! Float
+                t.base   = registro["punto_venta"] as! String
+                
+                
+                
             }
         }
         self.listadoTickets.sortInPlace { (primero : [String : AnyObject], segundo : [String : AnyObject]) -> Bool in

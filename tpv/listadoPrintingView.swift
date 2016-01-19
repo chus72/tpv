@@ -13,6 +13,7 @@ private let textAttributes : [String : AnyObject] = [NSFontAttributeName : font]
 private let lineHeight : CGFloat = font.capHeight * 2.0
 
 class listadoPrintingView: NSView {
+    
 
     let tickets  : [Ticket]
     var pageRect = NSRect()

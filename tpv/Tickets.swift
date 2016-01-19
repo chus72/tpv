@@ -8,11 +8,11 @@
 
 import Cocoa
 
-class Ticket: NSObject {
+public class Ticket: NSObject {
     
-    let numero : Int = 0
-    let fecha : String = ""
-    let precio : Float = 0.0
-    let base : String = ""
+        var numero : Int = 0
+        var fecha : String = ""
+        var precio : Float = 0.0
+        var base : String = ""
     
 }
