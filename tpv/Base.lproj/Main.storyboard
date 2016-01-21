@@ -884,7 +884,7 @@ CQ
                                             <rect key="frame" x="1" y="0.0" width="500" height="479"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="AsL-Fp-RlE" viewBased="YES" id="M5L-X4-opX">
+                                                <tableView identifier="listadoTableViewId" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="AsL-Fp-RlE" viewBased="YES" id="M5L-X4-opX">
                                                     <rect key="frame" x="0.0" y="0.0" width="500" height="456"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="5" height="2"/>

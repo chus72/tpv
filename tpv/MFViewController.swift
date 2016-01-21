@@ -70,20 +70,27 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBAction func imprimir(sender: NSButton) {
         let printInfo = NSPrintInfo.sharedPrintInfo()
 
-        printInfo.printer = NSPrinter(name: String("KONICA MINOLTA bizhub C203(5D:FD:04)"))!
-        printInfo.paperSize = NSSize.init(width: 120, height: 200)
+        printInfo.printer = NSPrinter(name: String("KONICA"))!
+        printInfo.paperSize = NSSize(width: 2480.0, height: 3508.0)
         printInfo.rightMargin = 0.0
         printInfo.horizontalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticalPagination = NSPrintingPaginationMode.AutoPagination
         printInfo.verticallyCentered = true
         printInfo.horizontallyCentered = true
-        self.listadoView.frame.size.width = 120
         
         let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
-        // _ = NSPrintPanelOptions.ShowsPageSetupAccessory
-        //let panel : NSPanel = NSPanel()
-        //panel.print(self.listadoView)
+         _ = NSPrintPanelOptions.ShowsPaperSize
+        let panel : NSPanel = NSPanel()
+        panel.print(self.listadoView)
         textPrint.runOperation()
+        
+        let doc = try NSDocument.init(type: "listadoTableViewId")
+        else {
+            
+        }
+        
+        
+        
     }
     
     @IBAction func recuperar(sender: NSButtonCell) {
