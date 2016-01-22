@@ -67,6 +67,31 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
   
     @IBOutlet weak var ticketNSView: NSView!
     
+    @IBOutlet weak var inicioNSDatePicker: NSDatePicker!
+    @IBOutlet weak var finalNSDatePicker: NSDatePicker!
+    
+    @IBAction  func listarNSButton(sender : NSButton) {
+        
+        let formato = NSDateFormatter()
+        
+        formato.dateFormat = "dd"
+        let diaI : String = formato.stringFromDate(inicioNSDatePicker.dateValue)
+        let diaF : String = formato.stringFromDate(finalNSDatePicker.dateValue)
+        
+        formato.dateFormat = "MM"
+        let mesI : String = formato.stringFromDate(inicioNSDatePicker.dateValue)
+        let mesF : String = formato.stringFromDate(finalNSDatePicker.dateValue)
+        
+        formato.dateFormat = "yy"
+        let añoI : String = formato.stringFromDate(inicioNSDatePicker.dateValue)
+        let añoF : String = formato.stringFromDate(finalNSDatePicker.dateValue)
+        
+        
+        webService.MFlistado(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+        
+        webService.MFestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+    }
+    
     @IBAction func imprimir(sender: NSButton) {
         let printInfo = NSPrintInfo.sharedPrintInfo()
 
@@ -83,13 +108,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         let panel : NSPanel = NSPanel()
         panel.print(self.listadoView)
         textPrint.runOperation()
-        
-        let doc = try NSDocument.init(type: "listadoTableViewId")
-        else {
-            
-        }
-        
-        
         
     }
     
@@ -180,6 +198,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
        // webService.MFnumeroTickets(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
 
+        self.inicioNSDatePicker.dateValue = NSDate()
+        self.finalNSDatePicker.dateValue = NSDate()
         
         listadoTableView.setDelegate(self)
         listadoTableView.setDataSource(self)
