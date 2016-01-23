@@ -12,7 +12,7 @@ private var KVOContext : Int = 0
 
 class DocumentPrint: NSDocument, NSWindowDelegate {
 
-    @IBOutlet weak var tableViewListado : NSTableView!
+    var tableViewListado : NSTableView!
     
     var tickets : [Ticket] = []
     
