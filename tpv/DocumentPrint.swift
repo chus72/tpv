@@ -8,8 +8,18 @@
 
 import Cocoa
 
-class DocumentPrint: NSDocument {
+private var KVOContext : Int = 0
 
+class DocumentPrint: NSDocument, NSWindowDelegate {
+
+    @IBOutlet weak var tableViewListado : NSTableView!
+    
+    var tickets : [Ticket] = []
+    
+    override init() {
+        super.init()
+    }
+    
     override var windowNibName: String? {
         // Override returning the nib file name of the document
         // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
@@ -22,15 +32,12 @@ class DocumentPrint: NSDocument {
     }
     
     override func dataOfType(typeName: String) throws -> NSData {
-        // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-        // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        self.tableViewListado.window!.endEditingFor(nil)
+        return NSKeyedArchiver.archivedDataWithRootObject(tickets)
     }
     
     override func readFromData(data: NSData, ofType typeName: String) throws {
-        // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning false.
-        // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-        // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
+        self.tickets = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Ticket]
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
 
@@ -38,4 +45,13 @@ class DocumentPrint: NSDocument {
         return true
     }
     
+
+    
+    override func printOperationWithSettings(printSettings: [String : AnyObject]) throws -> NSPrintOperation {
+        let ticketsPrintigView : listadoPrintingView = listadoPrintingView(tickets: tickets)
+        let printInfo : NSPrintInfo = self.printInfo
+        let printOperation : NSPrintOperation = NSPrintOperation(view: ticketsPrintigView, printInfo: printInfo)
+        
+        return printOperation
+    }
 }

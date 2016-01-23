@@ -92,22 +92,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         webService.MFestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
     }
     
-    @IBAction func imprimir(sender: NSButton) {
-        let printInfo = NSPrintInfo.sharedPrintInfo()
-
-        printInfo.printer = NSPrinter(name: String("KONICA"))!
-        printInfo.paperSize = NSSize(width: 2480.0, height: 3508.0)
-        printInfo.rightMargin = 0.0
-        printInfo.horizontalPagination = NSPrintingPaginationMode.AutoPagination
-        printInfo.verticalPagination = NSPrintingPaginationMode.AutoPagination
-        printInfo.verticallyCentered = true
-        printInfo.horizontallyCentered = true
-        
-        let textPrint = NSPrintOperation(view: self.listadoView, printInfo: printInfo)
-         _ = NSPrintPanelOptions.ShowsPaperSize
-        let panel : NSPanel = NSPanel()
-        panel.print(self.listadoView)
-        textPrint.runOperation()
+    @IBAction func imprimir(sender: NSButton){
         
     }
     
@@ -412,13 +397,5 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
     }
-    
-     func printOperationWithSettings(printSetting : [NSObject : AnyObject], error outError : NSErrorPointer) -> NSPrintOperation? {
-        let ticketsPrintingView = listadoPrintingView(tickets: tickets)
-        //let printInfo : NSPrintInfo = printInfo
-        let printOperation = NSPrintOperation(view: ticketsPrintingView, printInfo: printInfo)
-        return printOperation
-    }
-
     
 }

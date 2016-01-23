@@ -14,7 +14,8 @@ private let lineHeight : CGFloat = font.capHeight * 2.0
 
 class listadoPrintingView: NSView {
     
-    let tickets  : [Ticket]
+    let tickets  : [Ticket] // Estos son los datos a imprimir
+    
     var pageRect = NSRect()
     var linesPerPage : Int = 0
     var currentPage : Int = 0
