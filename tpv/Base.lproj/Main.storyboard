@@ -1169,6 +1169,46 @@ CQ
                                     <constraint firstItem="8pf-z4-bne" firstAttribute="leading" secondItem="q6T-mE-Whw" secondAttribute="leading" id="qo7-gB-k1d"/>
                                 </constraints>
                             </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sb9-wX-6i5">
+                                <rect key="frame" x="222" y="213" width="89" height="24"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Contador" id="Aki-2N-WFE">
+                                    <font key="font" size="20" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqC-TF-mxB">
+                                <rect key="frame" x="48" y="182" width="68" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Particular" id="D6G-GB-pci">
+                                    <font key="font" size="15" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-GZ-eK9">
+                                <rect key="frame" x="403" y="182" width="47" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grupo" id="HOS-Pq-Wp8">
+                                    <font key="font" size="15" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-lF-RuY">
+                                <rect key="frame" x="398" y="118" width="56" height="45"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="pVb-3k-4Fu">
+                                    <font key="font" size="30" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-qX-ejY">
+                                <rect key="frame" x="54" y="118" width="56" height="45"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="1Q0-7c-kcy">
+                                    <font key="font" size="30" name="HelveticaNeue"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q6T-mE-Whw" secondAttribute="trailing" constant="65" id="54m-OF-MnM"/>
@@ -1178,6 +1218,8 @@ CQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contGruposNsTextField" destination="wGa-lF-RuY" id="7wE-dY-3WY"/>
+                        <outlet property="contParticularesNsTextField" destination="MAk-qX-ejY" id="uaq-2o-XOL"/>
                         <outlet property="finalNSDatePicker" destination="has-bS-9sU" id="Kow-Eh-VV0"/>
                         <outlet property="gruposButton" destination="Onb-VA-TOM" id="csp-2n-VuW"/>
                         <outlet property="individualButton" destination="99K-m1-SKR" id="mJi-We-0mm"/>

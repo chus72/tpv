@@ -70,6 +70,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var inicioNSDatePicker: NSDatePicker!
     @IBOutlet weak var finalNSDatePicker: NSDatePicker!
     
+    @IBOutlet weak var contParticularesNsTextField: NSTextField!
+    
+    @IBOutlet weak var contGruposNsTextField: NSTextField!
+    
     @IBAction  func listarNSButton(sender : NSButton) {
         
         let formato = NSDateFormatter()
@@ -146,6 +150,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         if let precio : Float? = Float(sender.title) {
             webService.MFinsertar_ticket(precio!)
         }
+        self.contParticularesNsTextField.stringValue = String(Int(self.contParticularesNsTextField.stringValue)! + 1)
     }
     
     
@@ -155,12 +160,17 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         if let precio : Float? = Float(sender.title) {
              webService.MFinsertar_ticket(precio!)
         }
+        self.contGruposNsTextField.stringValue = String(Int(self.contGruposNsTextField.stringValue)! + 1)
+
     }
     
        
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.contGruposNsTextField.stringValue = "0"
+        self.contParticularesNsTextField.stringValue = "0"
         
         self.diaHoy = self.buscarFechaHoy()
         
