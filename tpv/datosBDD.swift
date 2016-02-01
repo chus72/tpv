@@ -41,8 +41,8 @@ class webServiceCallAPI: NSObject {
 */
     // url(r'^MFinsertar_ticket/(\d{1,})/$', MFinsertarTicket),
     // data = {'error' : 1, 'tipo error' : 'Error en la grabacion del ticket'}
-    func MFinsertar_ticket(precio : Float) {
-        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(Int(precio * 100))
+    func MFinsertar_ticket(precio : Float, part : Int) {
+        let url : String = "https://losbarkitos.herokuapp.com/MFinsertar_ticket/" + String(Int(precio * 100)) + "/" + String(part)
         Alamofire.request(.GET, url)
             .responseJSON { response in
                 if case let diccionario as [String : AnyObject] = response.result.value {

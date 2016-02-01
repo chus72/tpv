@@ -701,7 +701,7 @@ CQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klj-nL-yNZ">
-                                <rect key="frame" x="12" y="296" width="508" height="359"/>
+                                <rect key="frame" x="12" y="285" width="508" height="359"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1f-as-Xgx">
                                         <rect key="frame" x="195" y="135" width="120" height="87"/>
@@ -869,8 +869,8 @@ CQ
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
                             </box>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-zL-dtx">
-                                <rect key="frame" x="12" y="267" width="520" height="5"/>
+                            <box verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-zL-dtx">
+                                <rect key="frame" x="12" y="200" width="520" height="4"/>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
@@ -1114,7 +1114,7 @@ CQ
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="97.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
+                                                        <tableColumn identifier="" width="97" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Precio">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1169,40 +1169,40 @@ CQ
                                     <constraint firstItem="8pf-z4-bne" firstAttribute="leading" secondItem="q6T-mE-Whw" secondAttribute="leading" id="qo7-gB-k1d"/>
                                 </constraints>
                             </customView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sb9-wX-6i5">
-                                <rect key="frame" x="222" y="213" width="89" height="24"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sb9-wX-6i5">
+                                <rect key="frame" x="220" y="132" width="89" height="24"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Contador" id="Aki-2N-WFE">
                                     <font key="font" size="20" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqC-TF-mxB">
-                                <rect key="frame" x="48" y="182" width="68" height="21"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqC-TF-mxB">
+                                <rect key="frame" x="46" y="101" width="68" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Particular" id="D6G-GB-pci">
                                     <font key="font" size="15" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-GZ-eK9">
-                                <rect key="frame" x="403" y="182" width="47" height="21"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfT-GZ-eK9">
+                                <rect key="frame" x="401" y="101" width="47" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grupo" id="HOS-Pq-Wp8">
                                     <font key="font" size="15" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-lF-RuY">
-                                <rect key="frame" x="398" y="118" width="56" height="45"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-lF-RuY">
+                                <rect key="frame" x="396" y="37" width="56" height="45"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="pVb-3k-4Fu">
                                     <font key="font" size="30" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-qX-ejY">
-                                <rect key="frame" x="54" y="118" width="56" height="45"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-qX-ejY">
+                                <rect key="frame" x="52" y="37" width="56" height="45"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="1Q0-7c-kcy">
                                     <font key="font" size="30" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1212,9 +1212,15 @@ CQ
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q6T-mE-Whw" secondAttribute="trailing" constant="65" id="54m-OF-MnM"/>
+                            <constraint firstAttribute="bottom" secondItem="wGa-lF-RuY" secondAttribute="bottom" constant="118" id="BHs-wk-cB8"/>
                             <constraint firstItem="vIq-us-lh9" firstAttribute="top" secondItem="QvI-0d-4FF" secondAttribute="top" constant="43" id="C5Y-NT-kT6"/>
+                            <constraint firstItem="MAk-qX-ejY" firstAttribute="top" secondItem="RqC-TF-mxB" secondAttribute="bottom" constant="19" id="Hyg-xU-J3s"/>
+                            <constraint firstAttribute="bottom" secondItem="MAk-qX-ejY" secondAttribute="bottom" constant="118" id="QOu-e1-3CR"/>
+                            <constraint firstItem="wGa-lF-RuY" firstAttribute="top" secondItem="EfT-GZ-eK9" secondAttribute="bottom" constant="19" id="SDP-ch-crp"/>
                             <constraint firstItem="q6T-mE-Whw" firstAttribute="leading" secondItem="vIq-us-lh9" secondAttribute="trailing" constant="69" id="WB7-Vv-Xaj"/>
                             <constraint firstItem="q6T-mE-Whw" firstAttribute="leading" secondItem="vIq-us-lh9" secondAttribute="trailing" constant="23" id="mcg-xt-XKN"/>
+                            <constraint firstAttribute="bottom" secondItem="Sb9-wX-6i5" secondAttribute="bottom" constant="213" id="oqL-Pa-JGi"/>
+                            <constraint firstItem="Sb9-wX-6i5" firstAttribute="top" secondItem="CPp-zL-dtx" secondAttribute="bottom" constant="32" id="teV-CB-5JU"/>
                         </constraints>
                     </view>
                     <connections>
