@@ -9,6 +9,8 @@
 import Cocoa
 
 class ticketImpreso: NSView {
+    
+    let printInfo : NSPrintInfo = NSPrintInfo()
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -17,7 +19,10 @@ class ticketImpreso: NSView {
     }
     
     override func print(sender: AnyObject?) {
-        NSPrintOperation.init(view: self).runOperation()
+        self.printInfo.paperSize = NSSize(width: 496, height: 1000)
+
+        
+        NSPrintOperation.init(view: self, printInfo: printInfo).runOperation()
     }
     
 }

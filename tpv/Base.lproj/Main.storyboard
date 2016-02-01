@@ -870,7 +870,7 @@ CQ
                                 <font key="titleFont" metaFont="system"/>
                             </box>
                             <box verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-zL-dtx">
-                                <rect key="frame" x="12" y="200" width="520" height="5"/>
+                                <rect key="frame" x="12" y="200" width="520" height="4"/>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
@@ -1101,7 +1101,7 @@ CQ
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="97" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
+                                                        <tableColumn identifier="" width="97.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Precio">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1197,17 +1197,37 @@ CQ
                                 </textFieldCell>
                             </textField>
                             <customView identifier="ticketImpreso" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
-                                <rect key="frame" x="502" y="247" width="105" height="37"/>
+                                <rect key="frame" x="359" y="181" width="496" height="600"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-Vq-iWK">
-                                        <rect key="frame" x="32" y="10" width="40" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="HOLA" id="45c-QY-NPK">
+                                        <rect key="frame" x="0.0" y="540" width="496" height="44"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="MARINA FERRY" drawsBackground="YES" id="45c-QY-NPK">
+                                            <font key="font" size="29" name="HelveticaNeue"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xlh-EV-eNj">
+                                        <rect key="frame" x="-2" y="392" width="500" height="133"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="YC9-Tu-3cT">
                                             <font key="font" metaFont="system"/>
+                                            <string key="title">c/ Carmançó, 1
+17487 Empuriabrava
+tel. 972.45.25.79
+www.marinaferry.es</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
+                                <backgroundFilters>
+                                    <ciFilter name="CIGaussianBlur">
+                                        <configuration>
+                                            <null key="inputImage"/>
+                                            <real key="inputRadius" value="10"/>
+                                        </configuration>
+                                    </ciFilter>
+                                </backgroundFilters>
                             </customView>
                         </subviews>
                         <constraints>
