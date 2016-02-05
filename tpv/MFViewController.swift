@@ -19,6 +19,22 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     var tic : Ticket = Ticket()
     
+    var contadorParticular : Int = 0 {
+        didSet {
+            if contadorParticular != 0 {
+                self.contParticularesNsTextField.stringValue = String(contadorParticular)
+            }
+        }
+    }
+    
+    var contadorGrupo : Int = 0 {
+        didSet {
+            if contadorGrupo != 0 {
+                self.contGruposNsTextField.stringValue = String(contadorGrupo)
+            }
+        }
+    }
+    
     let printInfo : NSPrintInfo = NSPrintInfo.sharedPrintInfo()
     /// Estas variables controlan los nstextview del listado
  /*   var total€ : Float = 0.0 {
@@ -69,6 +85,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBOutlet weak var inicioNSDatePicker: NSDatePicker!
     @IBOutlet weak var finalNSDatePicker: NSDatePicker!
+    
+    @IBOutlet weak var contParticularesNsTextField: NSTextField!
+    
+    @IBOutlet weak var contGruposNsTextField: NSTextField!
     
     @IBAction  func listarNSButton(sender : NSButton) {
         
@@ -144,7 +164,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         print(sender.title)
         print(Float(sender.title))
         if let precio : Float? = Float(sender.title) {
-            webService.MFinsertar_ticket(precio!)
+            webService.MFinsertar_ticket(precio!, part: 1) // Si parametro = 1 es particular
+            self.contadorParticular += 1
         }
     }
     
@@ -153,7 +174,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         print(sender.title)
         print(Float(sender.title))
         if let precio : Float? = Float(sender.title) {
-             webService.MFinsertar_ticket(precio!)
+             webService.MFinsertar_ticket(precio!, part: 0) // Si parametro = 0 es grupo
+            self.contadorGrupo += 1
         }
     }
     
@@ -161,6 +183,9 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.contGruposNsTextField.stringValue = "0"
+        self.contParticularesNsTextField.stringValue = "0"
         
         self.diaHoy = self.buscarFechaHoy()
         
@@ -178,9 +203,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
             diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         
-       // webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-       // webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-       // webService.MFnumeroTickets(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
 
         self.inicioNSDatePicker.dateValue = NSDate()
@@ -209,10 +231,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("REGISTRO INSERTADO CORRECTAMENTE")
                 webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
                                      diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-                //webService.MFeuros(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
-                
-                
-                //webService.MFmedia(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 
                 
@@ -249,7 +267,14 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         for (k,v) in respuesta {
             print(k)
             print(v)
-            if k != "error" && k != "numero_tickets" {
+            if k == "numero_particulas" {
+                self.contadorParticular = v as! Int
+            }
+            if k == "numero_grupos" {
+                self.contadorGrupo = v as! Int
+            }
+            
+            if k != "error" && k != "numero_tickets" && k != "numero_grupos" && k != "numero_particulas" {
                 registro["numero"] = v["numero"] as! Int
                 if v["punto_venta"] as! Int == 1 {
                     registro["punto_venta"] = "MarinaFerry"
