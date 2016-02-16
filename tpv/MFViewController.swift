@@ -90,6 +90,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBOutlet weak var contGruposNsTextField: NSTextField!
     
+    /// Campos del Ticket a imprimir
+    @IBOutlet weak var fechaTicketNSTextField: NSTextField!
+    @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
+    @IBOutlet weak var numeroTicketNSTextField: NSTextField!
+    @IBOutlet weak var descripcionTicketNSTextField: NSTextField!
+    @IBOutlet weak var importeTicketNSTextField: NSTextField!
+    @IBOutlet weak var totalTicketNSTextField: NSTextField!
+    @IBOutlet weak var baseTicketNSTextField: NSTextField!
+    ///////////////////////////////////
+    
     @IBAction  func listarNSButton(sender : NSButton) {
         
         let formato = NSDateFormatter()
@@ -223,23 +233,21 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     //  METODOS DELEGADOS DE datosBDD
     func ticketInsertado(respuesta : [String : AnyObject]) {
-        print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 {
                 print("ERROR EN EL SERVIDOR")
             } else if k as String == "error" && v as! Int == 0 {
-                print("REGISTRO INSERTADO CORRECTAMENTE")
+                
+                
                 webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
                                      diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 webService.MFestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
                 
-                
                 numeroTic += 1
                 
+                self.rellenarTicket(respuesta)
             }
         }
-        
-        
     }
     
     func ticketRecuperado(respuesta : [String : AnyObject]) {
@@ -421,6 +429,19 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         let año = formato.stringFromDate(fechaHoy)
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
+    }
+    
+    func rellenarTicket(datos : [String : AnyObject]) {
+        for (k,v) in datos {
+            switch k as String {
+                case "Numero" : tic.numero = v as! Int
+                case "Precio" : tic.precio = v as! Float
+                case "fecha"  : tic.fecha  = v as! String
+                case "punto"  : tic.punto  = v as! String
+            default : break
+            }
+        }
+        
     }
     
 }

@@ -14,6 +14,7 @@ public class Ticket: NSObject {
         var fecha : String = ""
         var precio : Float = 0.0
         var base : String = ""
+        var punto : String = ""
  
     override init() {
         super.init()

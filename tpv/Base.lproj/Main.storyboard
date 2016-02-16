@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -1235,7 +1235,7 @@ C.I.F. B-17825134
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2O-o9-wCr">
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2O-o9-wCr" userLabel="Fecha">
                                         <rect key="frame" x="70" y="403" width="96" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Fecha" drawsBackground="YES" id="PL5-Ok-HER">
                                             <font key="font" metaFont="system"/>
@@ -1243,7 +1243,7 @@ C.I.F. B-17825134
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUa-vp-Gk8">
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUa-vp-Gk8" userLabel="GrupoParticular">
                                         <rect key="frame" x="12" y="371" width="96" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Grupo / Particular" drawsBackground="YES" id="t34-eW-MUo">
                                             <font key="font" metaFont="system"/>
@@ -1259,7 +1259,7 @@ C.I.F. B-17825134
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJ6-dj-phd">
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJ6-dj-phd" userLabel="Numero">
                                         <rect key="frame" x="117" y="338" width="49" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Num. Factura" drawsBackground="YES" id="Cgk-jq-ZBQ">
                                             <font key="font" metaFont="system"/>
@@ -1283,17 +1283,9 @@ C.I.F. B-17825134
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnH-sX-O9G">
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnH-sX-O9G" userLabel="Descripcion">
                                         <rect key="frame" x="14" y="221" width="223" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Descripción part/grupo" drawsBackground="YES" id="gPk-H2-ULe">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4Y-rC-z3d">
-                                        <rect key="frame" x="356" y="221" width="77" height="22"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OCv-fv-V66">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1321,23 +1313,7 @@ C.I.F. B-17825134
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwy-lA-xG0">
-                                        <rect key="frame" x="356" y="137" width="77" height="22"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ScO-bE-l6D">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNY-zT-1yp">
-                                        <rect key="frame" x="356" y="109" width="77" height="22"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="tyk-bb-66l">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFv-cq-ekW">
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFv-cq-ekW" userLabel="Total">
                                         <rect key="frame" x="356" y="82" width="77" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hAn-9w-7rh">
                                             <font key="font" metaFont="system"/>
@@ -1362,6 +1338,30 @@ WWW.MARINAFERRY.ES</string>
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpm-ha-ScO" userLabel="Importe">
+                                        <rect key="frame" x="337" y="221" width="96" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kdh-s5-XK8">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HuK-fS-iyi" userLabel="Base">
+                                        <rect key="frame" x="356" y="134" width="77" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="d1i-Y5-cVQ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PxE-6v-jZY">
+                                        <rect key="frame" x="356" y="109" width="77" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="d7v-8q-yaK">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
@@ -1389,10 +1389,15 @@ WWW.MARINAFERRY.ES</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="baseTicketNSTextField" destination="HuK-fS-iyi" id="Lsv-3I-3sC"/>
                         <outlet property="contGruposNsTextField" destination="wGa-lF-RuY" id="7wE-dY-3WY"/>
                         <outlet property="contParticularesNsTextField" destination="MAk-qX-ejY" id="uaq-2o-XOL"/>
+                        <outlet property="descripcionTicketNSTextField" destination="JnH-sX-O9G" id="Jeh-I4-06K"/>
+                        <outlet property="fechaTicketNSTextField" destination="o2O-o9-wCr" id="ebj-8a-hHb"/>
                         <outlet property="finalNSDatePicker" destination="has-bS-9sU" id="Kow-Eh-VV0"/>
+                        <outlet property="grupoParticularTicketNSTextField" destination="eUa-vp-Gk8" id="vKT-gJ-tGV"/>
                         <outlet property="gruposButton" destination="Onb-VA-TOM" id="csp-2n-VuW"/>
+                        <outlet property="importeTicketNSTextField" destination="jpm-ha-ScO" id="6jd-0x-0Cy"/>
                         <outlet property="individualButton" destination="99K-m1-SKR" id="mJi-We-0mm"/>
                         <outlet property="inicioNSDatePicker" destination="fzv-Er-tOe" id="1S0-Og-7SF"/>
                         <outlet property="listadoTableView" destination="M5L-X4-opX" id="FxN-cy-pHP"/>
@@ -1400,6 +1405,7 @@ WWW.MARINAFERRY.ES</string>
                         <outlet property="listarNSPushButton" destination="UOE-3C-fbJ" id="dmJ-K4-SCV"/>
                         <outlet property="media" destination="ssW-Lb-Lre" id="K6n-kH-uv8"/>
                         <outlet property="mediaNSTextField" destination="ssW-Lb-Lre" id="RA9-xN-WzX"/>
+                        <outlet property="numeroTicketNSTextField" destination="aJ6-dj-phd" id="NZD-Ht-q4i"/>
                         <outlet property="precioGruposView" destination="klj-nL-yNZ" id="fro-6C-eIr"/>
                         <outlet property="precioIndividualView" destination="aGo-Gc-e0M" id="yob-Hn-ebn"/>
                         <outlet property="precio_10_Grupos" destination="Tn6-3i-Xvi" id="XZn-dx-QF6"/>
@@ -1417,6 +1423,7 @@ WWW.MARINAFERRY.ES</string>
                         <outlet property="ticketNSView" destination="kUz-Ce-Ueu" id="aAh-4K-jv9"/>
                         <outlet property="totalEuros" destination="rKY-9F-hTN" id="o7C-sD-buH"/>
                         <outlet property="totalEurosNSTextField" destination="rKY-9F-hTN" id="85N-6V-EcJ"/>
+                        <outlet property="totalTicketNSTextField" destination="nFv-cq-ekW" id="oyI-Z7-EcI"/>
                         <outlet property="totalTickets" destination="Jb2-he-HDp" id="jmc-mh-4AU"/>
                         <outlet property="totalTicketsNSTextField" destination="Jb2-he-HDp" id="lDT-xG-YnT"/>
                     </connections>
