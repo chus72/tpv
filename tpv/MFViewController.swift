@@ -98,6 +98,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var importeTicketNSTextField: NSTextField!
     @IBOutlet weak var totalTicketNSTextField: NSTextField!
     @IBOutlet weak var baseTicketNSTextField: NSTextField!
+    @IBOutlet weak var ivaTicketNSTextField: NSTextField!
     ///////////////////////////////////
     
     @IBAction  func listarNSButton(sender : NSButton) {
@@ -305,7 +306,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 t.numero = registro["numero"] as! Int
                 t.fecha  = registro["fecha"] as! String
                 t.precio = registro["precio"] as! Float
-                t.base   = registro["punto_venta"] as! String
+                t.punto  = registro["punto_venta"] as! String
                 
                 tickets.append(t)
                 
@@ -441,7 +442,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             default : break
             }
         }
-        
+        self.numeroTicketNSTextField.stringValue  = String(tic.numero)
+        self.baseTicketNSTextField.stringValue    = String(tic.base)
+        self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
+        self.importeTicketNSTextField.stringValue = String(tic.precio)
+        self.totalEurosNSTextField.stringValue    = String(tic.precio)
+        self.baseTicketNSTextField.stringValue    = String(tic.base())
+        self.ivaTicketNSTextField.stringValue     = String(tic.iva())
     }
     
 }

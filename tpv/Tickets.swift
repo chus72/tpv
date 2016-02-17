@@ -10,11 +10,13 @@ import Cocoa
 
 public class Ticket: NSObject {
     
-        var numero : Int = 0
-        var fecha : String = ""
-        var precio : Float = 0.0
-        var base : String = ""
-        var punto : String = ""
+    var numero : Int = 0
+    var fecha : String = ""
+    var precio : Float = 0.0
+    var punto : String = ""
+    
+    func base() -> Float { return Float(precio / 1.21)}
+    func iva() -> Float { return Float(precio - base()) }
  
     override init() {
         super.init()
