@@ -14,6 +14,7 @@ public class Ticket: NSObject {
     var fecha : String = ""
     var precio : Float = 0.0
     var punto : String = ""
+    var particular : Bool = true
     
     func base() -> Float { return Float(precio / 1.21)}
     func iva() -> Float { return Float(precio - base()) }

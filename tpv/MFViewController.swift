@@ -92,13 +92,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     /// Campos del Ticket a imprimir
     @IBOutlet weak var fechaTicketNSTextField: NSTextField!
-    @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
     @IBOutlet weak var numeroTicketNSTextField: NSTextField!
     @IBOutlet weak var descripcionTicketNSTextField: NSTextField!
     @IBOutlet weak var importeTicketNSTextField: NSTextField!
-    @IBOutlet weak var totalTicketNSTextField: NSTextField!
     @IBOutlet weak var baseTicketNSTextField: NSTextField!
     @IBOutlet weak var ivaTicketNSTextField: NSTextField!
+    @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
+    @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
     ///////////////////////////////////
     
     @IBAction  func listarNSButton(sender : NSButton) {
@@ -238,7 +238,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             if k as String == "error" && v as! Int == 1 {
                 print("ERROR EN EL SERVIDOR")
             } else if k as String == "error" && v as! Int == 0 {
-                
                 
                 webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
                                      diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
@@ -435,10 +434,11 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     func rellenarTicket(datos : [String : AnyObject]) {
         for (k,v) in datos {
             switch k as String {
-                case "Numero" : tic.numero = v as! Int
-                case "Precio" : tic.precio = v as! Float
-                case "fecha"  : tic.fecha  = v as! String
-                case "punto"  : tic.punto  = v as! String
+                case "numero"     : tic.numero     = v as! Int
+                case "precio"     : tic.precio     = v as! Float
+                case "fecha"      : tic.fecha      = v as! String
+                case "punto"      : tic.punto      = v as! String
+                case "particular" : tic.particular = v as! Bool
             default : break
             }
         }
@@ -446,9 +446,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.baseTicketNSTextField.stringValue    = String(tic.base)
         self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
         self.importeTicketNSTextField.stringValue = String(tic.precio)
-        self.totalEurosNSTextField.stringValue    = String(tic.precio)
+        self.totalEurosTicketNSTextField.stringValue  = String(tic.precio)
         self.baseTicketNSTextField.stringValue    = String(tic.base())
         self.ivaTicketNSTextField.stringValue     = String(tic.iva())
+        
+        if tic.particular == true {
+            self.grupoParticularTicketNSTextField.stringValue = "PARTICULAR"
+            self.descripcionTicketNSTextField.stringValue = "1 ticket adulto particular"
+        } else {
+            self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
+            self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
+        }
     }
-    
 }
