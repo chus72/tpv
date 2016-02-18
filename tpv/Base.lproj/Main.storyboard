@@ -1056,7 +1056,7 @@ WWW.MARINAFERRY.ES</string>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="111" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-VA-TOM">
                                 <rect key="frame" x="307" y="663" width="213" height="75"/>
-                                <buttonCell key="cell" type="square" title="Ticket Grupos" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0uf-sq-M9h">
+                                <buttonCell key="cell" type="square" title="Ticket Grupo" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0uf-sq-M9h">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="18" name="HelveticaNeue-Bold"/>
                                 </buttonCell>

@@ -1,7 +1,7 @@
 //
 //  Tickets.swift
 //  tpv
-//
+//  Jesús Valladolid Rebollar
 //  Created by LosBarkitos on 17/1/16.
 //  Copyright © 2016 LosBarkitos. All rights reserved.
 //

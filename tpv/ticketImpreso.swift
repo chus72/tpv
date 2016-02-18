@@ -1,7 +1,7 @@
 //
 //  ticketImpreso.swift
 //  tpv
-//
+//  Jesús Valladolid Rebollar
 //  Created by Jesus Valladolid Rebollar on 1/2/16.
 //  Copyright © 2016 LosBarkitos. All rights reserved.
 //
