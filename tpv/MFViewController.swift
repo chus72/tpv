@@ -457,5 +457,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
             self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
         }
+        
+        // Impresion del ticket
+        let t : ticketImpreso = ticketImpreso()
+        t.print(self.ticketNSView)
+
     }
 }
