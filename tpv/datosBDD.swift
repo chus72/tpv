@@ -1,7 +1,7 @@
 //
 //  datosBDD.swift
 //  tpv
-//
+//  Jesús Valladolid Rebollar
 //  Created by LosBarkitos on 22/12/15.
 //  Copyright © 2015 LosBarkitos. All rights reserved.
 //
