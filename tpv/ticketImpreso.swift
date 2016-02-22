@@ -26,7 +26,7 @@ class ticketImpreso: NSView {
         self.printInfo.jobDisposition = NSPrintSpoolJob
         self.printInfo.paperSize = NSSize(width: 496, height: 1000)
         
-        let op = NSPrintOperation.init(view: self, printInfo: self.printInfo)
+        let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         //op.showsPrintPanel = false
         op.showsPrintPanel = true
         op.runOperation()
