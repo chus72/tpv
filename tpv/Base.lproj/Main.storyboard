@@ -701,7 +701,7 @@ CQ
                         <rect key="frame" x="0.0" y="0.0" width="1214" height="793"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView identifier="ticketImpreso" fixedFrame="YES" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
+                            <customView identifier="ticketImpreso" fixedFrame="YES" alphaValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
                                 <rect key="frame" x="359" y="181" width="496" height="600"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-Vq-iWK">

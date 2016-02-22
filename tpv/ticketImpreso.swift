@@ -28,7 +28,7 @@ class ticketImpreso: NSView {
         
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         //op.showsPrintPanel = false
-        op.showsPrintPanel = true
+        op.showsPrintPanel = false
         op.runOperation()
     }
     
