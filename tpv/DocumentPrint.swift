@@ -8,8 +8,6 @@
 
 import Cocoa
 
-private var KVOContext : Int = 0
-
 class DocumentPrint: NSDocument, NSWindowDelegate {
 
     @IBOutlet weak var tableViewListado : NSTableView!

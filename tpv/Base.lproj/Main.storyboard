@@ -118,7 +118,7 @@ CQ
 </string>
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="dGh-Nx-9VZ"/>
+                                                <action selector="printDocument:" target="Ady-hI-5gd" id="rnn-d2-pQm"/>
                                             </connections>
                                         </menuItem>
                                     </items>
