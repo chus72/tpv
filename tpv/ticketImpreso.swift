@@ -24,7 +24,7 @@ class ticketImpreso: NSView {
         self.printInfo.rightMargin = 0.5
         self.printInfo.horizontallyCentered = true
         self.printInfo.jobDisposition = NSPrintSpoolJob
-        self.printInfo.paperSize = NSSize(width: 496, height: 1000)
+        self.printInfo.paperSize = NSSize(width: 190, height: 1000)
         
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         //op.showsPrintPanel = false
