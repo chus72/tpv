@@ -94,7 +94,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var fechaTicketNSTextField: NSTextField!
     @IBOutlet weak var numeroTicketNSTextField: NSTextField!
     @IBOutlet weak var descripcionTicketNSTextField: NSTextField!
-    @IBOutlet weak var importeTicketNSTextField: NSTextField!
     @IBOutlet weak var baseTicketNSTextField: NSTextField!
     @IBOutlet weak var ivaTicketNSTextField: NSTextField!
     @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
@@ -417,6 +416,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         return nil
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     func buscarFechaHoy() -> (Int, Int, Int) {
         let formato = NSDateFormatter()
@@ -443,12 +444,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             }
         }
         self.numeroTicketNSTextField.stringValue  = String(tic.numero)
-        self.baseTicketNSTextField.stringValue    = String(tic.base)
+        self.baseTicketNSTextField.stringValue    = NSString(format: "%.02f", tic.base()) as String
         self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
-        self.importeTicketNSTextField.stringValue = String(tic.precio)
-        self.totalEurosTicketNSTextField.stringValue  = String(tic.precio)
-        self.baseTicketNSTextField.stringValue    = String(tic.base())
-        self.ivaTicketNSTextField.stringValue     = String(tic.iva())
+        self.totalEurosTicketNSTextField.stringValue  = NSString(format: "%.02f", tic.precio) as String
+        self.ivaTicketNSTextField.stringValue     = NSString(format: "%.02f", tic.iva()) as String
         
         if tic.particular == true {
             self.grupoParticularTicketNSTextField.stringValue = "PARTICULAR"
