@@ -1420,7 +1420,7 @@ WWW.MARINAFERRY.ES</string>
                 </viewController>
                 <customObject id="F6T-Os-A2h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="68"/>
+            <point key="canvasLocation" x="100" y="56"/>
         </scene>
     </scenes>
 </document>

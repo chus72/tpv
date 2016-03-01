@@ -218,8 +218,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.inicioNSDatePicker.dateValue = NSDate()
         self.finalNSDatePicker.dateValue = NSDate()
         
-        listadoTableView.setDelegate(self)
-        listadoTableView.setDataSource(self)
+        self.listadoTableView.setDelegate(self)
+        self.listadoTableView.setDataSource(self)
+        
+        // Esto hace que los eventos sean recogidos en esta clase
+        // Y envia la accion de "doble click" al nsVIew determinado
+        self.listadoTableView.target = self
+        self.listadoTableView.doubleAction = "tableViewDoubleClick:"
         
         self.listadoTableView.reloadData()
         
@@ -416,6 +421,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         return nil
     }
+    
+    
+    func tableViewDoubleClick(sender : AnyObject?) {
+        
+    }
+    
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
