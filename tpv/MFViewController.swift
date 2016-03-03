@@ -250,6 +250,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 numeroTic += 1
                 
                 self.rellenarTicket(respuesta)
+                // Impresion del ticket
+                let t : ticketImpreso = ticketImpreso()
+                t.print(self.ticketNSView)
+
             }
         }
     }
@@ -425,6 +429,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func tableViewDoubleClick(sender : AnyObject?) {
         
+        /*let ticketNSView : NSView = NSView(frame: NSRect(x: 200, y: 200, width: 200, height: 200))
+        let label : NSTextField = NSTextField(frame: NSRect(x: 50, y: 50, width: 50, height: 50))
+        ticketNSView.window?.backgroundColor = NSColor.greenColor()
+        ticketNSView.addSubview(label)
+        self.view.addSubview(ticketNSView)*/
+        let item = self.listadoTickets[0]["punto_venta"]
     }
     
     
@@ -467,10 +477,5 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
             self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
         }
-        
-        // Impresion del ticket
-        let t : ticketImpreso = ticketImpreso()
-        t.print(self.ticketNSView)
-
     }
 }

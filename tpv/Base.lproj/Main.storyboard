@@ -1045,7 +1045,7 @@ CQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="puntoVentaCellId" id="PfS-ss-s5j">
-                                                                    <rect key="frame" x="84.5" y="1" width="110" height="17"/>
+                                                                    <rect key="frame" x="85" y="1" width="110" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ihs-8t-xJz">
@@ -1077,7 +1077,7 @@ CQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="fechaCellId" id="aoV-Cn-waS">
-                                                                    <rect key="frame" x="199.5" y="1" width="195" height="17"/>
+                                                                    <rect key="frame" x="200" y="1" width="195" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wje-X0-WhQ">
@@ -1109,7 +1109,7 @@ CQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="precioCellId" id="Ww3-7s-qYz">
-                                                                    <rect key="frame" x="399.5" y="1" width="98" height="17"/>
+                                                                    <rect key="frame" x="400" y="1" width="97" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flI-jf-igs">
@@ -1196,7 +1196,7 @@ CQ
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
                             </box>
-                            <customView identifier="ticketImpreso" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
+                            <customView identifier="ticketImpreso" fixedFrame="YES" alphaValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
                                 <rect key="frame" x="505" y="331" width="190" height="313"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-Vq-iWK">
@@ -1407,20 +1407,7 @@ WWW.MARINAFERRY.ES</string>
                 </viewController>
                 <customObject id="nbA-o1-JbP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="1386"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wMQ-sD-nHw">
-            <objects>
-                <viewController id="fJw-N6-9oT" sceneMemberID="viewController">
-                    <view key="view" id="tEH-Mz-5dw">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="F6T-Os-A2h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="100" y="56"/>
+            <point key="canvasLocation" x="-201" y="1431"/>
         </scene>
     </scenes>
 </document>
