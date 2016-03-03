@@ -434,7 +434,15 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         ticketNSView.window?.backgroundColor = NSColor.greenColor()
         ticketNSView.addSubview(label)
         self.view.addSubview(ticketNSView)*/
-        let item = self.listadoTickets[0]["punto_venta"]
+        let fila = sender?.selectedRow!
+        var datos = [String : AnyObject]()
+        datos["numero"]      = self.listadoTickets[fila!]["numero"]
+        datos["punto_venta"] = self.listadoTickets[fila!]["punto_venta"]
+        datos["precio"]      = self.listadoTickets[fila!]["precio"]
+        datos["fecha"]       = self.listadoTickets[fila!]["fecha"]
+        
+        rellenarTicket(datos)
+        self.ticketNSView.alphaValue = 1
     }
     
     
