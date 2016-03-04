@@ -98,6 +98,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var ivaTicketNSTextField: NSTextField!
     @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
     @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
+    
+    // Botones control ticket
+    @IBOutlet weak var botonesTicketNSview: NSView!
+    
     ///////////////////////////////////
     
     @IBAction  func listarNSButton(sender : NSButton) {
@@ -122,19 +126,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         webService.MFestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
     }
     
-    @IBAction func imprimir(sender: NSButton){
-        
-    }
-    
     @IBAction func recuperar(sender: NSButtonCell) {
         webService.MFrecuperar_ticket(14)
         /*        let numero : Int = 14
         let url : String = "https://losbarkitos.herokuapp.com/MFrecuperar_ticket/" + String(numero)
         webService.MFrequestBDD(url)
         */
-    }
-    @IBAction func borrar(sender: NSButton) {
-        webService.MFborrar_ticket(14)
     }
     
     @IBAction func eurosPush(sender: NSButton) {
@@ -189,7 +186,19 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
     }
     
-       
+    @IBAction func reImprimirTicketNSButton(sender: NSButton) {
+        
+        self.imprimirTicket()
+        
+    }
+    
+    @IBAction func modificarTicket(sender: NSButton) {
+        // primero se borra el ticket y luego se inserta el nuevo
+        webService.MFborrar_ticket(self.tic.numero, modo: "mod")
+        print("jejeje")
+
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -250,10 +259,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 numeroTic += 1
                 
                 self.rellenarTicket(respuesta)
-                // Impresion del ticket
-                let t : ticketImpreso = ticketImpreso()
-                t.print(self.ticketNSView)
-
+                self.imprimirTicket()
             }
         }
     }
@@ -267,13 +273,30 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
     }
     
-    func ticketBorrado(respuesta: [String : AnyObject]) {
+    func ticketBorrado(respuesta: [String : AnyObject], modo : String) {
+        
         print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "numero" {
                 print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
             }
         }
+        if modo == "mod" { // es una modificacion
+            var p = 0
+            self.tic.numero = Int(self.numeroTicketNSTextField.stringValue)!
+            self.tic.precio = Float(self.totalTicketsNSTextField.stringValue)!
+            self.tic.fecha = self.fechaTicketNSTextField.stringValue
+            self.tic.punto = self.baseTicketNSTextField.stringValue
+            if self.grupoParticularTicketNSTextField.stringValue == "PARTICULAR" {
+                self.tic.particular = true
+                p = 1
+            } else {
+                self.tic.particular = false
+                p = 0
+            }
+            webService.MFinsertar_ticket(self.tic.precio, part: p)
+        }
+        
     }
     
     func listadoMF(respuesta: [String : AnyObject]) {
@@ -443,6 +466,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
         rellenarTicket(datos)
         self.ticketNSView.alphaValue = 1
+        
     }
     
     
@@ -485,5 +509,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
             self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
         }
+    }
+    
+    func imprimirTicket() {
+        
+        // Impresion del ticket
+        let t : ticketImpreso = ticketImpreso()
+        t.print(self.ticketNSView)
+
     }
 }

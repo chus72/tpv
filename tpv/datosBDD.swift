@@ -15,7 +15,7 @@ protocol datosBDD {
     // Devuelve los datos de un ticket determinado
     func ticketRecuperado(_ : [String : AnyObject])
     // Devuelve el total de Euros en un periodo determinado
-    func ticketBorrado(_ : [String :AnyObject])
+    func ticketBorrado(_ : [String :AnyObject], modo : String)
     // Devuelve los euros de un periodo determinado
     func euros(_ : [String : Float])
     func media(_: [String : Float]) // Devuelve la media de un periodo determinado
@@ -65,12 +65,12 @@ class webServiceCallAPI: NSObject {
     
     //url(r'^MFborrar_ticket/(\d{1,})/$', MFborrarTicket),
     //data = {'error' : 0, 'numero' : numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha,"%H:%M:%S")}
-    func MFborrar_ticket(numero : Int) {
+    func MFborrar_ticket(numero : Int, modo : String) {
         let url : String = "http://losbarkitos.herokuapp.com/MFborrar_ticket/" + String(numero)
         Alamofire.request(.GET, url)
             .responseJSON { response in
                 if case let diccionario as [String : AnyObject] = response.result.value {
-                    self.delegate?.ticketBorrado(diccionario)
+                    self.delegate?.ticketBorrado(diccionario, modo: modo)
                 }
         }
     }
