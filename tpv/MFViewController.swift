@@ -76,6 +76,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
 
     @IBOutlet weak var listadoView: NSView!
     
+    @IBOutlet weak var listarNSButton: NSButton!
     @IBOutlet weak var listadoTableView: NSTableView!
     @IBOutlet weak var totalTicketsNSTextField: NSTextField!
     @IBOutlet weak var totalEurosNSTextField: NSTextField!
@@ -194,9 +195,22 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBAction func modificarTicket(sender: NSButton) {
         // primero se borra el ticket y luego se inserta el nuevo
-        webService.MFborrar_ticket(self.tic.numero, modo: "mod")
+        webService.MFborrar_ticket(self.tic.numero, modo: "MODIFICAR")
         print("jejeje")
 
+        
+    }
+    
+    @IBAction func borrarTicketNSButton(sender: NSButton) {
+        webService.MFborrar_ticket(self.tic.numero, modo: "BORRAR")
+        self.listarNSButton(self.listarNSButton)
+    }
+    
+    
+    @IBAction func salirTicketNSButton(sender: NSButton) {
+   
+        self.ticketNSView.alphaValue = 0
+        self.botonesTicketNSview.alphaValue = 0
         
     }
     
@@ -281,10 +295,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
             }
         }
-        if modo == "mod" { // es una modificacion
+        if modo == "MODIFICAR" { // es una modificacion
             var p = 0
             self.tic.numero = Int(self.numeroTicketNSTextField.stringValue)!
-            self.tic.precio = Float(self.totalTicketsNSTextField.stringValue)!
+            self.tic.precio = Float(self.totalEurosTicketNSTextField.stringValue)!
             self.tic.fecha = self.fechaTicketNSTextField.stringValue
             self.tic.punto = self.baseTicketNSTextField.stringValue
             if self.grupoParticularTicketNSTextField.stringValue == "PARTICULAR" {
@@ -452,11 +466,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func tableViewDoubleClick(sender : AnyObject?) {
         
-        /*let ticketNSView : NSView = NSView(frame: NSRect(x: 200, y: 200, width: 200, height: 200))
-        let label : NSTextField = NSTextField(frame: NSRect(x: 50, y: 50, width: 50, height: 50))
-        ticketNSView.window?.backgroundColor = NSColor.greenColor()
-        ticketNSView.addSubview(label)
-        self.view.addSubview(ticketNSView)*/
         let fila = sender?.selectedRow!
         var datos = [String : AnyObject]()
         datos["numero"]      = self.listadoTickets[fila!]["numero"]
@@ -466,6 +475,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
         rellenarTicket(datos)
         self.ticketNSView.alphaValue = 1
+        self.botonesTicketNSview.alphaValue = 1
         
     }
     

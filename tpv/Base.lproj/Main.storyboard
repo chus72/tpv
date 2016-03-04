@@ -1196,11 +1196,11 @@ CQ
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
                             </box>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f0a-iT-cJ1">
-                                <rect key="frame" x="695" y="548" width="110" height="96"/>
+                            <customView fixedFrame="YES" alphaValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="f0a-iT-cJ1">
+                                <rect key="frame" x="695" y="524" width="110" height="120"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OVf-sd-oa5">
-                                        <rect key="frame" x="14" y="56" width="86" height="32"/>
+                                        <rect key="frame" x="14" y="80" width="86" height="32"/>
                                         <buttonCell key="cell" type="push" title="Imprimir" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dFI-gE-Vby">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1210,7 +1210,7 @@ CQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMY-8i-Px2">
-                                        <rect key="frame" x="14" y="31" width="86" height="32"/>
+                                        <rect key="frame" x="14" y="55" width="86" height="32"/>
                                         <buttonCell key="cell" type="push" title="Modificar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gpL-Kw-8lH">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1220,15 +1220,28 @@ CQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJy-ln-pYQ">
-                                        <rect key="frame" x="15" y="6" width="86" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Cancelar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Re-gg-pOG">
+                                        <rect key="frame" x="14" y="5" width="86" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Salir" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Re-gg-pOG">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="salirTicketNSButton:" target="oxq-Bs-qxr" id="mKx-QN-gK0"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pb-MR-ghC">
+                                        <rect key="frame" x="14" y="30" width="86" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Borrar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JLq-g4-s3x">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="borrarTicketNSButton:" target="oxq-Bs-qxr" id="6aE-Z6-BIY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </customView>
-                            <customView identifier="ticketImpreso" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
+                            <customView identifier="ticketImpreso" fixedFrame="YES" alphaValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="kUz-Ce-Ueu" userLabel="TicketNSView" customClass="ticketImpreso" customModule="tpv" customModuleProvider="target">
                                 <rect key="frame" x="505" y="331" width="190" height="313"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijb-Vq-iWK">
@@ -1372,14 +1385,6 @@ WWW.MARINAFERRY.ES</string>
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
-                                <backgroundFilters>
-                                    <ciFilter name="CIGaussianBlur">
-                                        <configuration>
-                                            <null key="inputImage"/>
-                                            <real key="inputRadius" value="10"/>
-                                        </configuration>
-                                    </ciFilter>
-                                </backgroundFilters>
                             </customView>
                         </subviews>
                     </view>
@@ -1398,6 +1403,7 @@ WWW.MARINAFERRY.ES</string>
                         <outlet property="ivaTicketNSTextField" destination="PxE-6v-jZY" id="DWL-Sp-elS"/>
                         <outlet property="listadoTableView" destination="M5L-X4-opX" id="FxN-cy-pHP"/>
                         <outlet property="listadoView" destination="q6T-mE-Whw" id="DBG-Nj-HvO"/>
+                        <outlet property="listarNSButton" destination="bnD-yg-0VF" id="65q-UP-Btc"/>
                         <outlet property="listarNSPushButton" destination="UOE-3C-fbJ" id="dmJ-K4-SCV"/>
                         <outlet property="media" destination="ssW-Lb-Lre" id="K6n-kH-uv8"/>
                         <outlet property="mediaNSTextField" destination="ssW-Lb-Lre" id="RA9-xN-WzX"/>
