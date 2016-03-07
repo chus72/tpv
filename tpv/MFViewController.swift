@@ -91,6 +91,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBOutlet weak var contGruposNsTextField: NSTextField!
     
+    // Campos y vista de la entrada masiva de tickets para grupos
+    @IBOutlet weak var ticketsMasivosNSView: NSView!
+    @IBOutlet weak var numTicketsMasivos: NSTextField!
+    
     /// Campos del Ticket a imprimir
     @IBOutlet weak var fechaTicketNSTextField: NSTextField!
     @IBOutlet weak var numeroTicketNSTextField: NSTextField!
@@ -102,6 +106,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     // Botones control ticket
     @IBOutlet weak var botonesTicketNSview: NSView!
+    @IBOutlet weak var imprimirTicketNSButton: NSButton!
+    @IBOutlet weak var modificarTicketNSButton: NSButton!
+    @IBOutlet weak var borrarTicketNSButton: NSButton!
+    @IBOutlet weak var salirTicketNSButton: NSButton!
     
     ///////////////////////////////////
     
@@ -161,9 +169,11 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             self.precioGruposView.hidden = false
             self.precioIndividualView.hidden = true
             self.individualButton.state = NSOffState
+            self.ticketsMasivosNSView.alphaValue = 1
         } else {
             self.precioGruposView.hidden = true
             self.precioIndividualView.hidden = true
+            self.ticketsMasivosNSView.alphaValue = 0
         }
     }
     
@@ -181,9 +191,18 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBAction func precioGruposPushButton(sender: NSButton) {
         print(sender.title)
         print(Float(sender.title))
-        if let precio : Float? = Float(sender.title) {
-             webService.MFinsertar_ticket(precio!, part: 0) // Si parametro = 0 es grupo
-            self.contadorGrupo += 1
+        
+        if Int(self.numTicketsMasivos.stringValue) == 1 {
+            if let precio : Float? = Float(sender.title) {
+                webService.MFinsertar_ticket(precio!, part: 0) // Si parametro = 0 es grupo
+                self.contadorGrupo += 1
+            }
+        } else if Int(self.numTicketsMasivos.stringValue) > 1 {
+            let num = Int(self.numTicketsMasivos.stringValue)!
+            let precio : Float? = Float(sender.title)
+            webService.MFinsertar_ticket_masivo(precio!, cantidad: num)
+            self.contadorGrupo += num
+       
         }
     }
     
@@ -196,9 +215,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBAction func modificarTicket(sender: NSButton) {
         // primero se borra el ticket y luego se inserta el nuevo
         webService.MFborrar_ticket(self.tic.numero, modo: "MODIFICAR")
-        print("jejeje")
-
-        
     }
     
     @IBAction func borrarTicketNSButton(sender: NSButton) {
@@ -278,6 +294,19 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
     }
     
+    func ticketsInsertadosMasivos(respuesta : [String : AnyObject]) {
+        for (k,v) in respuesta {
+            if k as String == "error" && v as! Int == 1 {
+                print("ERROR EN EL SERVIDOR")
+            } else {
+                if k as String == "cantidad" {
+                    numeroTic += v as! Int
+                }
+            }
+        }
+        self.rellenarTicketsMasivos(respuesta)
+    }
+    
     func ticketRecuperado(respuesta : [String : AnyObject]) {
         print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
@@ -289,28 +318,34 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func ticketBorrado(respuesta: [String : AnyObject], modo : String) {
         
-        print("respuesta del servidor : \(respuesta)")
+        //print("respuesta del servidor : \(respuesta)")
+        
         for (k,v) in respuesta {
             if k as String == "numero" {
                 print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
             }
         }
         if modo == "MODIFICAR" { // es una modificacion
-            var p = 0
             self.tic.numero = Int(self.numeroTicketNSTextField.stringValue)!
             self.tic.precio = Float(self.totalEurosTicketNSTextField.stringValue)!
             self.tic.fecha = self.fechaTicketNSTextField.stringValue
             self.tic.punto = self.baseTicketNSTextField.stringValue
             if self.grupoParticularTicketNSTextField.stringValue == "PARTICULAR" {
                 self.tic.particular = true
-                p = 1
             } else {
                 self.tic.particular = false
-                p = 0
             }
-            webService.MFinsertar_ticket(self.tic.precio, part: p)
+            webService.MFmodificar_ticket(self.tic.numero, precio: self.tic.precio)
         }
-        
+    }
+    
+    func ticketModificado(respuesta : [String : AnyObject]) {
+        print("respuesta del servidor : \(respuesta)")
+        for (k,v) in respuesta {
+            if k as String == "error" && v as! Int == 0 {
+                print("REGISTRO MODIFICADO")
+            }
+        }
     }
     
     func listadoMF(respuesta: [String : AnyObject]) {
@@ -476,6 +511,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         rellenarTicket(datos)
         self.ticketNSView.alphaValue = 1
         self.botonesTicketNSview.alphaValue = 1
+        self.modificarTicketNSButton.enabled = false
         
     }
     
@@ -497,7 +533,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func rellenarTicket(datos : [String : AnyObject]) {
         for (k,v) in datos {
-            switch k as String {
+            switch k as! String {
                 case "numero"     : tic.numero     = v as! Int
                 case "precio"     : tic.precio     = v as! Float
                 case "fecha"      : tic.fecha      = v as! String
@@ -518,6 +554,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         } else {
             self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
             self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
+        }
+    }
+    
+    func rellenarTicketsMasivos(datos : [String : AnyObject]) {
+        for (k,v) in datos {
+            switch k as! String {
+                case "numero"       : tic.numero        = v as! Int
+                case "precio"       : tic.precio        = v as! Float
+            case "fecha"        :   tic.fecha       = v as! String
+            }
         }
     }
     
