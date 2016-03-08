@@ -295,16 +295,23 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     
     func ticketsInsertadosMasivos(respuesta : [String : AnyObject]) {
+        var cantidad : Int = 0
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 {
                 print("ERROR EN EL SERVIDOR")
             } else {
                 if k as String == "cantidad" {
-                    numeroTic += v as! Int
+                    print(v as! Int)
+                    cantidad = v as! Int
+                    numeroTic += cantidad
                 }
             }
         }
         self.rellenarTicketsMasivos(respuesta)
+        for c : Int in Range(start: cantidad ,end: 1) {
+            self.numeroTicketNSTextField.stringValue = String(numeroTic - c)
+        }
+        
     }
     
     func ticketRecuperado(respuesta : [String : AnyObject]) {
@@ -533,7 +540,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func rellenarTicket(datos : [String : AnyObject]) {
         for (k,v) in datos {
-            switch k as! String {
+            switch k  {
                 case "numero"     : tic.numero     = v as! Int
                 case "precio"     : tic.precio     = v as! Float
                 case "fecha"      : tic.fecha      = v as! String
@@ -559,12 +566,23 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func rellenarTicketsMasivos(datos : [String : AnyObject]) {
         for (k,v) in datos {
-            switch k as! String {
-                case "numero"       : tic.numero        = v as! Int
-                case "precio"       : tic.precio        = v as! Float
-            case "fecha"        :   tic.fecha       = v as! String
+            switch k  {
+                case "numero"     : tic.numero      = v as! Int
+                case "precio"     : tic.precio      = v as! Float
+                case "fecha"      : tic.fecha       = v as! String
+                case "punto"      : tic.punto       = v as! String
+                case "particular" : tic.particular  = v as! Bool
+            default : break
             }
         }
+        self.numeroTicketNSTextField.stringValue  = String(tic.numero)
+        self.baseTicketNSTextField.stringValue    = NSString(format: "%.02f", tic.base()) as String
+        self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
+        self.totalEurosTicketNSTextField.stringValue  = NSString(format: "%.02f", tic.precio) as String
+        self.ivaTicketNSTextField.stringValue     = NSString(format: "%.02f", tic.iva()) as String
+        self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
+        self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
+
     }
     
     func imprimirTicket() {
