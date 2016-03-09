@@ -113,6 +113,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     ///////////////////////////////////
     
+    // BOTONES DE LA VISTA PARA CAMBIAR EL PRECIO
+    @IBOutlet weak var cambioPrecioNSView: NSView!
+    @IBOutlet weak var nuevoPrecioNSTextField: NSTextField!
+    @IBOutlet weak var okNuevoPrecioNSButton: NSButton!
+    ///////////////////////////////////////////////////////////
+    
+    
     @IBAction  func listarNSButton(sender : NSButton) {
         
         let formato = NSDateFormatter()
@@ -230,6 +237,28 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
     }
     
+    @IBAction func anadirNuevoPrecio(sender : AnyObject) {
+
+        if self.precioIndividualView.hidden == false || self.precioGruposView.hidden == false {
+            self.cambioPrecioNSView.hidden = false
+        }
+        
+        
+    }
+    @IBAction func okNuevoPrecioPushButton(sender: NSButton) {
+        
+        guard let precio = Int(self.nuevoPrecioNSTextField.stringValue) else {
+            self.cambioPrecioNSView.hidden = true
+            return
+        }
+        if self.precioIndividualView.hidden ==  false {
+            self.precio_12_Individual.title = String(precio)
+        } else {
+            self.precio_12_Grupos.title = String(precio)
+        }
+        self.cambioPrecioNSView.hidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -266,6 +295,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.listadoTableView.doubleAction = "tableViewDoubleClick:"
         
         self.listadoTableView.reloadData()
+        
+        self.cambioPrecioNSView.hidden = true
         
     }
     
