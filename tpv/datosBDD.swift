@@ -12,10 +12,14 @@ import Foundation
 protocol datosBDD {
     // Devuelve el resultado de la insercion de un ticket en MF
     func ticketInsertado(_ : [String : AnyObject])
+    // Devuelve el resultado de la insercion masiva de tickets
+    func ticketsInsertadosMasivos(_ : [String : AnyObject])
     // Devuelve los datos de un ticket determinado
     func ticketRecuperado(_ : [String : AnyObject])
     // Devuelve el total de Euros en un periodo determinado
-    func ticketBorrado(_ : [String :AnyObject])
+    func ticketBorrado(_ : [String :AnyObject], modo : String)
+    // Devuelve el resultado de la modificación de un ticket en MF
+    func ticketModificado(_ : [String : AnyObject])
     // Devuelve los euros de un periodo determinado
     func euros(_ : [String : Float])
     func media(_: [String : Float]) // Devuelve la media de un periodo determinado
@@ -51,6 +55,16 @@ class webServiceCallAPI: NSObject {
             }
     }
     
+    func MFinsertar_ticket_masivo(precio : Float, cantidad : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFinsertar_tickets_masivos/" + String(Int(precio * 100)) +
+            "/" + String(cantidad)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case  let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.ticketsInsertadosMasivos(diccionario)
+                }
+            }
+    }
     //url(r'^MFrecuperar_ticket/(\d{1,})/$', MFrecuperarTicket),
     //data = {'error' : 0, 'numero' : numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha, "%H:%M:%S"), 'punto_venta' : 1, 'vendedor' : 1, 'particular' : ticket.part, 'blanco' : ticket.blanco}
     func MFrecuperar_ticket(numero : Int) {
@@ -65,16 +79,27 @@ class webServiceCallAPI: NSObject {
     
     //url(r'^MFborrar_ticket/(\d{1,})/$', MFborrarTicket),
     //data = {'error' : 0, 'numero' : numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha,"%H:%M:%S")}
-    func MFborrar_ticket(numero : Int) {
+    func MFborrar_ticket(numero : Int, modo : String) {
         let url : String = "http://losbarkitos.herokuapp.com/MFborrar_ticket/" + String(numero)
         Alamofire.request(.GET, url)
             .responseJSON { response in
                 if case let diccionario as [String : AnyObject] = response.result.value {
-                    self.delegate?.ticketBorrado(diccionario)
+                    self.delegate?.ticketBorrado(diccionario, modo: modo)
                 }
         }
     }
     
+    //
+    func MFmodificar_ticket(numero : Int, precio : Float) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFmodificar_ticket/" + String(numero) + "/" +
+                  String(Int(precio + 100)) 
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.ticketModificado(diccionario)
+                }
+        }
+    }
     //url(r'^MFlistado/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFlistado),
     // datos = {'numero' : ticket.numero, 'precio' : float(ticket.precio), 'fecha' : datetime.strftime(ticket.fecha, "%d-%m-%Y %H:%M:%S"), 'punto_venta' : 1, 'vendedor' : 1, 'particular' : ticket.part, 'blanco' : ticket.blanco}
         //dict_tickets[str(i)] = datos

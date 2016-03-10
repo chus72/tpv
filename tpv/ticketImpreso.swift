@@ -20,15 +20,17 @@ class ticketImpreso: NSView {
     }
     
     override func print(sender: AnyObject?) {
-        self.printInfo.leftMargin  = 1.0
-        self.printInfo.rightMargin = 0.5
+        self.printInfo.leftMargin  = 0.0
+        self.printInfo.rightMargin = 0.0
+        self.printInfo.topMargin = 0.0
         self.printInfo.horizontallyCentered = true
+        self.printInfo.verticallyCentered = false
         self.printInfo.jobDisposition = NSPrintSpoolJob
-        self.printInfo.paperSize = NSSize(width: 496, height: 1000)
+        self.printInfo.paperSize = NSSize(width: 190, height: 430)
         
-        let op = NSPrintOperation.init(view: self, printInfo: self.printInfo)
+        let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         //op.showsPrintPanel = false
-        op.showsPrintPanel = true
+        op.showsPrintPanel = false
         op.runOperation()
     }
     
