@@ -327,6 +327,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func ticketsInsertadosMasivos(respuesta : [String : AnyObject]) {
         var cantidad : Int = 0
+        print (respuesta)
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 {
                 print("ERROR EN EL SERVIDOR")
@@ -334,15 +335,21 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 if k as String == "cantidad" {
                     print(v as! Int)
                     cantidad = v as! Int
-                    numeroTic += cantidad
+                } else {
+                    if k as String == "numero" {
+                        numeroTic = v as! Int
+                    }
                 }
             }
         }
+        
         self.rellenarTicketsMasivos(respuesta)
-        for c : Int in Range(start: cantidad ,end: 1) {
-            self.numeroTicketNSTextField.stringValue = String(numeroTic - c)
+        for var c = cantidad; c > 0 ; c-- {
+            self.numeroTicketNSTextField.stringValue = String(numeroTic - c + 1)
+            self.imprimirTicket()
         }
         
+        self.listarNSButton(self.listarNSButton)
     }
     
     func ticketRecuperado(respuesta : [String : AnyObject]) {
@@ -621,6 +628,5 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         // Impresion del ticket
         let t : ticketImpreso = ticketImpreso()
         t.print(self.ticketNSView)
-
     }
 }
