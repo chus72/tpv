@@ -258,6 +258,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         self.cambioPrecioNSView.hidden = true
     }
+    @IBAction func imprimirListadoPushButton(sender: NSButton) {
+        
+        let size : NSSize = NSSize(width: self.listadoView.bounds.width , height: 980)
+        self.listadoView.setFrameSize(size)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
