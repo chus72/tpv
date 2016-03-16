@@ -260,8 +260,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     @IBAction func imprimirListadoPushButton(sender: NSButton) {
         
-        let size : NSSize = NSSize(width: self.listadoView.bounds.width , height: 980)
-        self.listadoView.setFrameSize(size)
+       // let size : NSSize = NSSize(width: self.listadoView.bounds.width , height: 980)
+        //self.listadoView.setFrameSize(size)
         
     }
     
@@ -634,5 +634,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         // Impresion del ticket
         let t : ticketImpreso = ticketImpreso()
         t.print(self.ticketNSView)
+    }
+    
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        let VC = segue.destinationController as! ImprimirListadoViewController
+        VC.representedObject = self.listadoTickets.count
+        VC.fecha = "HOLA"
+        VC.total = Float(self.totalEurosNSTextField.stringValue)!
+        
+        VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
+        VC.listadoTickets = self.listadoTickets
     }
 }
