@@ -25,8 +25,9 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     var listadoTickets = [[String : AnyObject]]()
     
     @IBAction func botonImprimir(sender: NSButton) {
-        let t : ticketImpreso = ticketImpreso()
-        t.print(self.viewListado)
+        let l : listadoImpreso = listadoImpreso()
+        l.print(self.viewListado)
+        dismissController(self)
 
     }
     override func viewWillAppear() {
@@ -34,7 +35,6 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         self.fechaTextField.stringValue = self.fecha
         self.numTicketsTextField.stringValue = String(self.numTickets)
         self.totalTextField.stringValue = String(self.total)
-        
 
     }
     
@@ -43,14 +43,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         super.viewDidLoad()
         // Do view setup here.
         
-        //self.view.bounds.size.height = 1000
-        //self.tableView.bounds.size.height=800
-        
+        self.view.bounds.size.height = 2000
+        self.tableView.bounds.size.height=1500
         
     }
     
-    
-    
+
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
         return self.listadoTickets.count ?? 0
