@@ -22,6 +22,8 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     var total : Float = 0.0
     var lineas : Int = 0
     
+    let alturaPagina : Int = 700
+    
     var listadoTickets = [[String : AnyObject]]()
     
     @IBAction func botonImprimir(sender: NSButton) {
@@ -32,6 +34,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     }
     override func viewWillAppear() {
         lineas = self.representedObject as! Int
+        self.fechaTextField.alignment = NSTextAlignment.Natural
         self.fechaTextField.stringValue = self.fecha
         self.numTicketsTextField.stringValue = String(self.numTickets)
         self.totalTextField.stringValue = String(self.total)
@@ -42,9 +45,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        let numPaginas : Int = lineas / 24
+        let altura : CGFloat = CGFloat(numPaginas * self.alturaPagina)
         
-        self.view.bounds.size.height = 2000
-        self.tableView.bounds.size.height=1500
+        //self.view.bounds.size.height = 700
+        self.tableView.bounds.size.height = altura
+       // self.viewListado.bounds.size.height = 1400
         
     }
     
