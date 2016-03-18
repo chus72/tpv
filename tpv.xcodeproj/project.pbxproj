@@ -13,12 +13,14 @@
 		4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8458C01C295DEF0024C33D /* AppDelegate.swift */; };
 		4B8458C51C295DEF0024C33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C41C295DEF0024C33D /* Assets.xcassets */; };
 		4B8458C81C295DEF0024C33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C61C295DEF0024C33D /* Main.storyboard */; };
+		BBA0510D1C999D3500B643F0 /* ImprimirListadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */; };
 		BBB8B1411C85AEAF00BECE3A /* DetalleTicketNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB8B1401C85AEAF00BECE3A /* DetalleTicketNSViewController.swift */; };
 		BBCBAD011C918D4D00E83421 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCBACF81C918C5500E83421 /* Alamofire.framework */; };
 		BBF3D2D81C5FBEC0004281E6 /* ticketImpreso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */; };
 		F9757ADE1C29F5EC00181CD7 /* datosBDD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9757ADD1C29F5EC00181CD7 /* datosBDD.swift */; };
 		F9C99AAA1C3DB4BD00D4738C /* MFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C99AA91C3DB4BC00D4738C /* MFViewController.swift */; };
 		F9C99AAD1C3DB4D600D4738C /* LBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */; };
+		F9CF5E9A1C99E90300A598C3 /* listadoImpreso.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,12 +98,14 @@
 		4B8458C41C295DEF0024C33D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B8458C71C295DEF0024C33D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B8458C91C295DEF0024C33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImprimirListadoViewController.swift; sourceTree = "<group>"; };
 		BBB8B1401C85AEAF00BECE3A /* DetalleTicketNSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetalleTicketNSViewController.swift; path = ../DetalleTicketNSViewController.swift; sourceTree = "<group>"; };
 		BBCBACE91C918C5500E83421 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ticketImpreso.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F9757ADD1C29F5EC00181CD7 /* datosBDD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datosBDD.swift; sourceTree = "<group>"; };
 		F9C99AA91C3DB4BC00D4738C /* MFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFViewController.swift; sourceTree = "<group>"; };
 		F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBViewController.swift; sourceTree = "<group>"; };
+		F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listadoImpreso.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +155,9 @@
 				F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
+				BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */,
 				BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */,
+				F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */,
 				4B8458C91C295DEF0024C33D /* Info.plist */,
 				BBB8B1401C85AEAF00BECE3A /* DetalleTicketNSViewController.swift */,
 			);
@@ -305,11 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA0510D1C999D3500B643F0 /* ImprimirListadoViewController.swift in Sources */,
 				F9757ADE1C29F5EC00181CD7 /* datosBDD.swift in Sources */,
 				BBF3D2D81C5FBEC0004281E6 /* ticketImpreso.swift in Sources */,
 				4B603D941C4E940900B47139 /* DocumentPrint.swift in Sources */,
 				4B0B84E71C4BECC700216C7F /* Tickets.swift in Sources */,
 				4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */,
+				F9CF5E9A1C99E90300A598C3 /* listadoImpreso.swift in Sources */,
 				4B774E011C4BBEF40010E114 /* listadoPrintingView.swift in Sources */,
 				F9C99AAA1C3DB4BD00D4738C /* MFViewController.swift in Sources */,
 				F9C99AAD1C3DB4D600D4738C /* LBViewController.swift in Sources */,

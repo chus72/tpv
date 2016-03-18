@@ -258,6 +258,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         self.cambioPrecioNSView.hidden = true
     }
+    @IBAction func imprimirListadoPushButton(sender: NSButton) {
+        
+       // let size : NSSize = NSSize(width: self.listadoView.bounds.width , height: 980)
+        //self.listadoView.setFrameSize(size)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -628,5 +634,23 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         // Impresion del ticket
         let t : ticketImpreso = ticketImpreso()
         t.print(self.ticketNSView)
+    }
+    
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        let VC = segue.destinationController as! ImprimirListadoViewController
+        VC.representedObject = self.listadoTickets.count
+        
+        let formato : NSDateFormatter = NSDateFormatter()
+        formato.dateFormat = "dd / MM / yyyy"
+        if self.inicioNSDatePicker.stringValue  == self.finalNSDatePicker.stringValue {
+            VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue)
+        } else {
+            VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue) + " - " + formato.stringFromDate(self.finalNSDatePicker.dateValue)        }
+        
+        VC.total = Float(self.totalEurosNSTextField.stringValue)!
+        
+        VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
+        VC.listadoTickets = self.listadoTickets
     }
 }

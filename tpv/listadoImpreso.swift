@@ -1,22 +1,19 @@
 //
-//  ticketImpreso.swift
+//  listadoImpreso.swift
 //  tpv
-//  Jesús Valladolid Rebollar
-//  Created by Jesus Valladolid Rebollar on 1/2/16.
+//
+//  Created by chus on 16/3/16.
 //  Copyright © 2016 LosBarkitos. All rights reserved.
 //
 
 import Cocoa
 
-class ticketImpreso: NSView {
-    
-    //let nombrePrinter : NSPrinter = NSPrinter(name: "BILOXON SRP-350")!
-    let printInfo : NSPrintInfo = NSPrintInfo()
+class listadoImpreso: NSView {
 
+    let printInfo : NSPrintInfo = NSPrintInfo()
+    
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-
-        
     }
     
     override func print(sender: AnyObject?) {
@@ -26,12 +23,11 @@ class ticketImpreso: NSView {
         self.printInfo.horizontallyCentered = true
         self.printInfo.verticallyCentered = false
         self.printInfo.jobDisposition = NSPrintSpoolJob
-        self.printInfo.paperSize = NSSize(width: 190, height: 430)
+        self.printInfo.paperSize = NSSize(width: 400, height: 720)
         
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         op.showsPrintPanel = true
         //op.showsPrintPanel = false
         op.runOperation()
     }
-    
 }
