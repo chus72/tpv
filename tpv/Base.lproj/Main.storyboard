@@ -1131,7 +1131,7 @@ CQ
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="97" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
+                                                        <tableColumn identifier="" width="97.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Precio">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1148,7 +1148,7 @@ CQ
                                                                     <rect key="frame" x="399.5" y="1" width="98" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="flI-jf-igs">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flI-jf-igs">
                                                                             <rect key="frame" x="0.0" y="1" width="125" height="16"/>
                                                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="3Q9-Xl-5Tc">
                                                                                 <font key="font" metaFont="cellTitle"/>
@@ -1550,7 +1550,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="450" height="680"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WTw-iS-pGh">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTw-iS-pGh">
                                 <rect key="frame" x="120" y="610" width="211" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Fecha" id="sTv-GY-Z2F">
                                     <font key="font" metaFont="system"/>
@@ -1558,9 +1558,9 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGI-P2-dZH">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGI-P2-dZH">
                                 <rect key="frame" x="0.0" y="103" width="450" height="490"/>
-                                <clipView key="contentView" ambiguous="YES" id="DPb-ex-doi">
+                                <clipView key="contentView" id="DPb-ex-doi">
                                     <rect key="frame" x="1" y="0.0" width="448" height="489"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1741,7 +1741,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ray-fH-TkH">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ray-fH-TkH">
                                 <rect key="frame" x="6" y="1" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kpZ-nX-4w5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1751,7 +1751,7 @@ DQ
                                     <action selector="botonImprimir:" target="jbL-QN-4Ri" id="bxd-Ek-eAK"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wn7-YC-VTe">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wn7-YC-VTe">
                                 <rect key="frame" x="150" y="636" width="151" height="24"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="MARINA FERRY" id="0I0-Uy-SKY">
                                     <font key="font" size="20" name="HelveticaNeue"/>
@@ -1759,7 +1759,7 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" title="Total" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="70g-yK-ZTT">
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Total" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="70g-yK-ZTT">
                                 <rect key="frame" x="157" y="4" width="136" height="93"/>
                                 <view key="contentView" id="am8-wa-082">
                                     <rect key="frame" x="1" y="1" width="134" height="77"/>
@@ -1804,18 +1804,14 @@ DQ
                             </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="70g-yK-ZTT" firstAttribute="leading" secondItem="ray-fH-TkH" secondAttribute="trailing" constant="79" id="0be-1h-sir"/>
-                            <constraint firstAttribute="trailing" secondItem="wn7-YC-VTe" secondAttribute="trailing" constant="151" id="6Sk-o5-Cp7"/>
-                            <constraint firstItem="wn7-YC-VTe" firstAttribute="top" secondItem="1yd-Yo-Fyn" secondAttribute="top" constant="20" id="DWG-2e-T20"/>
-                            <constraint firstAttribute="trailing" secondItem="70g-yK-ZTT" secondAttribute="trailing" constant="160" id="KLx-Gg-5bv"/>
-                            <constraint firstItem="wn7-YC-VTe" firstAttribute="leading" secondItem="1yd-Yo-Fyn" secondAttribute="leading" constant="152" id="Pcq-B0-um2"/>
-                            <constraint firstItem="WTw-iS-pGh" firstAttribute="top" secondItem="wn7-YC-VTe" secondAttribute="bottom" constant="9" id="V4Z-Yu-AcU"/>
-                            <constraint firstAttribute="trailing" secondItem="WTw-iS-pGh" secondAttribute="trailing" constant="121" id="g80-j7-ZzK"/>
-                            <constraint firstItem="WTw-iS-pGh" firstAttribute="leading" secondItem="1yd-Yo-Fyn" secondAttribute="leading" constant="122" id="hrQ-tm-Rdp"/>
-                            <constraint firstItem="70g-yK-ZTT" firstAttribute="top" secondItem="XGI-P2-dZH" secondAttribute="bottom" constant="6" id="kem-h4-VLo"/>
+                            <constraint firstItem="XGI-P2-dZH" firstAttribute="top" secondItem="1yd-Yo-Fyn" secondAttribute="top" constant="87" id="3NB-Pk-SRh"/>
+                            <constraint firstAttribute="bottom" secondItem="XGI-P2-dZH" secondAttribute="bottom" constant="103" id="8eF-ac-zee"/>
+                            <constraint firstAttribute="trailing" secondItem="XGI-P2-dZH" secondAttribute="trailing" id="Bpg-mK-diJ"/>
+                            <constraint firstItem="XGI-P2-dZH" firstAttribute="leading" secondItem="1yd-Yo-Fyn" secondAttribute="leading" id="qOa-Zz-4Cc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="botonImprimirPushButton" destination="ray-fH-TkH" id="PpT-Cn-Fzy"/>
                         <outlet property="fechaTextField" destination="WTw-iS-pGh" id="kkQ-tP-Eph"/>
                         <outlet property="numTicketsTextField" destination="8gc-GA-Bds" id="mJY-q4-TW5"/>
                         <outlet property="tableView" destination="7l3-zu-80i" id="cHb-uQ-Ghz"/>

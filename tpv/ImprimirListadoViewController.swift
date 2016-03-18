@@ -16,24 +16,27 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     @IBOutlet weak var fechaTextField: NSTextField!
     @IBOutlet weak var numTicketsTextField: NSTextField!
     @IBOutlet weak var totalTextField: NSTextField!
+    
+    @IBOutlet weak var botonImprimirPushButton : NSButton!
+    
 
     var fecha : String = ""
     var numTickets : Int = 0
     var total : Float = 0.0
-    var lineas : Int = 0
     
-    let alturaPagina : Int = 700
+    let alturaPagina : Int = 750
     
     var listadoTickets = [[String : AnyObject]]()
     
     @IBAction func botonImprimir(sender: NSButton) {
+        
+        sender.hidden = true
         let l : listadoImpreso = listadoImpreso()
         l.print(self.viewListado)
         dismissController(self)
 
     }
     override func viewWillAppear() {
-        lineas = self.representedObject as! Int
         self.fechaTextField.alignment = NSTextAlignment.Natural
         self.fechaTextField.stringValue = self.fecha
         self.numTicketsTextField.stringValue = String(self.numTickets)
@@ -45,12 +48,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        let numPaginas : Int = lineas / 24
-        let altura : CGFloat = CGFloat(numPaginas * self.alturaPagina)
+        let numPaginas : Int = self.numTickets / 24
+        let altura : Int = Int(self.alturaPagina * numPaginas)
         
         //self.view.bounds.size.height = 700
-        self.tableView.bounds.size.height = altura
-       // self.viewListado.bounds.size.height = 1400
+        //self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
+        self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
         
     }
     
