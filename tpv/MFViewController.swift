@@ -21,17 +21,15 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     var contadorParticular : Int = 0 {
         didSet {
-            if contadorParticular != 0 {
-                self.contParticularesNsTextField.stringValue = String(contadorParticular)
-            }
+            self.contParticularesNsTextField.stringValue = String(contadorParticular)
+          
         }
     }
     
     var contadorGrupo : Int = 0 {
         didSet {
-            if contadorGrupo != 0 {
-                self.contGruposNsTextField.stringValue = String(contadorGrupo)
-            }
+            self.contGruposNsTextField.stringValue = String(contadorGrupo)
+            
         }
     }
     
@@ -264,6 +262,16 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         //self.listadoView.setFrameSize(size)
         
     }
+    @IBAction func poner0particularPushButton(sender: NSButton) {
+        
+        self.contadorParticular = 0
+        
+    }
+    @IBAction func poner0grupoPushButton(sender: NSButton) {
+        
+        self.contadorGrupo = 0
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -333,7 +341,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func ticketsInsertadosMasivos(respuesta : [String : AnyObject]) {
         var cantidad : Int = 0
-        print (respuesta)
+        //print (respuesta)
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 {
                 print("ERROR EN EL SERVIDOR")
@@ -402,17 +410,17 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     func listadoMF(respuesta: [String : AnyObject]) {
         var registro : [String : AnyObject] = [:]
         self.listadoTickets = []
-        print("respuesta del servidor : \(respuesta)")
+       // print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
-            print(k)
-            print(v)
-            if k == "numero_particulas" {
+           // print(k)
+           // print(v)
+            /*if k == "numero_particulas" {
                 self.contadorParticular = v as! Int
             }
             if k == "numero_grupos" {
                 self.contadorGrupo = v as! Int
             }
-            
+            */
             if k != "error" && k != "numero_tickets" && k != "numero_grupos" && k != "numero_particulas" {
                 registro["numero"] = v["numero"] as! Int
                 if v["punto_venta"] as! Int == 1 {
@@ -491,13 +499,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "media" {
-                print("Media : " + String(Float(v as! NSNumber)))
+              //  print("Media : " + String(Float(v as! NSNumber)))
                 self.mediaNSTextField.stringValue = String(v)
             } else if k as String == "euros" {
-                print("Euros : " + String(Float(v as! NSNumber)))
+              //  print("Euros : " + String(Float(v as! NSNumber)))
                 self.totalEurosNSTextField.stringValue = String(v)
             } else if k as String == "total_tickets" {
-                print("Tickets : " + String(Int(v as! NSNumber)))
+              //  print("Tickets : " + String(Int(v as! NSNumber)))
                 self.totalTicketsNSTextField.stringValue = String(v)
                 
             }

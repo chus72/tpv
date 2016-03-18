@@ -10,7 +10,7 @@ import Cocoa
 
 class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet var viewListado: NSView!
-    @IBOutlet weak var tableViewListado: NSScrollView!
+
     @IBOutlet weak var tableView: NSTableView!
     
     @IBOutlet weak var fechaTextField: NSTextField!
@@ -19,6 +19,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     
     @IBOutlet weak var botonImprimirPushButton : NSButton!
     
+    @IBOutlet weak var tableViewScrollView: NSScrollView!
 
     var fecha : String = ""
     var numTickets : Int = 0
@@ -51,9 +52,10 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         let numPaginas : Int = self.numTickets / 24
         let altura : Int = Int(self.alturaPagina * numPaginas)
         
-        //self.view.bounds.size.height = 700
-        //self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
         self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
+        self.tableViewScrollView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
+        self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
+        
         
     }
     
@@ -77,7 +79,9 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
             text = String(item["punto_venta"]! as! String)
             celdaIdentificador = "puntoVentaCellId"
         } else if tableColumn == tableView.tableColumns[2] { // fecha
-            text = String(item["fecha"]! as! String)
+            let str = String(item["fecha"]! as! String)
+            let index = str.startIndex.advancedBy(8)
+            text = str.substringToIndex(index)
             celdaIdentificador = "fechaCellId"
         } else if tableColumn == tableView.tableColumns[3] { // precio
             text = String(item["precio"]! as! Float)
