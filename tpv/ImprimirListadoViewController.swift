@@ -20,7 +20,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     @IBOutlet weak var botonImprimirPushButton : NSButton!
     
     @IBOutlet weak var tableViewScrollView: NSScrollView!
-
+    @IBOutlet weak var boxTotalesNSBox: NSBox!
     var fecha : String = ""
     var numTickets : Int = 0
     var total : Float = 0.0
@@ -49,13 +49,16 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        let espacio : CGFloat = 600.0
         let numPaginas : Int = self.numTickets / 24
-        let altura : Int = Int(self.alturaPagina * numPaginas)
+        let altura : CGFloat = CGFloat(self.alturaPagina * numPaginas)
         
-        self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
-        self.tableViewScrollView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
-        self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: CGFloat(altura)))
+        self.tableViewScrollView.setBoundsOrigin(NSPoint(x: 0, y: 170))
         
+        self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
+        self.tableViewScrollView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura - 250))
+        //self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
+        self.boxTotalesNSBox.setBoundsOrigin(NSPoint(x: 190, y: 50))
         
     }
     

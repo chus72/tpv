@@ -184,8 +184,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     
     @IBAction func precioIndividualPushButton(sender: NSButton) {
-        print(sender.title)
-        print(Float(sender.title))
         if let precio : Float? = Float(sender.title) {
             webService.MFinsertar_ticket(precio!, part: 1) // Si parametro = 1 es particular
             self.contadorParticular += 1
@@ -194,8 +192,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     
     @IBAction func precioGruposPushButton(sender: NSButton) {
-        print(sender.title)
-        print(Float(sender.title))
         
         if Int(self.numTicketsMasivos.stringValue) == 1 {
             if let precio : Float? = Float(sender.title) {
@@ -209,6 +205,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             self.contadorGrupo += num
        
         }
+        self.numTicketsMasivos.stringValue = "1"
     }
     
     @IBAction func reImprimirTicketNSButton(sender: NSButton) {
