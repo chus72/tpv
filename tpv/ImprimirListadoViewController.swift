@@ -52,14 +52,19 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         let numPaginas : Int = self.numTickets / 24
         let altura : CGFloat = CGFloat(self.alturaPagina * numPaginas)
         
-        self.tableViewScrollView.setBoundsOrigin(NSPoint(x: 0, y: 170))
         
         self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
         self.tableViewScrollView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura - 250))
-        //self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
-        self.boxTotalesNSBox.setBoundsOrigin(NSPoint(x: 187, y: 16))
-        self.boxTotalesNSBox.setBoundsSize((NSSize(width: 136, height: 124)))
+        self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
         
+        self.tableViewScrollView.setBoundsOrigin(NSPoint(x: 0, y: 170))
+        
+        self.boxTotalesNSBox.setBoundsSize((NSSize(width: 136, height: 124)))
+        self.boxTotalesNSBox.setBoundsOrigin(NSPoint(x: 187, y: 16))
+        
+        print(self.viewListado.bounds.size, self.viewListado.bounds.origin)
+        print(self.tableViewScrollView.bounds.size, self.tableViewScrollView.bounds.origin)
+        print(self.tableView.bounds.size, self.tableView.bounds.origin)
     }
     
 
