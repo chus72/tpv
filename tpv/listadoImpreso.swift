@@ -23,7 +23,7 @@ class listadoImpreso: NSView {
         self.printInfo.horizontallyCentered = true
         self.printInfo.verticallyCentered = false
         self.printInfo.jobDisposition = NSPrintSpoolJob
-        self.printInfo.paperSize = NSSize(width: 500, height: 750)
+        self.printInfo.paperSize = NSSize(width: 500, height: 700)
         
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
         op.showsPrintPanel = true
