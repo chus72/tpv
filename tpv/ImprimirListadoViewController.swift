@@ -28,18 +28,22 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     let alturaPagina : Int = 750
     
     var listadoTickets = [[String : AnyObject]]()
-    let numLineas = 40
+    let numLineas = 38
     var lineaActual = 0
     var numPaginas = 0
-    var paginaActual = 0
+    var paginaActual = 1
     
     @IBAction func botonImprimir(sender: NSButton) {
+        for _ in 2 ... numPaginas {
+            paginaActual += 1
+            sender.hidden = true
+            let l : listadoImpreso = listadoImpreso()
+            l.print(self.viewListado)
         
+            self.tableView.reloadData()
+        }
         
-        sender.hidden = true
-        let l : listadoImpreso = listadoImpreso()
-        l.print(self.viewListado)
-        dismissController(self)
+         dismissController(self)
 
     }
     override func viewWillAppear() {
@@ -52,32 +56,19 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do view setup here.
-        numPaginas = self.numTickets / 24
-       // let altura : CGFloat = CGFloat(self.alturaPagina * numPaginas)
-        
-        
-        //self.viewListado.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
-        //self.tableViewScrollView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura - 250))
-      //  self.tableView.setBoundsSize(NSSize(width: self.viewListado.bounds.width, height: altura))
-        
-       // self.tableViewScrollView.setBoundsOrigin(NSPoint(x: 0, y: 170))
-        
-        self.boxTotalesNSBox.setBoundsSize((NSSize(width: 136, height: 124)))
-        self.boxTotalesNSBox.setBoundsOrigin(NSPoint(x: 187, y: 16))
-        
-        print(self.viewListado.bounds.size, self.viewListado.bounds.origin)
-        print(self.tableViewScrollView.bounds.size, self.tableViewScrollView.bounds.origin)
-        print(self.tableView.bounds.size, self.tableView.bounds.origin)
-        
+        numPaginas = self.numTickets / numLineas
         lineaActual = 1
+    
     }
     
 
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
-        return self.listadoTickets.count ?? 0
+        // El numero de filas = 24 y es constante
+        //return self.listadoTickets.count ?? 0
+        return numLineas
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -87,7 +78,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         var text : String = ""
         var celdaIdentificador : String = ""
         // Item contiene el registro a meter en la tableView
-        let item = self.listadoTickets[row]
+        let item = self.listadoTickets[row + paginaActual * numLineas]
         
         
         /*
@@ -131,9 +122,9 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
             
         }
         
-        if lineaActual == numLineas {
-            paginaActual += 1
-        }
+//        if lineaActual == numLineas {
+  //          paginaActual += 1
+    //    }
         
         if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
             celda.textField?.stringValue = text
