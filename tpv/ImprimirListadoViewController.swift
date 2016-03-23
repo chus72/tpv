@@ -31,7 +31,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     let numLineas = 38
     var lineaActual = 0
     var numPaginas = 0
-    var paginaActual = 1
+    var paginaActual = 0
     
     @IBAction func botonImprimir(sender: NSButton) {
         for _ in 2 ... numPaginas {
@@ -39,7 +39,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
             sender.hidden = true
             let l : listadoImpreso = listadoImpreso()
             l.print(self.viewListado)
-        
+            
+            if (paginaActual == numPaginas - 1) {
+                self.boxTotalesNSBox.hidden = false
+                self.viewListado.setNeedsDisplayInRect(NSRect(x : 0, y : 0, width: 500, height : 775))
+            }
+            
             self.tableView.reloadData()
         }
         
@@ -60,6 +65,8 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         super.viewDidLoad()
         numPaginas = self.numTickets / numLineas
         lineaActual = 1
+        
+        self.boxTotalesNSBox.hidden = true
     
     }
     
@@ -99,9 +106,8 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         }*/
         
         
-        if paginaActual < numPaginas  && (row / 4) < numLineas {
+        if paginaActual <= numPaginas - 1 {
             
-        //    if paginaActual == (numLineas % numPaginas) + 1 {
                 if tableColumn == tableView.tableColumns[0] { // Número
                     text = String(item["numero"]! as! Int)
                     celdaIdentificador = "numeroCellId"
@@ -117,14 +123,8 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
                     text = String(item["precio"]! as! Float)
                     celdaIdentificador = "precioCellId"
                 }
-
-          //  }
             
         }
-        
-//        if lineaActual == numLineas {
-  //          paginaActual += 1
-    //    }
         
         if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
             celda.textField?.stringValue = text
