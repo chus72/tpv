@@ -34,21 +34,21 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     var paginaActual = 0
     
     @IBAction func botonImprimir(sender: NSButton) {
-        for _ in 2 ... numPaginas {
-            paginaActual += 1
+        for _ in 2 ... numPaginas + 1 {
             sender.hidden = true
             let l : listadoImpreso = listadoImpreso()
             l.print(self.viewListado)
             
-            if (paginaActual == numPaginas - 1) {
-                self.boxTotalesNSBox.hidden = false
-                self.viewListado.setNeedsDisplayInRect(NSRect(x : 0, y : 0, width: 500, height : 775))
-            }
-            
+            if (paginaActual == numPaginas ) {
+              }
+            paginaActual += 1
             self.tableView.reloadData()
         }
-        
-         dismissController(self)
+        self.boxTotalesNSBox.hidden = false
+        self.viewListado.setNeedsDisplayInRect(NSRect(x : 0, y : 0, width: 500, height : 775))
+        let l : listadoImpreso = listadoImpreso()
+        l.print(self.viewListado)
+        dismissController(self)
 
     }
     override func viewWillAppear() {
@@ -85,29 +85,18 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         var text : String = ""
         var celdaIdentificador : String = ""
         // Item contiene el registro a meter en la tableView
-        let item = self.listadoTickets[row + paginaActual * numLineas]
+        var item = [String : AnyObject]()
+        var b : Bool = true
         
-        
-        /*
-        if tableColumn == tableView.tableColumns[0] { // Número
-            text = String(item["numero"]! as! Int)
-            celdaIdentificador = "numeroCellId"
-        } else if tableColumn == tableView.tableColumns[1] { // punto_venta
-            text = String(item["punto_venta"]! as! String)
-            celdaIdentificador = "puntoVentaCellId"
-        } else if tableColumn == tableView.tableColumns[2] { // fecha
-            let str = String(item["fecha"]! as! String)
-            let index = str.startIndex.advancedBy(8)
-            text = str.substringToIndex(index)
-            celdaIdentificador = "fechaCellId"
-        } else if tableColumn == tableView.tableColumns[3] { // precio
-            text = String(item["precio"]! as! Float)
-            celdaIdentificador = "precioCellId"
-        }*/
-        
-        
-        if paginaActual <= numPaginas - 1 {
+        if (row + (paginaActual * numLineas)) < self.listadoTickets.count {
+             item = self.listadoTickets[row + (paginaActual * numLineas)]
+        } else {
             
+            b = false
+            
+        }
+
+        if b {
                 if tableColumn == tableView.tableColumns[0] { // Número
                     text = String(item["numero"]! as! Int)
                     celdaIdentificador = "numeroCellId"
