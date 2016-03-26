@@ -56,6 +56,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var individualButton: NSButton!
     @IBOutlet weak var gruposButton: NSButton!
     
+    @IBOutlet weak var precio_6_Individual: NSButton!
     @IBOutlet weak var precio_8_Individual: NSButton!
     @IBOutlet weak var precio_9_Individual: NSButton!
     @IBOutlet weak var precio_10_Individual: NSButton!
@@ -76,6 +77,9 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBOutlet weak var listarNSButton: NSButton!
     @IBOutlet weak var listadoTableView: NSTableView!
+    
+    
+    @IBOutlet weak var boxResumenListado: NSBox!
     @IBOutlet weak var totalTicketsNSTextField: NSTextField!
     @IBOutlet weak var totalEurosNSTextField: NSTextField!
     @IBOutlet weak var mediaNSTextField: NSTextField!
@@ -259,6 +263,13 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         //self.listadoView.setFrameSize(size)
         
     }
+    
+    @IBAction func imprimirResumenPushButton(sender: NSButton) {
+        self.boxResumenListado.hidden = false
+        self.imprimirResumen()
+        self.boxResumenListado.hidden = true
+    }
+    
     @IBAction func poner0particularPushButton(sender: NSButton) {
         
         self.contadorParticular = 0
@@ -308,6 +319,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.listadoTableView.reloadData()
         
         self.cambioPrecioNSView.hidden = true
+        self.boxResumenListado.hidden = true
         
     }
     
@@ -632,6 +644,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
         self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
 
+    }
+    
+    func imprimirResumen() {
+        // Impresion de un ticket resumen del dia
+        let t : ticketImpreso = ticketImpreso()
+        t.print(self.boxResumenListado as NSView)
     }
     
     func imprimirTicket() {
