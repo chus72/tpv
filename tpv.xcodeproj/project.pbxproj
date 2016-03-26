@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B006D3B1CA702F600D38109 /* impresionMensualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B006D3A1CA702F600D38109 /* impresionMensualViewController.swift */; };
 		4B0B84E71C4BECC700216C7F /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0B84E61C4BECC700216C7F /* Tickets.swift */; };
 		4B603D941C4E940900B47139 /* DocumentPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B603D921C4E940900B47139 /* DocumentPrint.swift */; };
 		4B774E011C4BBEF40010E114 /* listadoPrintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B774E001C4BBEF40010E114 /* listadoPrintingView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B006D3A1CA702F600D38109 /* impresionMensualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = impresionMensualViewController.swift; sourceTree = "<group>"; };
 		4B0B84E61C4BECC700216C7F /* Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tickets.swift; sourceTree = "<group>"; };
 		4B603D921C4E940900B47139 /* DocumentPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPrint.swift; sourceTree = "<group>"; };
 		4B74E7F41C39482300CA2DC7 /* tpv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = tpv.xcodeproj; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
+				4B006D3A1CA702F600D38109 /* impresionMensualViewController.swift */,
 				BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */,
 				BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */,
 				F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */,
@@ -194,6 +197,7 @@
 				BBF3D2D81C5FBEC0004281E6 /* ticketImpreso.swift in Sources */,
 				4B603D941C4E940900B47139 /* DocumentPrint.swift in Sources */,
 				4B0B84E71C4BECC700216C7F /* Tickets.swift in Sources */,
+				4B006D3B1CA702F600D38109 /* impresionMensualViewController.swift in Sources */,
 				4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */,
 				F9CF5E9A1C99E90300A598C3 /* listadoImpreso.swift in Sources */,
 				4B774E011C4BBEF40010E114 /* listadoPrintingView.swift in Sources */,

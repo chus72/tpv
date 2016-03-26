@@ -241,9 +241,15 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         if self.precioIndividualView.hidden == false || self.precioGruposView.hidden == false {
             self.cambioPrecioNSView.hidden = false
         }
+    }
+    
+    @IBAction func imprimirMensual(sender : AnyObject) {
         
+        print("Hola")
         
     }
+    
+    
     @IBAction func okNuevoPrecioPushButton(sender: NSButton) {
         
         guard let precio = Int(self.nuevoPrecioNSTextField.stringValue) else {
@@ -661,19 +667,24 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        let VC = segue.destinationController as! ImprimirListadoViewController
-        VC.representedObject = self.listadoTickets.count
+       
+        if segue.identifier == "segueImprimirListadoViewController" {
+            let VC = segue.destinationController as! ImprimirListadoViewController
+            VC.representedObject = self.listadoTickets.count
+            
+            let formato : NSDateFormatter = NSDateFormatter()
+            formato.dateFormat = "dd / MM / yyyy"
+            if self.inicioNSDatePicker.stringValue  == self.finalNSDatePicker.stringValue {
+                VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue)
+            } else {
+                VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue) + " - " + formato.stringFromDate(self.finalNSDatePicker.dateValue)        }
         
-        let formato : NSDateFormatter = NSDateFormatter()
-        formato.dateFormat = "dd / MM / yyyy"
-        if self.inicioNSDatePicker.stringValue  == self.finalNSDatePicker.stringValue {
-            VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue)
-        } else {
-            VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue) + " - " + formato.stringFromDate(self.finalNSDatePicker.dateValue)        }
+            VC.total = Float(self.totalEurosNSTextField.stringValue)!
         
-        VC.total = Float(self.totalEurosNSTextField.stringValue)!
-        
-        VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
-        VC.listadoTickets = self.listadoTickets
+            VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
+            VC.listadoTickets = self.listadoTickets
+        } else if segue.identifier == "segueImpresionMensual" {
+            print("VOY al IMPRESION")
+        }
     }
 }

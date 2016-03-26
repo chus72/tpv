@@ -663,9 +663,17 @@ CQ
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="EF443661-4E39-4F4D-B361-3023B4056555" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="small" id="PyT-we-FC0">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="GXc-Qu-ell"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="GXc-Qu-ell">
+                                    <connections>
+                                        <action selector="imprimirMensual:" target="Oky-zY-oP4" id="z3z-QQ-gzL"/>
+                                    </connections>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Z64-Bm-7Jm"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="QfL-0n-x6Y"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="QfL-0n-x6Y">
+                                    <connections>
+                                        <action selector="imprimirMensual:" target="Oky-zY-oP4" id="pqy-GX-BjF"/>
+                                    </connections>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="3Wp-5b-3ym"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="PpP-BD-SDc"/>
                                 <toolbarItem implicitItemIdentifier="EFAD026B-A163-46BB-96E9-1CD913D7EB87" label="Nuevo Precio" paletteLabel="Nuevo Precio" tag="-1" image="NSAdvanced" id="bZk-Ku-slY">
@@ -711,6 +719,31 @@ CQ
                 <customObject id="ctF-CY-CRk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-535" y="745"/>
+        </scene>
+        <!--Impresion Mensual View Controller-->
+        <scene sceneID="JV4-8I-x6O">
+            <objects>
+                <viewController id="n7A-Po-tPa" customClass="impresionMensualViewController" customModule="tpv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Omd-IU-l6F">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uK6-a8-Rnp">
+                                <rect key="frame" x="362" y="2" width="67" height="32"/>
+                                <buttonCell key="cell" type="push" title="Salir" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kkm-2f-ozi">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="salirPushButton:" target="n7A-Po-tPa" id="Ski-8Y-U5d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Ugj-bR-CTb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="34"/>
         </scene>
         <!--MARINAFERRY-->
         <scene sceneID="NBE-MG-SaR">
@@ -1206,7 +1239,7 @@ CQ
                                         </view>
                                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <font key="titleFont" metaFont="smallSystem"/>
+                                        <font key="titleFont" metaFont="system" size="11"/>
                                     </box>
                                 </subviews>
                                 <constraints>
@@ -1517,13 +1550,24 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-jp-jFH">
-                                <rect key="frame" x="960" y="760" width="84" height="21"/>
+                                <rect key="frame" x="862" y="760" width="84" height="21"/>
                                 <buttonCell key="cell" type="bevel" title="Resumen" bezelStyle="rounded" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="EZw-Xl-Yc4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="imprimirResumenPushButton:" target="oxq-Bs-qxr" id="FPL-Xj-j9K"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="666-07-EgX">
+                                <rect key="frame" x="948" y="753" width="91" height="32"/>
+                                <buttonCell key="cell" type="push" title="Mensual" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h2L-eb-DDS">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="imprimirListadoPushButton:" target="oxq-Bs-qxr" id="F1c-z8-5PL"/>
+                                    <segue destination="n7A-Po-tPa" kind="sheet" identifier="segueImpresionMensual" id="fY6-Dl-ri0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1594,7 +1638,7 @@ DQ
                 </viewController>
                 <customObject id="b15-uT-GYD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408" y="751.5"/>
+            <point key="canvasLocation" x="460" y="954.5"/>
         </scene>
         <!--Imprimir Listado View Controller-->
         <scene sceneID="yr7-Y0-zOE">
@@ -1626,7 +1670,7 @@ DQ
                                     <constraint firstAttribute="height" constant="21" id="8xG-4D-9GV"/>
                                     <constraint firstAttribute="width" constant="69" id="Rla-Dh-mlX"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kpZ-nX-4w5">
+                                <buttonCell key="cell" type="push" title="Imprimir" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kpZ-nX-4w5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1874,7 +1918,7 @@ DQ
                 </viewController>
                 <customObject id="TNV-21-uCd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="738.5"/>
+            <point key="canvasLocation" x="1492" y="721.5"/>
         </scene>
         <!--LOSBARKITOS-->
         <scene sceneID="eQp-jS-jNt">
