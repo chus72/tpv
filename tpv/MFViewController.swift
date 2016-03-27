@@ -320,7 +320,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         // Esto hace que los eventos sean recogidos en esta clase
         // Y envia la accion de "doble click" al nsVIew determinado
         self.listadoTableView.target = self
-        self.listadoTableView.doubleAction = "tableViewDoubleClick:"
+        self.listadoTableView.doubleAction = #selector(MFViewController.tableViewDoubleClick(_:))
         
         self.listadoTableView.reloadData()
         
@@ -373,7 +373,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         
         self.rellenarTicketsMasivos(respuesta)
-        for var c = cantidad; c > 0 ; c-- {
+        for var c = cantidad; c > 0 ; c -= 1 {
             self.numeroTicketNSTextField.stringValue = String(numeroTic - c + 1)
             self.imprimirTicket()
         }

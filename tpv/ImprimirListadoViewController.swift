@@ -51,6 +51,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         dismissController(self)
 
     }
+    @IBAction func salirPushButton(sender: NSButton) {
+        
+        self.dismissController(self)
+        
+    }
+    
     override func viewWillAppear() {
         self.fechaTextField.alignment = NSTextAlignment.Natural
         self.fechaTextField.stringValue = self.fecha
@@ -71,6 +77,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     }
     
 
+    // Metodos del delegado de la tableview
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
         // El numero de filas = 24 y es constante
@@ -79,8 +86,6 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
-        print("fila: \(row)")
         
         var text : String = ""
         var celdaIdentificador : String = ""
