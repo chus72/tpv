@@ -48,6 +48,24 @@ class impresionMensualViewController: NSViewController , NSTableViewDataSource, 
         } else if tableColumn == tableView.tableColumns[1] { // candidad de tickets
             text = String(item["cantidad"])
             celdaIdentificador = "cantidadCellId"
+        } else if tableColumn == tableView.tableColumns[4] { // bruto
+            text = String(item["bruto"])
+            celdaIdentificador = "brutoCellId"
+        } else if tableColumn == tableView.tableColumns[2] { // base
+            text = String(item["bruto"] as! Float / 1.21)
+            celdaIdentificador = "baseCellId"
+        } else { // tableView.tableColumns[3] iva
+            text = String((item["bruto"] as! Float) - (item["base"] as! Float))
+        }
+        
+        
+        
+        if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
+            celda.textField?.stringValue = text
+            return celda
+        }
+        return nil
+
     }
     
 }

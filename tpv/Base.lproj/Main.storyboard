@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -826,11 +826,11 @@ CQ
                                             <tableColumns>
                                                 <tableColumn identifier="" width="96" minWidth="10" maxWidth="3.4028234663852886e+38" id="tcB-WH-Jag">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Fecha">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="9FO-GF-Zom">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="fechaCellId" title="Text Cell" id="9FO-GF-Zom">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -839,11 +839,11 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="114" minWidth="10" maxWidth="3.4028234663852886e+38" id="EYf-aL-ZHX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Tickets">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="a7e-vV-tAd">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="cantidadCellId" title="Text Cell" id="a7e-vV-tAd">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -852,11 +852,11 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="88" minWidth="10" maxWidth="3.4028234663852886e+38" id="BM8-yt-Jpy">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Base">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="qaQ-rJ-5mV">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="baseCellId" title="Text Cell" id="qaQ-rJ-5mV">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -865,11 +865,11 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="80" minWidth="10" maxWidth="3.4028234663852886e+38" id="zzI-fe-acy">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="I.V.A.">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="MTd-qN-hqE">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="ivaCellId" title="Text Cell" id="MTd-qN-hqE">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -878,11 +878,11 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="135" minWidth="10" maxWidth="3.4028234663852886e+38" id="xYb-8H-IP4">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Total">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="DcX-AT-XYT">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="brutoCellId" title="Text Cell" id="DcX-AT-XYT">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -900,11 +900,11 @@ CQ
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="eSA-Nq-XWX">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="-7" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="UP6-aT-ead">
-                                    <rect key="frame" x="-15" y="23" width="16" height="0.0"/>
+                                    <rect key="frame" x="-14" y="15" width="15" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="IYq-iq-S6w">
@@ -1194,7 +1194,7 @@ CQ
                                                     <tableColumns>
                                                         <tableColumn width="77.74609375" minWidth="40" maxWidth="1000" id="Wh8-8t-16D">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Número">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="cellTitle"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -1231,7 +1231,7 @@ CQ
                                                         </tableColumn>
                                                         <tableColumn width="110.1640625" minWidth="40" maxWidth="1000" id="5PY-oV-LED">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Punto Venta">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="cellTitle"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -1268,7 +1268,7 @@ CQ
                                                         </tableColumn>
                                                         <tableColumn identifier="" width="194.76171875" minWidth="10" maxWidth="3.4028234663852886e+38" id="k7J-fY-KRm">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Fecha">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="cellTitle"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
@@ -1305,7 +1305,7 @@ CQ
                                                         </tableColumn>
                                                         <tableColumn identifier="" width="117" minWidth="10" maxWidth="3.4028234663852886e+38" id="ksI-7p-4Ss">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Precio">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="cellTitle"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </tableHeaderCell>
@@ -1346,7 +1346,7 @@ CQ
                                             <nil key="backgroundColor"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pd9-ej-hjN">
-                                            <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="-15" width="0.0" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="q0k-et-tEs">
@@ -1367,7 +1367,7 @@ CQ
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QQY-pl-j4a">
                                                     <rect key="frame" x="6" y="109" width="83" height="18"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Número Tickets:" id="9Kw-LJ-309">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -1383,7 +1383,7 @@ CQ
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-4Z-hak">
                                                     <rect key="frame" x="49" y="67" width="40" height="19"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Total:" id="bKx-YZ-lme">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -1409,7 +1409,7 @@ CQ
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-qs-uTP">
                                                     <rect key="frame" x="44" y="23" width="45" height="19"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Media:" id="h7j-Zx-5hV">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -1924,7 +1924,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn width="99" minWidth="40" maxWidth="1000" id="7x0-gX-qrC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Número">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1961,7 +1961,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn width="137" minWidth="40" maxWidth="1000" id="Bos-W7-tIX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Punto Venta">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1997,7 +1997,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="140" minWidth="10" maxWidth="3.4028234663852886e+38" id="ex5-YW-erp">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Fecha">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -2033,7 +2033,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="113" minWidth="10" maxWidth="3.4028234663852886e+38" id="oXJ-Fj-Ixh">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Precio">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -2078,7 +2078,7 @@ DQ
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="dhE-5s-1t0">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="QXg-Yp-WAx">
