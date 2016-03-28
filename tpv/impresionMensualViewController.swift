@@ -39,13 +39,15 @@ class impresionMensualViewController: NSViewController , NSTableViewDataSource, 
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         var text : String = ""
-        var celdaIndentificador : String = ""
+        var celdaIdentificador : String = ""
         let item = self.listado[row]
         
         if tableColumn == tableView.tableColumns[0] { // fecha
-            text = String(item("fecha")!)
-            
-        }
+            text = String(item["fecha"]!)
+            celdaIdentificador = "fechaCellId"
+        } else if tableColumn == tableView.tableColumns[1] { // candidad de tickets
+            text = String(item["cantidad"])
+            celdaIdentificador = "cantidadCellId"
     }
     
 }
