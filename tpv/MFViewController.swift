@@ -684,7 +684,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
             VC.listadoTickets = self.listadoTickets
         } else if segue.identifier == "segueImpresionMensual" {
-            print("VOY al IMPRESION")
         }
     }
 }

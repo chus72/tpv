@@ -10,9 +10,10 @@ import Cocoa
 
 class impresionMensualViewController: NSViewController , NSTableViewDataSource, NSTableViewDelegate {
 
+    @IBOutlet var listadoMensualNSView: NSView!
     @IBOutlet weak var mesNSTextField: NSTextField!
     @IBOutlet weak var tableview: NSTableView!
-    @IBOutlet var listadoMensualNSView: NSView!
+    @IBOutlet weak var tableViewScrollView : NSScrollView!
     
     var listado = [[String : AnyObject]]()
     
@@ -29,6 +30,8 @@ class impresionMensualViewController: NSViewController , NSTableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+         
+        self.tableview.reloadData()
     }
     
     // Metodos del delegado de la tableview
