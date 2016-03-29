@@ -1,45 +1,42 @@
 //
-//  impresionMensualViewController.swift
+//  listadoMensualViewController.swift
 //  tpv
 //
-//  Created by LosBarkitos on 26/3/16.
+//  Created by Jesus Valladolid Rebollar on 29/3/16.
 //  Copyright © 2016 LosBarkitos. All rights reserved.
 //
 
 import Cocoa
 
-class impresionMensualViewController: NSViewController , NSTableViewDataSource, NSTableViewDelegate {
+class listadoMensualViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
-    @IBOutlet var listadoMensualNSView: NSView!
-    @IBOutlet weak var mesNSTextField: NSTextField!
-    @IBOutlet weak var tableview: NSTableView!
-    @IBOutlet weak var tableViewScrollView : NSScrollView!
-    
     var listado = [[String : AnyObject]]()
+    var numRegistros = 0
+    @IBOutlet weak var mesNSLabel: NSTextField!
     
-    @IBAction func salirPushButton(sender: NSButton) {
-        self.dismissController(self)
-    }
-    
+    @IBOutlet weak var tableView: NSTableView!
     @IBAction func imprimirMensualPushButton(sender: NSButton) {
         let l : listadoImpreso = listadoImpreso()
-        l.print(self.listadoMensualNSView)
+      //  l.print(self.listadoMensualNSView)
         
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-         
-        self.tableview.reloadData()
+        
     }
     
-    // Metodos del delegado de la tableview
+    
+    // Metodos del tableview
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return self.listado.count
+        return self.numRegistros
+        
     }
-    
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+
+    func tableView(tableView: NSTableView,  tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         var text : String = ""
         var celdaIdentificador : String = ""
@@ -51,16 +48,15 @@ class impresionMensualViewController: NSViewController , NSTableViewDataSource, 
         } else if tableColumn == tableView.tableColumns[1] { // candidad de tickets
             text = String(item["cantidad"])
             celdaIdentificador = "cantidadCellId"
-        } else if tableColumn == tableView.tableColumns[4] { // bruto
-            text = String(item["bruto"])
-            celdaIdentificador = "brutoCellId"
-        } else if tableColumn == tableView.tableColumns[2] { // base
-            text = String(item["bruto"] as! Float / 1.21)
+        } else if tableColumn == tableView.tableColumns[2] { // bruto
+            text = String(item["base"])
             celdaIdentificador = "baseCellId"
-        } else { // tableView.tableColumns[3] iva
+        } else if tableColumn == tableView.tableColumns[3] { // base
+            text = String(item["iva"] as! Float / 1.21)
+            celdaIdentificador = "ivaCellId"
+        } else { // tableView.tableColumns[4] bruto
             text = String((item["bruto"] as! Float) - (item["base"] as! Float))
         }
-        
         
         
         if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
@@ -68,7 +64,7 @@ class impresionMensualViewController: NSViewController , NSTableViewDataSource, 
             return celda
         }
         return nil
-
     }
+
     
 }

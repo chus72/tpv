@@ -15,6 +15,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     var webService : webServiceCallAPI = webServiceCallAPI()
     //var listadoTickets = [[String : AnyObject]]?()
     var listadoTickets = [[String : AnyObject]]()
+    var listadoMensual = [[String : AnyObject]]()
     var diaHoy = (dia : 1, mes : 1, año : 1)
     
     var tic : Ticket = Ticket()
@@ -245,7 +246,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     @IBAction func imprimirMensual(sender : AnyObject) {
         
-        print("Hola")
+        webService.MFlistadoMensual(3, ano: 16)
         
     }
     
@@ -473,6 +474,28 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
     }
     
+    // LIstado mensual de los tickets vendidos
+    func listadoMensualMF(respuesta : [String : AnyObject]) {
+        var registro : [String : AnyObject] = [:]
+        self.listadoMensual = []
+        
+        // respuesta del servidor
+        for (k,v) in respuesta {
+            if k != "error" && k != "numero_dias" {
+                registro["fecha"]    = v["fecha"] as! String
+                registro["cantidad"] = v["viajes"] as! Int
+                registro["bruto"]    = v["total"] as! Float
+                registro["base"]     = v["total"] as! Float / 1.21
+                registro["iva"]      = 5//(registro["bruto"]  - registro["neto"]) as! Float
+            
+                self.listadoMensual.append(registro)
+            }
+            
+        }
+    }
+    
+    
+    
     func euros(respuesta : [String : Float]) {
         print("respuesta del servidor : total = \(respuesta)")
         for (k,v) in respuesta {
@@ -683,7 +706,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         
             VC.numTickets = Int(self.totalTicketsNSTextField.stringValue)!
             VC.listadoTickets = self.listadoTickets
-        } else if segue.identifier == "segueImpresionMensual" {
+        } else if segue.identifier == "segue_listadoMesual" {
+            let VC = segue.destinationController as! listadoMensualViewController
+            VC.numRegistros = self.listadoMensual.count
+            VC.listado = self.listadoMensual
         }
     }
 }

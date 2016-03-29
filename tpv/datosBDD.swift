@@ -27,6 +27,8 @@ protocol datosBDD {
     func estadisticas(_ : [String : AnyObject])
     // Funcion que devuelva el listado segun las fechas indicadas
     func listadoMF(_ : [String : AnyObject])
+    // Entrega el listado por MES
+    func listadoMensualMF(_ : [String : AnyObject])
     
 }
 
@@ -113,6 +115,17 @@ class webServiceCallAPI: NSObject {
                 
         }
     }
+    
+    func MFlistadoMensual(mes : Int, ano : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/MFlistado_mensual/" + String(mes) + "/" + String(ano)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.listadoMensualMF(diccionario)
+                }
+        }
+    }
+
     
     //url(r'^MFeuros/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/(\d{1,2})/$', MFeuros),
     //datos = {'error' : 0, 'total' : total}
