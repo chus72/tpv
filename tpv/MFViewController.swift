@@ -362,7 +362,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
                 print("ERROR EN EL SERVIDOR")
             } else {
                 if k as String == "cantidad" {
-                    print(v as! Int)
+                   // print(v as! Int)
                     cantidad = v as! Int
                 } else {
                     if k as String == "numero" {
@@ -382,7 +382,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     
     func ticketRecuperado(respuesta : [String : AnyObject]) {
-        print("respuesta del servidor : \(respuesta)")
+       // print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "numero" {
                 print("REGISTRO \(v as! String) RECUPERADO CORRECTAMENTE")
@@ -414,7 +414,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     
     func ticketModificado(respuesta : [String : AnyObject]) {
-        print("respuesta del servidor : \(respuesta)")
+        //print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 0 {
                 print("REGISTRO MODIFICADO")
@@ -468,17 +468,17 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.listadoTickets.sortInPlace { (primero : [String : AnyObject], segundo : [String : AnyObject]) -> Bool in
             return segundo["numero"] as! Int > primero["numero"] as! Int
         }
-        print("Registro para el tableview \(self.listadoTickets)")
+        //print("Registro para el tableview \(self.listadoTickets)")
         self.listadoTableView.reloadData()
         
     }
     
     
     func euros(respuesta : [String : Float]) {
-        print("respuesta del servidor : total = \(respuesta)")
+        //print("respuesta del servidor : total = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "total" {
-                print("Total Euros : " + String(v))
+               // print("Total Euros : " + String(v))
                 self.totalEurosNSTextField.stringValue = String(v)
                // self.total€ = Float(v)
             }
@@ -488,10 +488,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     
     func media(respuesta : [String : Float]) {
-        print("respuesta del servidor : media = \(respuesta)")
+       // print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "media" {
-                print("Media : " + String(v))
+               // print("Media : " + String(v))
                 self.mediaNSTextField.stringValue = String(v)
                 //self.media€ = Float(v)
             }
@@ -500,10 +500,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     
     func numeroTickets(respuesta : [String : Int]) {
-        print("respuesta del servidor : media = \(respuesta)")
+        //print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "media" {
-                print("Numero Tickets : " + String(v))
+              //7  print("Numero Tickets : " + String(v))
                 self.mediaNSTextField.stringValue = String(v)
                 //self.numeroTickets = Int(v)
             }
@@ -512,7 +512,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     }
     
     func estadisticas(respuesta : [String : AnyObject]) {
-        print("respuesta del servidor : media = \(respuesta)")
+       // print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
             if k as String == "media" {
               //  print("Media : " + String(Float(v as! NSNumber)))
