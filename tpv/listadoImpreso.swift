@@ -19,7 +19,7 @@ class listadoImpreso: NSView {
     override func print(sender: AnyObject?) {
         
         self.printInfo.printer = NSPrinter(name: "KONICA")!
-        self.printInfo.leftMargin  = 30.0
+        self.printInfo.leftMargin  = 10.0
         self.printInfo.rightMargin = 0.0
         self.printInfo.topMargin = 0.0
         self.printInfo.bottomMargin = 0.0

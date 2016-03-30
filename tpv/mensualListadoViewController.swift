@@ -19,6 +19,12 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     var numRegistros = 0
     var listado = [[String : AnyObject]]()
     
+    @IBAction func imprimir(sender: NSButton) {
+        let l : listadoImpreso = listadoImpreso()
+        l.print(self.viewListado)
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +55,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
             var seg : String = segundo["fecha"] as! String
             seg = seg.substringWithRange(Range<String.Index>(start: seg.startIndex, end: seg.endIndex.advancedBy(-5)))
             
-            print("\(pri) - \(seg)")
             return Int(seg) > Int(pri)
         }
 
@@ -70,8 +75,20 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         //if let item : [String : AnyObject]? = self.listado[row]  {
             let item = self.listado[row]
             if tableColumn == tableView.tableColumns[0] {
-                text = String(item["fecha"])
+                text = String(item["fecha"]!)
                 celdaIdentificador = "fechaID"
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = String(item["cantidad"]!)
+                celdaIdentificador = "cantidadID"
+            } else if tableColumn == tableView.tableColumns[2] {
+                text = String(item["base"]!)
+                celdaIdentificador = "baseID"
+            } else if tableColumn == tableView.tableColumns[3] {
+                text = String(item["iva"]!)
+                celdaIdentificador = "ivaID"
+            } else {
+                text = String(item["bruto"]!)
+                celdaIdentificador = "brutoID"
             }
         
         
