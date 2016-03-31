@@ -13,6 +13,7 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     @IBOutlet var viewListado: NSView!
     @IBOutlet weak var mesNSTextField: NSTextField!
     @IBOutlet weak var tableview: NSTableView!
+    @IBOutlet weak var mesComboBox: NSComboBox!
     
     var webService : webServiceCallApi2 = webServiceCallApi2()
 

@@ -747,11 +747,11 @@ CQ
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swz-We-aFO">
                                 <rect key="frame" x="20" y="133" width="490" height="556"/>
                                 <clipView key="contentView" ambiguous="YES" id="mt1-mb-bO9">
-                                    <rect key="frame" x="1" y="23" width="488" height="532"/>
+                                    <rect key="frame" x="1" y="0.0" width="488" height="555"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="UgD-kQ-UVs" viewBased="YES" id="vbX-Kt-5cA">
-                                            <rect key="frame" x="0.0" y="0.0" width="490" height="532"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="488" height="532"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -885,7 +885,7 @@ CQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="brutoID" width="95" minWidth="10" maxWidth="3.4028234663852886e+38" id="FVg-el-BcZ">
+                                                <tableColumn identifier="brutoID" width="93" minWidth="10" maxWidth="3.4028234663852886e+38" id="FVg-el-BcZ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Bruto">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -926,16 +926,16 @@ CQ
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="ert-fP-EW1">
-                                    <rect key="frame" x="1" y="539" width="488" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ert-fP-EW1">
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="HwJ-wR-eMj">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="HwJ-wR-eMj">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="UgD-kQ-UVs">
-                                    <rect key="frame" x="0.0" y="0.0" width="490" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="488" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -949,9 +949,32 @@ CQ
                                     <action selector="imprimir:" target="mlu-xg-OFB" id="AZn-qf-nN1"/>
                                 </connections>
                             </button>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SFA-gx-tpb">
+                                <rect key="frame" x="217" y="701" width="99" height="26"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="XgG-3o-qVk">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Enero</string>
+                                        <string>Febrero</string>
+                                        <string>Marzo</string>
+                                        <string>Abril</string>
+                                        <string>Mayo</string>
+                                        <string>Junio</string>
+                                        <string>Julio</string>
+                                        <string>Agosto</string>
+                                        <string>Septiembre</string>
+                                        <string>Octubre</string>
+                                        <string>Noviembre</string>
+                                        <string>Diciembre</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="mesComboBox" destination="SFA-gx-tpb" id="6FP-9g-s3p"/>
                         <outlet property="mesNSTextField" destination="1i8-3Q-9GM" id="zOv-QB-rUy"/>
                         <outlet property="tableview" destination="vbX-Kt-5cA" id="PKe-HY-Tmd"/>
                         <outlet property="viewListado" destination="4A1-FY-szS" id="z6d-cR-4Zi"/>
@@ -1383,7 +1406,7 @@ CQ
                                             <nil key="backgroundColor"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="pd9-ej-hjN">
-                                            <rect key="frame" x="1" y="463" width="520" height="16"/>
+                                            <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="q0k-et-tEs">
