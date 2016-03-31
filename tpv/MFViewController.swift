@@ -107,6 +107,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
     @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
     
+    
+    
     // Botones control ticket
     @IBOutlet weak var botonesTicketNSview: NSView!
     @IBOutlet weak var imprimirTicketNSButton: NSButton!

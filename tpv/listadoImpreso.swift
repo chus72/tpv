@@ -31,8 +31,8 @@ class listadoImpreso: NSView {
         self.printInfo.verticalPagination = pag
         
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
-        //op.showsPrintPanel = true
-        op.showsPrintPanel = false
+        op.showsPrintPanel = true
+        //op.showsPrintPanel = false
         op.runOperation()
     }
 }

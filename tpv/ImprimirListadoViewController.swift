@@ -18,9 +18,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     @IBOutlet weak var totalTextField: NSTextField!
     
     @IBOutlet weak var botonImprimirPushButton : NSButton!
+    @IBOutlet weak var salirButton: NSButton!
     
     @IBOutlet weak var tableViewScrollView: NSScrollView!
     @IBOutlet weak var boxTotalesNSBox: NSBox!
+    
+    
     var fecha : String = ""
     var numTickets : Int = 0
     var total : Float = 0.0
@@ -30,27 +33,36 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     var listadoTickets = [[String : AnyObject]]()
     let numLineas = 38
     var lineaActual = 0
-    var numPaginas = 0
+    var numPaginas = 1
     var paginaActual = 0
     
     @IBAction func botonImprimir(sender: NSButton) {
-        for _ in 2 ... numPaginas + 1 {
-            sender.hidden = true
-            let l : listadoImpreso = listadoImpreso()
-            l.print(self.viewListado)
+        self.botonImprimirPushButton.hidden = true
+        self.salirButton.hidden = true
+        
+        if self.listadoTickets.count > self.numLineas {
+            for _ in 2 ... numPaginas + 1 {
+                sender.hidden = true
+                let l : listadoImpreso = listadoImpreso()
+                l.print(self.viewListado)
             
-            if (paginaActual == numPaginas ) {
-              }
-            paginaActual += 1
-            self.tableView.reloadData()
+                if (paginaActual == numPaginas ) {
+                }
+                paginaActual += 1
+                self.tableView.reloadData()
+            }
         }
         self.boxTotalesNSBox.hidden = false
         self.viewListado.setNeedsDisplayInRect(NSRect(x : 0, y : 0, width: 500, height : 775))
         let l : listadoImpreso = listadoImpreso()
         l.print(self.viewListado)
+        self.botonImprimirPushButton.hidden = true
+        self.salirButton.hidden = true
+
         dismissController(self)
 
     }
+    
     @IBAction func salirPushButton(sender: NSButton) {
         
         self.dismissController(self)
@@ -87,6 +99,12 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
+        let formato : NSNumberFormatter = NSNumberFormatter()
+        formato.maximumFractionDigits = 2
+        formato.minimumFractionDigits = 2
+        formato.roundingMode = .RoundHalfEven
+
+        
         var text : String = ""
         var celdaIdentificador : String = ""
         // Item contiene el registro a meter en la tableView
@@ -114,7 +132,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
                     text = str.substringToIndex(index)
                     celdaIdentificador = "fechaCellId"
                 } else if tableColumn == tableView.tableColumns[3] { // precio
-                    text = String(item["precio"]! as! Float)
+                    text = formato.stringFromNumber(item["precio"] as! NSNumber)!
                     celdaIdentificador = "precioCellId"
                 }
             

@@ -14,25 +14,78 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     @IBOutlet weak var mesNSTextField: NSTextField!
     @IBOutlet weak var tableview: NSTableView!
     @IBOutlet weak var mesComboBox: NSComboBox!
+    @IBOutlet weak var mesNSview: NSView!
+    @IBOutlet weak var botonOKButton: NSButton!
+    @IBOutlet weak var imprimirButton: NSButton!
+    @IBOutlet weak var cerrarButton : NSButton!
+    @IBOutlet weak var cambiarMesButton: NSButton!
     
     var webService : webServiceCallApi2 = webServiceCallApi2()
 
     var numRegistros = 0
     var listado = [[String : AnyObject]]()
     
+    @IBAction func cambiarMesPush(sender: NSButton) {
+        
+        self.mesNSTextField.hidden = true
+        self.mesNSview.hidden = false
+        self.imprimirButton.enabled = false
+        sender.hidden = true
+        
+    }
     @IBAction func imprimir(sender: NSButton) {
+        
+        self.imprimirButton.hidden = true
+        self.mesNSview.hidden = true
+        self.cerrarButton.hidden = true
         let l : listadoImpreso = listadoImpreso()
         l.print(self.viewListado)
+        self.imprimirButton.hidden = false
+        self.mesNSview.hidden = false
+        self.cerrarButton.hidden = false
+
         
     }
     
+    @IBAction func botonOkPushButton(sender: NSButton) {
+        
+        
+        let mes = self.mesComboBox.indexOfSelectedItem + 1
+        webService.MFlistadoMensual(mes, ano: 16)
+        
+        self.mesNSTextField.stringValue = self.mesComboBox.stringValue
+        self.mesNSview.hidden = true
+        self.mesNSTextField.hidden = false
+        self.cambiarMesButton.hidden = false
+        self.imprimirButton.enabled = true
+        
+    }
 
+    @IBAction func mesNsTextFieldPush(sender: NSTextField) {
+        
+        self.mesNSTextField.hidden = true
+        self.cambiarMesButton.hidden = true
+        self.mesNSview.hidden = false
+        self.imprimirButton.enabled = false
+        
+    }
+    
+    @IBAction func cerrarPush(sender: NSButton) {
+        
+        self.dismissController(self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        webService.delegate = self
+        self.mesNSview.hidden = false
+        self.mesNSTextField.hidden = true
+        self.cambiarMesButton.hidden = true
+        self.imprimirButton.enabled = false
         
-        webService.MFlistadoMensual(3, ano: 16)
+        webService.delegate = self
+        //webService.MFlistadoMensual(3, ano: 16)
     }
     
     func listadoMensualMF(respuesta : [String : AnyObject]) {
@@ -58,8 +111,8 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
             
             return Int(seg) > Int(pri)
         }
-
-        self.tableview.reloadData()
+        
+            self.tableview.reloadData()
     }
     
     
@@ -72,6 +125,11 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         var text : String = ""
         var celdaIdentificador : String = ""
         
+        let formato : NSNumberFormatter = NSNumberFormatter()
+        formato.maximumFractionDigits = 2
+        formato.minimumFractionDigits = 2
+        formato.roundingMode = .RoundHalfEven
+        
         if self.listado.count > 0 {
         //if let item : [String : AnyObject]? = self.listado[row]  {
             let item = self.listado[row]
@@ -82,13 +140,13 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
                 text = String(item["cantidad"]!)
                 celdaIdentificador = "cantidadID"
             } else if tableColumn == tableView.tableColumns[2] {
-                text = String(item["base"]!)
+                text = formato.stringFromNumber(item["base"] as! NSNumber)!
                 celdaIdentificador = "baseID"
             } else if tableColumn == tableView.tableColumns[3] {
-                text = String(item["iva"]!)
+                text = formato.stringFromNumber(item["iva"] as! NSNumber)!
                 celdaIdentificador = "ivaID"
             } else {
-                text = String(item["bruto"]!)
+                text = formato.stringFromNumber(item["bruto"] as! NSNumber)!
                 celdaIdentificador = "brutoID"
             }
         
