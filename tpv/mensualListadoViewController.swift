@@ -20,10 +20,22 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     @IBOutlet weak var cerrarButton : NSButton!
     @IBOutlet weak var cambiarMesButton: NSButton!
     
+    // propiedades del recuadro de totales
+    @IBOutlet weak var total_tickets: NSTextField!
+    @IBOutlet weak var neto: NSTextField!
+    @IBOutlet weak var IVA: NSTextField!
+    @IBOutlet weak var bruto: NSTextField!
+    
+    
     var webService : webServiceCallApi2 = webServiceCallApi2()
 
     var numRegistros = 0
     var listado = [[String : AnyObject]]()
+    
+    var totalTickets : Int = 0
+    var totalBruto : Float = 0.0
+    
+    let formato : NSNumberFormatter = NSNumberFormatter()
     
     @IBAction func cambiarMesPush(sender: NSButton) {
         
@@ -79,6 +91,12 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        formato.maximumFractionDigits = 2
+        formato.minimumFractionDigits = 2
+        formato.roundingMode = .RoundHalfEven
+
+        
         self.mesNSview.hidden = false
         self.mesNSTextField.hidden = true
         self.cambiarMesButton.hidden = true
@@ -112,7 +130,9 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
             return Int(seg) > Int(pri)
         }
         
-            self.tableview.reloadData()
+        totales()
+        self.tableview.reloadData()
+        
     }
     
     
@@ -125,13 +145,7 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         var text : String = ""
         var celdaIdentificador : String = ""
         
-        let formato : NSNumberFormatter = NSNumberFormatter()
-        formato.maximumFractionDigits = 2
-        formato.minimumFractionDigits = 2
-        formato.roundingMode = .RoundHalfEven
-        
         if self.listado.count > 0 {
-        //if let item : [String : AnyObject]? = self.listado[row]  {
             let item = self.listado[row]
             if tableColumn == tableView.tableColumns[0] {
                 text = String(item["fecha"]!)
@@ -146,6 +160,7 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
                 text = formato.stringFromNumber(item["iva"] as! NSNumber)!
                 celdaIdentificador = "ivaID"
             } else {
+                self.totalBruto += item["bruto"] as! Float
                 text = formato.stringFromNumber(item["bruto"] as! NSNumber)!
                 celdaIdentificador = "brutoID"
             }
@@ -162,6 +177,12 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         }
 
         return nil
+    }
+    
+    func totales() {
+        self.total_tickets.stringValue = String(self.listado.count)
+        self.bruto = (formato.stringFromNumber(self.totalBruto as NSNumber))!
+        self.neto =
     }
     
 }
