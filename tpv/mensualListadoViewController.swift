@@ -17,7 +17,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     @IBOutlet weak var tableview: NSTableView!
     @IBOutlet weak var mesComboBox: NSComboBox!
     @IBOutlet weak var mesNSview: NSView!
-    @IBOutlet weak var botonOKButton: NSButton!
     @IBOutlet weak var imprimirButton: NSButton!
     @IBOutlet weak var cerrarButton : NSButton!
     @IBOutlet weak var cambiarMesButton: NSButton!
@@ -36,6 +35,8 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     
     var totalTickets : Int = 0
     var totalBruto : Float = 0.0
+    var totalNeto : Float = 0.0
+    var totalIVA : Float = 0.0
     
     let formato : NSNumberFormatter = NSNumberFormatter()
     
@@ -158,9 +159,11 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
                 totales()
                 celdaIdentificador = "cantidadID"
             } else if tableColumn == tableView.tableColumns[2] {
+                self.totalNeto += item["base"] as! Float
                 text = formato.stringFromNumber(item["base"] as! NSNumber)!
                 celdaIdentificador = "baseID"
             } else if tableColumn == tableView.tableColumns[3] {
+                self.totalIVA += item["iva"] as! Float
                 text = formato.stringFromNumber(item["iva"] as! NSNumber)!
                 celdaIdentificador = "ivaID"
             } else {
@@ -185,9 +188,12 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     
     func totales() {
         self.total_tickets.stringValue = String(self.totalTickets)
-        self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
+        /*self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
         self.neto .stringValue = (formato.stringFromNumber((self.totalBruto  / 1.21) as NSNumber))!
-        self.IVA.stringValue = (formato.stringFromNumber(self.totalBruto - (self.totalBruto / 1.21)))!
+        self.IVA.stringValue = (formato.stringFromNumber(self.totalBruto - (self.totalBruto / 1.21)))!*/
+        self.bruto.stringValue = String(self.totalBruto)
+        self.neto.stringValue = String(self.totalNeto)
+        self.IVA.stringValue = String(self.totalIVA)
     }
     
 }
