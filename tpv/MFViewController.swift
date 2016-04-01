@@ -34,6 +34,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
     }
     
+    let formato : NSNumberFormatter = NSNumberFormatter()
+    
     let printInfo : NSPrintInfo = NSPrintInfo.sharedPrintInfo()
     /// Estas variables controlan los nstextview del listado
  /*   var total€ : Float = 0.0 {
@@ -291,6 +293,10 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formato.maximumFractionDigits = 2
+        formato.minimumFractionDigits = 2
+        formato.roundingMode = .RoundHalfEven
         
         self.contGruposNsTextField.stringValue = "0"
         self.contParticularesNsTextField.stringValue = "0"
@@ -564,7 +570,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             text = String(item["fecha"]! as! String)
             celdaIdentificador = "fechaCellId"
         } else if tableColumn == tableView.tableColumns[3] { // precio
-            text = String(item["precio"]! as! Float)
+            text = formato.stringFromNumber(item["precio"] as! NSNumber)!
             celdaIdentificador = "precioCellId"
         }
 

@@ -8,6 +8,8 @@
 
 import Cocoa
 
+
+
 class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet var viewListado: NSView!
@@ -96,13 +98,13 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         formato.minimumFractionDigits = 2
         formato.roundingMode = .RoundHalfEven
 
-        
         self.mesNSview.hidden = false
         self.mesNSTextField.hidden = true
         self.cambiarMesButton.hidden = true
         self.imprimirButton.enabled = false
         
         webService.delegate = self
+        totales()
         //webService.MFlistadoMensual(3, ano: 16)
     }
     
@@ -130,7 +132,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
             return Int(seg) > Int(pri)
         }
         
-        totales()
         self.tableview.reloadData()
         
     }
@@ -139,6 +140,7 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return self.listado.count
     }
+    
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
@@ -151,7 +153,9 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
                 text = String(item["fecha"]!)
                 celdaIdentificador = "fechaID"
             } else if tableColumn == tableView.tableColumns[1] {
+                self.totalTickets += item["cantidad"] as! Int
                 text = String(item["cantidad"]!)
+                totales()
                 celdaIdentificador = "cantidadID"
             } else if tableColumn == tableView.tableColumns[2] {
                 text = formato.stringFromNumber(item["base"] as! NSNumber)!
@@ -180,9 +184,10 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     }
     
     func totales() {
-        self.total_tickets.stringValue = String(self.listado.count)
-        self.bruto = (formato.stringFromNumber(self.totalBruto as NSNumber))!
-        self.neto =
+        self.total_tickets.stringValue = String(self.totalTickets)
+        self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
+        self.neto .stringValue = (formato.stringFromNumber((self.totalBruto  / 1.21) as NSNumber))!
+        self.IVA.stringValue = (formato.stringFromNumber(self.totalBruto - (self.totalBruto / 1.21)))!
     }
     
 }

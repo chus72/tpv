@@ -19,20 +19,20 @@ class listadoImpreso: NSView {
     override func print(sender: AnyObject?) {
         
         self.printInfo.printer = NSPrinter(name: "KONICA")!
-        self.printInfo.leftMargin  = 10.0
+        self.printInfo.leftMargin  = 0.0
         self.printInfo.rightMargin = 0.0
         self.printInfo.topMargin = 0.0
         self.printInfo.bottomMargin = 0.0
         self.printInfo.horizontallyCentered = true
         self.printInfo.verticallyCentered = true
         self.printInfo.jobDisposition = NSPrintSpoolJob
-        self.printInfo.paperSize = NSSize(width: 480, height: 730)
+        self.printInfo.paperSize = NSSize(width: 595, height: 841)
         let pag : NSPrintingPaginationMode = NSPrintingPaginationMode.FitPagination
         self.printInfo.verticalPagination = pag
-        
+    
         let op = NSPrintOperation.init(view: sender as! NSView, printInfo: self.printInfo)
-        op.showsPrintPanel = true
-        //op.showsPrintPanel = false
+        //op.showsPrintPanel = true
+        op.showsPrintPanel = false
         op.runOperation()
     }
 }
