@@ -33,10 +33,26 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     var numRegistros = 0
     var listado = [[String : AnyObject]]()
     
-    var totalTickets : Int = 0
-    var totalBruto : Float = 0.0
-    var totalNeto : Float = 0.0
-    var totalIVA : Float = 0.0
+    var totalTickets : Int = 0 {
+        didSet {
+            self.total_tickets.stringValue = String(self.totalTickets)
+        }
+    }
+    var totalBruto : Float = 0.0 {
+        didSet {
+            self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
+        }
+    }
+    var totalNeto : Float = 0.0 {
+        didSet {
+            self.neto.stringValue = (formato.stringFromNumber(self.totalNeto as NSNumber))!
+        }
+    }
+    var totalIVA : Float = 0.0 {
+        didSet {
+            self.IVA.stringValue = (formato.stringFromNumber(self.totalIVA as NSNumber))!
+        }
+    }
     
     let formato : NSNumberFormatter = NSNumberFormatter()
     
@@ -105,8 +121,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         self.imprimirButton.enabled = false
         
         webService.delegate = self
-        totales()
-        //webService.MFlistadoMensual(3, ano: 16)
     }
     
     func listadoMensualMF(respuesta : [String : AnyObject]) {
@@ -150,13 +164,13 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         
         if self.listado.count > 0 {
             let item = self.listado[row]
+            print(item["brutoID"])
             if tableColumn == tableView.tableColumns[0] {
                 text = String(item["fecha"]!)
                 celdaIdentificador = "fechaID"
             } else if tableColumn == tableView.tableColumns[1] {
                 self.totalTickets += item["cantidad"] as! Int
                 text = String(item["cantidad"]!)
-                totales()
                 celdaIdentificador = "cantidadID"
             } else if tableColumn == tableView.tableColumns[2] {
                 self.totalNeto += item["base"] as! Float
@@ -184,16 +198,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         }
 
         return nil
-    }
-    
-    func totales() {
-        self.total_tickets.stringValue = String(self.totalTickets)
-        /*self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
-        self.neto .stringValue = (formato.stringFromNumber((self.totalBruto  / 1.21) as NSNumber))!
-        self.IVA.stringValue = (formato.stringFromNumber(self.totalBruto - (self.totalBruto / 1.21)))!*/
-        self.bruto.stringValue = String(self.totalBruto)
-        self.neto.stringValue = String(self.totalNeto)
-        self.IVA.stringValue = String(self.totalIVA)
     }
     
 }
