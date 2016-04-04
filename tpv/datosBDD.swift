@@ -35,6 +35,12 @@ protocol datosBBD2 {
 
 }
 
+protocol datosBDD_LB {
+    func estadisticas(_ : [String : AnyObject])
+    func listadoLB(_ : [String : AnyObject])
+}
+
+
 class webServiceCallApi2 : NSObject {
     var delegate : datosBBD2?
     
@@ -189,5 +195,32 @@ class webServiceCallAPI: NSObject {
         }
     
     }
+}
+
+class webServiceCallAPI_LB: NSObject {
+    var delegate : datosBDD_LB?
     
+    func LBlistado(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBlistado/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.listadoLB (diccionario)
+                }
+                
+        }
+    }
+    
+    func LBestadisticas(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBestadisticas/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.estadisticas(diccionario)
+                }
+                
+        }
+        
+    }
+
 }

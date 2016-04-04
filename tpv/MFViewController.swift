@@ -37,23 +37,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     let formato : NSNumberFormatter = NSNumberFormatter()
     
     let printInfo : NSPrintInfo = NSPrintInfo.sharedPrintInfo()
-    /// Estas variables controlan los nstextview del listado
- /*   var total€ : Float = 0.0 {
-        willSet {
-            self.totalEurosNSTextField.stringValue = String(total€)
-        }
-
-    }
-    var media€ : Float = 0.0 {
-        willSet {
-            self.mediaNSTextField.stringValue = String(media€)
-        }
-    }
-    var numeroTickets : Int = 0 {
-        willSet {
-            self.totalTicketsNSTextField.stringValue = String(numeroTickets)
-        }
-    }*/
     
     
     @IBOutlet weak var individualButton: NSButton!
@@ -435,15 +418,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.listadoTickets = []
        // print("respuesta del servidor : \(respuesta)")
         for (k,v) in respuesta {
-           // print(k)
-           // print(v)
-            /*if k == "numero_particulas" {
-                self.contadorParticular = v as! Int
-            }
-            if k == "numero_grupos" {
-                self.contadorGrupo = v as! Int
-            }
-            */
+      
             if k != "error" && k != "numero_tickets" && k != "numero_grupos" && k != "numero_particulas" {
                 registro["numero"] = v["numero"] as! Int
                 if v["punto_venta"] as! Int == 1 {
