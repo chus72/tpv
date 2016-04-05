@@ -904,7 +904,7 @@ CQ
                                             <tableColumns>
                                                 <tableColumn identifier="fechaID" width="87" minWidth="40" maxWidth="1000" id="Z9I-gT-USh">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Fecha">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -936,7 +936,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="cantidadID" width="87" minWidth="40" maxWidth="1000" id="pNa-A0-ERP">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cantidad">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -968,7 +968,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="baseID" width="89" minWidth="10" maxWidth="3.4028234663852886e+38" id="ERk-k4-bKW">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Base">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -1000,7 +1000,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="ivaID" width="90" minWidth="10" maxWidth="3.4028234663852886e+38" id="UMa-Al-RCw">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="I.V.A.">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -1032,7 +1032,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="brutoID" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="FVg-el-BcZ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Bruto">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -1072,7 +1072,7 @@ CQ
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ert-fP-EW1">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="502" width="498" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="HwJ-wR-eMj">
@@ -1569,7 +1569,7 @@ CQ
                                             <nil key="backgroundColor"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pd9-ej-hjN">
-                                            <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="q0k-et-tEs">
@@ -2412,7 +2412,7 @@ DQ
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="" width="97" minWidth="10" maxWidth="3.4028234663852886e+38" id="vkc-U0-Tfs">
+                                                        <tableColumn identifier="" width="294" minWidth="10" maxWidth="3.4028234663852886e+38" id="vkc-U0-Tfs">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Precio">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2426,7 +2426,7 @@ DQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="precioCellId" id="6OR-y9-RKg">
-                                                                    <rect key="frame" x="252" y="1" width="97" height="17"/>
+                                                                    <rect key="frame" x="252" y="1" width="294" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDl-LD-iqX">
@@ -2454,7 +2454,7 @@ DQ
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Waj-ie-oHE">
-                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="6Ku-nX-0ff">
@@ -2552,7 +2552,7 @@ DQ
                 </viewController>
                 <customObject id="nbA-o1-JbP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190.5" y="1778"/>
+            <point key="canvasLocation" x="-13.5" y="2054"/>
         </scene>
     </scenes>
     <resources>

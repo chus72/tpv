@@ -18,7 +18,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     
     var listadoViajes = [[String : AnyObject]]()
     var listadoViajesB = [[String : AnyObject]]()
-    var listAux = [[String : AnyObject]]()
+ //   var listAux = [[String : AnyObject]]()
     var listadoMensual = [[String : AnyObject]]()
     var diaHoy = (dia : 1, mes : 1, año : 1)
     
@@ -29,6 +29,9 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     let formato : NSNumberFormatter = NSNumberFormatter()
     
     let printInfo : NSPrintInfo = NSPrintInfo.sharedPrintInfo()
+    
+    let color : CGColor = NSColor(red: 200, green: 0, blue: 0, alpha: 0.3).CGColor
+    let colorB: CGColor = NSColor(red: 200, green: 0, blue: 0, alpha: 0.6).CGColor
     
     
     
@@ -51,6 +54,11 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         if self.switchNsSegmented.isEnabledForSegment(0) {
             self.blanco = !(self.blanco)
         }
+        if self.blanco == true {
+            self.view.layer?.backgroundColor = self.colorB
+        } else {
+            self.view.layer?.backgroundColor = self.color
+        }
         
     }
     
@@ -69,9 +77,16 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         let añoI : String = formato.stringFromDate(inicioNSDatePicker.dateValue)
         let añoF : String = formato.stringFromDate(finalNSDatePicker.dateValue)
         
-        webService.LBlistado(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+        if self.blanco == true {
+            webService.LBlistadoB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
         
-        webService.LBestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+            webService.LBestadisticasB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+        } else {
+            webService.LBlistado(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+            
+            webService.LBestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+
+        }
 
     }
     
@@ -104,7 +119,6 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         
         webService.delegate = self
         
-        webService.LBlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         if self.blanco == true {
             webService.LBlistadoB(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
             webService.LBestadisticasB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
@@ -125,7 +139,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         
         
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.redColor().CGColor
+        self.view.layer?.backgroundColor = self.colorB
     }
     
     func listadoLB(respuesta : [String : AnyObject]) {
@@ -178,19 +192,9 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
                 
                 viajes.append(v)
                 
-                // Montar la estructura en blanco
-                montarBlanco()
-                
-                // Elegir la lista a representar
-                if self.blanco == true {
-                     listAux  = self.listadoViajesB
-                } else {
-                     listAux  = self.listadoViajes
-                }
-
             }
         }
-        self.listAux.sortInPlace { (primero : [String : AnyObject], segundo : [String : AnyObject]) -> Bool in
+        self.listadoViajes.sortInPlace { (primero : [String : AnyObject], segundo : [String : AnyObject]) -> Bool in
             return segundo["numero"] as! Int > primero["numero"] as! Int
         }
         
@@ -227,7 +231,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
 
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
 
-        return self.listAux.count
+        return self.listadoViajes.count
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -235,7 +239,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         var text : String = ""
         var celdaIdentificador : String = ""
         // Item contiene el registro a meter en la Tableview
-        let item = self.listAux[row]
+        let item = self.listadoViajes[row]
         if tableColumn == tableView.tableColumns[0] { // Número
             text = String(item["numero"]! as! Int)
             celdaIdentificador = "numeroCellId"
@@ -256,7 +260,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         return nil
     }
         
-    
+/*
     func montarBlanco() {
         
         for v in self.listadoViajes {
@@ -269,7 +273,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
                 viajesB.append(v)
             }
         }
-    }
+    }*/
     
     func buscarFechaHoy() -> (Int, Int, Int) {
         let formato = NSDateFormatter()
