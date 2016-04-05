@@ -14,6 +14,7 @@
 		BB33DB771CAAA67C002C9FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C61C295DEF0024C33D /* Main.storyboard */; };
 		BB33DB781CAAA682002C9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C41C295DEF0024C33D /* Assets.xcassets */; };
 		BB4A16411CB27ED6002C7DF1 /* Viaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A16401CB27ED6002C7DF1 /* Viaje.swift */; };
+		BB6E7E2D1CB410880098C9D3 /* imprimirListadoLBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */; };
 		BBA0510D1C999D3500B643F0 /* ImprimirListadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */; };
 		BBAC29421CB13545009EA1C3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBAC29391CB134E3009EA1C3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBAC29431CB1355A009EA1C3 /* Alamofire.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAC292A1CB134E3009EA1C3 /* Alamofire.xcodeproj */; };
@@ -102,6 +103,7 @@
 		4B8458C71C295DEF0024C33D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B8458C91C295DEF0024C33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB4A16401CB27ED6002C7DF1 /* Viaje.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viaje.swift; sourceTree = "<group>"; };
+		BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imprimirListadoLBViewController.swift; sourceTree = "<group>"; };
 		BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImprimirListadoViewController.swift; sourceTree = "<group>"; };
 		BBAC292A1CB134E3009EA1C3 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ticketImpreso.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -158,6 +160,7 @@
 				F9C99AAB1C3DB4D600D4738C /* LBViewController.swift */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
+				BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */,
 				BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */,
 				F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */,
 				4B8458C91C295DEF0024C33D /* Info.plist */,
@@ -328,6 +331,7 @@
 				F9757ADE1C29F5EC00181CD7 /* datosBDD.swift in Sources */,
 				BBF3D2D81C5FBEC0004281E6 /* ticketImpreso.swift in Sources */,
 				4B603D941C4E940900B47139 /* DocumentPrint.swift in Sources */,
+				BB6E7E2D1CB410880098C9D3 /* imprimirListadoLBViewController.swift in Sources */,
 				4B0B84E71C4BECC700216C7F /* Tickets.swift in Sources */,
 				F95DF8FA1CABE2FD00FA2AF2 /* mensualListadoViewController.swift in Sources */,
 				4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */,

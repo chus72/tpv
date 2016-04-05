@@ -49,6 +49,8 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var media: NSTextField!
     @IBOutlet weak var switchNsSegmented: NSSegmentedControl!
     
+    // Controles 
+    
     @IBAction func swich(sender: NSSegmentedControl) {
         
         if self.switchNsSegmented.isEnabledForSegment(0) {

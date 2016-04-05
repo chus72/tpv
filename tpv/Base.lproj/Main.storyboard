@@ -2231,7 +2231,20 @@ DQ
                 </viewController>
                 <customObject id="TNV-21-uCd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1491.5" y="721.5"/>
+            <point key="canvasLocation" x="1502.5" y="715"/>
+        </scene>
+        <!--Imprimir ListadoLB View Controller-->
+        <scene sceneID="7Wo-92-p2q">
+            <objects>
+                <viewController id="ZCo-Fo-aQD" customClass="imprimirListadoLBViewController" customModule="tpv" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="Jpk-Cr-rUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="595" height="830"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                </viewController>
+                <customObject id="FKx-Ib-3vA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.5" y="1948"/>
         </scene>
         <!--LOSBARKITOS-->
         <scene sceneID="eQp-jS-jNt">
