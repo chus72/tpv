@@ -211,6 +211,18 @@ class webServiceCallAPI_LB: NSObject {
         }
     }
     
+    func LBlistadoB(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBlistado/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.listadoLB (diccionario)
+                }
+                
+        }
+    }
+
+    
     func LBestadisticas(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBestadisticas/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
@@ -222,5 +234,18 @@ class webServiceCallAPI_LB: NSObject {
         }
         
     }
+    
+    func LBestadisticasB(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasB/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.estadisticas(diccionario)
+                }
+                
+        }
+        
+    }
+
 
 }
