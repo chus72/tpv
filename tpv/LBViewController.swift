@@ -49,7 +49,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var media: NSTextField!
     @IBOutlet weak var switchNsSegmented: NSSegmentedControl!
     
-    // Controles 
+
     
     @IBAction func swich(sender: NSSegmentedControl) {
         
@@ -288,6 +288,32 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         let año = formato.stringFromDate(fechaHoy)
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
+    }
+  
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "segueImprimirListadoBarkitos" {
+            let VC = segue.destinationController as! imprimirListadoLBViewController
+            VC.representedObject = self.listadoViajes.count
+
+            let formato : NSDateFormatter = NSDateFormatter()
+            formato.dateFormat = "dd / MM / yyyy"
+            if self.inicioNSDatePicker.stringValue  == self.finalNSDatePicker.stringValue {
+                VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue)
+            } else {
+                VC.fecha = formato.stringFromDate(self.inicioNSDatePicker.dateValue) + " - " + formato.stringFromDate(self.finalNSDatePicker.dateValue)
+            }
+            
+            VC.listadoTickets = self.listadoViajes
+            VC.total = Float(self.total.stringValue)!
+            VC.numTickets = Int(self.numTickets.stringValue)!
+            
+        } else if segue.identifier == "segue_mensual" {
+            let VC = segue.destinationController as! mensualListadoViewController
+            VC.numRegistros = self.listadoMensual.count
+            VC.listado = self.listadoMensual
+        }
     }
 
     
