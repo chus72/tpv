@@ -309,8 +309,8 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             VC.total = Float(self.total.stringValue)!
             VC.numTickets = Int(self.numTickets.stringValue)!
             
-        } else if segue.identifier == "segue_mensual" {
-            let VC = segue.destinationController as! mensualListadoViewController
+        } else if segue.identifier == "segueMensual_LB" {
+            let VC = segue.destinationController as! mensualListadoLBViewController
             VC.numRegistros = self.listadoMensual.count
             VC.listado = self.listadoMensual
         }

@@ -1,65 +1,68 @@
 //
-//  mensualListadoViewController.swift
+//  mensualListadoLBViewController.swift
 //  tpv
 //
-//  Created by chus on 30/3/16.
+//  Created by Jesus Valladolid Rebollar on 7/4/16.
 //  Copyright © 2016 LosBarkitos. All rights reserved.
 //
 
 import Cocoa
 
-
-
-class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewDataSource, NSTableViewDelegate {
+class mensualListadoLBViewController: NSViewController, datosBDD_LB2, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet var viewListado: NSView!
-    @IBOutlet weak var mesNSTextField: NSTextField!
     @IBOutlet weak var tableview: NSTableView!
+    @IBOutlet weak var mesNsTextView: NSTextField!
+    @IBOutlet weak var mesNsView: NSView!
+    @IBOutlet weak var botonOkPush: NSButton!
     @IBOutlet weak var mesComboBox: NSComboBox!
-    @IBOutlet weak var mesNSview: NSView!
+    @IBOutlet weak var cerrarButton: NSButton!
     @IBOutlet weak var imprimirButton: NSButton!
-    @IBOutlet weak var cerrarButton : NSButton!
     @IBOutlet weak var cambiarMesButton: NSButton!
     
-    // propiedades del recuadro de totales
-    @IBOutlet weak var total_tickets: NSTextField!
-    @IBOutlet weak var neto: NSTextField!
-    @IBOutlet weak var IVA: NSTextField!
-    @IBOutlet weak var bruto: NSTextField!
+    // propiedades del cuadro de totales
+    @IBOutlet weak var totalNsView: NSBox!
+    @IBOutlet weak var brutoMensualNsTextField: NSTextField!
+    @IBOutlet weak var totalTicketsNsTextField: NSTextField!
+    @IBOutlet weak var ivaTotalNsTextField: NSTextField!
+    @IBOutlet weak var netoNsTextField: NSTextField!
     
+    var webService : webServiceCallApiLB2 = webServiceCallApiLB2()
     
-    var webService : webServiceCallApi2 = webServiceCallApi2()
-
     var numRegistros = 0
     var listado = [[String : AnyObject]]()
     
     var totalTickets : Int = 0 {
         didSet {
-            self.total_tickets.stringValue = String(self.totalTickets)
+            self.totalTicketsNsTextField.stringValue = String(self.totalTickets)
         }
     }
+    
     var totalBruto : Float = 0.0 {
         didSet {
-            self.bruto.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
+            self.brutoMensualNsTextField.stringValue = (formato.stringFromNumber(self.totalBruto as NSNumber))!
         }
     }
+    
     var totalNeto : Float = 0.0 {
         didSet {
-            self.neto.stringValue = (formato.stringFromNumber(self.totalNeto as NSNumber))!
+            self.netoNsTextField.stringValue = (formato.stringFromNumber(self.totalNeto as NSNumber))!
         }
     }
+    
     var totalIVA : Float = 0.0 {
         didSet {
-            self.IVA.stringValue = (formato.stringFromNumber(self.totalIVA as NSNumber))!
+            self.ivaTotalNsTextField.stringValue = (formato.stringFromNumber(self.totalIVA as NSNumber))!
         }
     }
     
     let formato : NSNumberFormatter = NSNumberFormatter()
     
+    
     @IBAction func cambiarMesPush(sender: NSButton) {
         
-        self.mesNSTextField.hidden = true
-        self.mesNSview.hidden = false
+        self.mesNsTextView.hidden = true
+        self.mesNsView.hidden = false
         self.imprimirButton.enabled = false
         sender.hidden = true
         
@@ -67,14 +70,14 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
     @IBAction func imprimir(sender: NSButton) {
         
         self.imprimirButton.hidden = true
-        self.mesNSview.hidden = true
+        self.mesNsView.hidden = true
         self.cerrarButton.hidden = true
         let l : listadoImpreso = listadoImpreso()
         l.print(self.viewListado)
         self.imprimirButton.hidden = false
-        self.mesNSview.hidden = false
+        self.mesNsView.hidden = false
         self.cerrarButton.hidden = false
-
+        
         
     }
     
@@ -84,19 +87,19 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         let mes = self.mesComboBox.indexOfSelectedItem + 1
         webService.MFlistadoMensual(mes, ano: 16)
         
-        self.mesNSTextField.stringValue = self.mesComboBox.stringValue
-        self.mesNSview.hidden = true
-        self.mesNSTextField.hidden = false
+        self.mesNsTextView.stringValue = self.mesComboBox.stringValue
+        self.mesNsView.hidden = true
+        self.mesNsTextView.hidden = false
         self.cambiarMesButton.hidden = false
         self.imprimirButton.enabled = true
         
     }
-
+    
     @IBAction func mesNsTextFieldPush(sender: NSTextField) {
         
-        self.mesNSTextField.hidden = true
+        self.mesNsTextView.hidden = true
         self.cambiarMesButton.hidden = true
-        self.mesNSview.hidden = false
+        self.mesNsView.hidden = false
         self.imprimirButton.enabled = false
         
     }
@@ -105,26 +108,25 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         
         self.dismissController(self)
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
         formato.maximumFractionDigits = 2
         formato.minimumFractionDigits = 2
         formato.roundingMode = .RoundHalfEven
-
-        self.mesNSview.hidden = false
-        self.mesNSTextField.hidden = true
+        
+        self.mesNsView.hidden = false
+        self.mesNsTextView.hidden = true
         self.cambiarMesButton.hidden = true
         self.imprimirButton.enabled = false
         
         webService.delegate = self
     }
     
-    func listadoMensualMF(respuesta : [String : AnyObject]) {
-       // print("listadoMensualMF : \(respuesta)")
+    func listadoMensualLB(respuesta : [String : AnyObject]) {
+        
         var registro : [String : AnyObject] = [:]
         for (k,v) in respuesta {
             if k != "error" && k != "numero_dias" {
@@ -151,7 +153,6 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         
     }
     
-    
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return self.listado.count - 2
     }
@@ -164,7 +165,7 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
         
         if self.listado.count > 0 {
             let item = self.listado[row]
-            print(item["brutoID"])
+            print(item["bruto"])
             if tableColumn == tableView.tableColumns[0] {
                 text = String(item["fecha"]!)
                 celdaIdentificador = "fechaID"
@@ -185,19 +186,21 @@ class mensualListadoViewController: NSViewController, datosBBD2, NSTableViewData
                 text = formato.stringFromNumber(item["bruto"] as! NSNumber)!
                 celdaIdentificador = "brutoID"
             }
-        
-        
+            
+            
             if let celda = tableView.makeViewWithIdentifier(celdaIdentificador, owner: nil) as? NSTableCellView {
                 celda.textField?.stringValue = text
                 return celda
             }
-
-        
+            
+            
         } else {
             return nil
         }
-
+        
         return nil
     }
+
+
     
 }

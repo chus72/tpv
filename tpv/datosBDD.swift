@@ -40,6 +40,9 @@ protocol datosBDD_LB {
     func listadoLB(_ : [String : AnyObject])
 }
 
+protocol datosBDD_LB2 {
+    func listadoMensualLB(_ : [String : AnyObject])
+}
 
 class webServiceCallApi2 : NSObject {
     var delegate : datosBBD2?
@@ -54,6 +57,34 @@ class webServiceCallApi2 : NSObject {
                 }
         }
     }
+
+}
+
+class webServiceCallApiLB2 : NSObject {
+    var delegate : datosBDD_LB2?
+    
+    
+    func MFlistadoMensualB(mes : Int, ano : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBlistado_mensualB/" + String(mes) + "/" + String(ano)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.listadoMensualLB(diccionario)
+                }
+        }
+    }
+    
+    func MFlistadoMensual(mes : Int, ano : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBlistado_mensual/" + String(mes) + "/" + String(ano)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.listadoMensualLB(diccionario)
+                }
+        }
+    }
+
+    
 
 }
 
