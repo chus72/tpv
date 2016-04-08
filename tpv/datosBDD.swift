@@ -38,6 +38,8 @@ protocol datosBBD2 {
 protocol datosBDD_LB {
     func estadisticas(_ : [String : AnyObject])
     func listadoLB(_ : [String : AnyObject])
+    // Devuelve el resultado de la insercion de un tiquet en LB
+    func viajeInsertado(_: [String : AnyObject])
 }
 
 protocol datosBDD_LB2 {
@@ -277,6 +279,18 @@ class webServiceCallAPI_LB: NSObject {
         }
         
     }
+    
+    // Inserta un viaje en la BDD de LB. Si blanco = 1 el tiquet es blanco
+    func LBinsertar_viaje(precio : Float, tipo : Int, blanco : Int = 1) {
+        let url : String = "https://losbarkitos.herokuapp.com/LBinsertar_viaje/" + String(Int(precio * 100)) + "/" + String(tipo) + "/" +  String(blanco)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                   	self.delegate?.viajeInsertado(diccionario)
+                }
+        }
+    }
+    
 
 
 }

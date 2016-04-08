@@ -9,6 +9,8 @@ public class Viaje: NSObject {
     var fecha : String = ""
     var precio : Float = 0.0
     var barca : String = ""
+    var tipoBarca : Int = 0
+    var puntoVenta : Int = 0
     var punto : String = ""
     var blanco : Bool = true
     

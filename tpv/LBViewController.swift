@@ -11,8 +11,15 @@ import Cocoa
 public var viajes : [Viaje] = []
 public var viajesB: [Viaje] = []
 public var numeroVia : Int = 0
+public var TP : Int = 0 // tipo de barca
+
+public let MARINAFERRY = 1
+public let MARINAFERRY2 = 5
+public let LOSBARKITOS = 2
 
 class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NSTableViewDelegate {
+
+    var viaje : Viaje = Viaje()
 
     var webService : webServiceCallAPI_LB = webServiceCallAPI_LB()
     
@@ -34,7 +41,53 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     let colorB: CGColor = NSColor(red: 200, green: 0, blue: 0, alpha: 0.6).CGColor
     
     
+    ///////////////////////////////////////////
+    // CAMPOS DEL TICKET A IMPRIMIR
+    /// Campos del Ticket a imprimir
+   
+    @IBOutlet weak var viajeNSView: NSView!
+    @IBOutlet weak var fechaTicketNSTextField: NSTextField!
+    @IBOutlet weak var numeroTicketNSTextField: NSTextField!
+    @IBOutlet weak var descripcionTicketNSTextField: NSTextField!
+    @IBOutlet weak var baseTicketNSTextField: NSTextField!
+    @IBOutlet weak var ivaTicketNSTextField: NSTextField!
+    @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
     
+    
+    //////////////////////////////////////////////////////
+    
+    @IBOutlet weak var ticketNSBox: NSBox!
+    @IBOutlet weak var barkitosNSButton: NSButton!
+    @IBOutlet weak var barcaNSButton: NSButton!
+    @IBOutlet weak var electricaNSButton: NSButton!
+    @IBOutlet weak var goldNSButton: NSButton!
+    @IBOutlet weak var preciosNSBox: NSBox!
+    
+    
+    
+    //////////////////////////////////////////////////////
+    
+    @IBAction func tipoBarcaNSButton(sender: NSButton) {
+        
+        self.ticketNSBox.hidden = true
+        self.preciosNSBox.hidden = false
+        viaje.tipoBarca = sender.tag
+    }
+    
+    @IBAction func precioNSButton(sender: NSButton) {
+        
+        viaje.puntoVenta = MARINAFERRY
+        viaje.precio = Float(sender.title)!
+        viaje.blanco = true
+  
+        if let precio : Float? = Float(sender.title) {
+            webService.LBinsertar_viaje(precio!, tipo: viaje.tipoBarca, blanco: 1)
+        }
+        
+       
+    }
+    
+    ///////////////////////////////////////////////////////
     @IBOutlet var viewLB: NSView!
     @IBOutlet weak var listadoView: NSView!
     @IBOutlet weak var listadoTableView: NSTableView!
@@ -104,6 +157,11 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.preciosNSBox.hidden = true
+        self.ticketNSBox.hidden = false
+        
+        
+        
         // Se empieza con blanco
         self.switchNsSegmented.setEnabled(true, forSegment: 0)
         self.blanco = true
@@ -143,6 +201,21 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = self.colorB
     }
+    
+    func viajeInsertado(respuesta : [String : AnyObject]) {
+        for (k,v) in respuesta {
+            if k as String == "error" && v as! Int == 1 {
+                print("ERROR DEL SERVIDOR")
+            } else if k as String == "error" && v as! Int == 0 {
+                webService.LBlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                webService.LBestadisticas(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+                
+                self.rellenarViaje(respuesta)
+                self.imprimirViaje()
+            }
+        }
+    }
+    
     
     func listadoLB(respuesta : [String : AnyObject]) {
         var registro : [String : AnyObject] = [:]
@@ -289,6 +362,40 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         
         return (Int(dia)!, Int(mes)!, Int(año)!)
     }
+    
+    func rellenarViaje(datos : [String : AnyObject]) {
+        print(datos)
+        for (k,v) in datos {
+            switch k {
+                case "numero"       : viaje.numero = v as! Int
+                case "precio"       : viaje.precio = v as! Float
+                case "fecha"        : viaje.fecha  = v as! String
+                case "blanco"       : viaje.blanco = true
+                case "punto"        : viaje.puntoVenta = 1
+                                      viaje.punto = "MarinaFerry"
+               // case "tipo"         : viaje.tipoBarca = v as! Int
+                case "barca"        : viaje.barca = v as! String
+            default : break
+            }
+        }
+        
+        self.numeroTicketNSTextField.stringValue = String(viaje.numero)
+        self.totalEurosTicketNSTextField.stringValue = String(viaje.precio)
+        self.ivaTicketNSTextField.stringValue = String(viaje.precio - viaje.precio / 1.21)
+        self.baseTicketNSTextField.stringValue = String(viaje.precio / 1.21)
+        self.descripcionTicketNSTextField.stringValue = "Viaje en LosBarkitos con \(viaje.barca)"
+        self.fechaTicketNSTextField.stringValue = String(viaje.fecha)
+        
+    }
+    
+    func imprimirViaje() {
+        
+        // Impresion del viaje
+        let t : ticketImpreso = ticketImpreso()
+        t.print(self.viajeNSView)
+    }
+
+    
   
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
