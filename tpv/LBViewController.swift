@@ -53,6 +53,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var ivaTicketNSTextField: NSTextField!
     @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
     
+    @IBOutlet weak var checkNegro: NSButton!
     
     //////////////////////////////////////////////////////
     
@@ -79,12 +80,21 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         viaje.puntoVenta = MARINAFERRY
         viaje.precio = Float(sender.title)!
         viaje.blanco = true
+        
+        self.preciosNSBox.hidden = true
+        self.ticketNSBox.hidden = false
   
         if let precio : Float? = Float(sender.title) {
             webService.LBinsertar_viaje(precio!, tipo: viaje.tipoBarca, blanco: 1)
         }
         
        
+    }
+    @IBAction func cancelarPrecioPush(sender: NSButton) {
+        
+        self.preciosNSBox.hidden = true
+        self.ticketNSBox.hidden = false
+        viaje.tipoBarca = 0
     }
     
     ///////////////////////////////////////////////////////
@@ -100,21 +110,25 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var numTickets: NSTextField!
     @IBOutlet weak var total: NSTextField!
     @IBOutlet weak var media: NSTextField!
-    @IBOutlet weak var switchNsSegmented: NSSegmentedControl!
     
 
-    
-    @IBAction func swich(sender: NSSegmentedControl) {
-        
-        if self.switchNsSegmented.isEnabledForSegment(0) {
-            self.blanco = !(self.blanco)
+    @IBAction func checkNegro(sender: NSButton) {
+        if self.checkNegro.state == NSOnState {
+            self.blanco = false
+        } else {
+            self.blanco = true
         }
         if self.blanco == true {
             self.view.layer?.backgroundColor = self.colorB
         } else {
             self.view.layer?.backgroundColor = self.color
         }
+
+    }
+    
+    @IBAction func swich(sender: NSSegmentedControl) {
         
+         
     }
     
     @IBAction func listarNSButton(sender: NSButton) {
@@ -152,8 +166,6 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     }
     
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -163,7 +175,8 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         
         
         // Se empieza con blanco
-        self.switchNsSegmented.setEnabled(true, forSegment: 0)
+
+        self.checkNegro.state = NSOffState
         self.blanco = true
         
         formato.maximumFractionDigits = 2
