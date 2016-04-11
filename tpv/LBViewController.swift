@@ -105,11 +105,17 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var inicioNSDatePicker: NSDatePicker!
     @IBOutlet weak var finalNSDatePicker: NSDatePicker!
     
-    // Resumen de los listados
+    // Resumen de los listados - Afecta a la Celia
     @IBOutlet weak var resumenNSBox: NSBox!
     @IBOutlet weak var numTickets: NSTextField!
     @IBOutlet weak var total: NSTextField!
     @IBOutlet weak var media: NSTextField!
+    @IBOutlet weak var fecha: NSTextField!
+    
+    // Resumen de los listados total
+    var numTicketsTotal : Int?
+    var totalTotal : Float?
+    ///////////////////////////////////////
     
 
     @IBAction func checkNegro(sender: NSButton) {
@@ -150,10 +156,15 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             webService.LBlistadoB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
         
             webService.LBestadisticasB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+            webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
+            
         } else {
             webService.LBlistado(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
             
             webService.LBestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
+            webService.LBestadisticasTotales(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
 
         }
 
@@ -183,7 +194,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         formato.minimumFractionDigits = 2
         formato.roundingMode = .RoundHalfEven
         
-        //self.resumenNSBox.hidden = true
+        self.resumenNSBox.hidden = true
 
         self.diaHoy = buscarFechaHoy()
         
@@ -195,11 +206,17 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         if self.blanco == true {
             webService.LBlistadoB(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
             webService.LBestadisticasB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+            webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
         } else {
             webService.LBlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
             webService.LBestadisticas(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+            webService.LBestadisticasTotales(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
             
         }
+        
+        webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         
         
         self.inicioNSDatePicker.dateValue = NSDate()
@@ -293,7 +310,9 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     func estadisticas(respuesta : [String : AnyObject]) {
         // print("respuesta del servidor : media = \(respuesta)")
         for (k,v) in respuesta {
-            if k as String == "media" {
+            if k as String == "error" && v as! Int == 1 { // Error en el servidor
+                print("EROR")
+            } else if k as String == "media" {
                 //  print("Media : " + String(Float(v as! NSNumber)))
                 self.media.stringValue = String(v)
             } else if k as String == "euros" {
@@ -304,8 +323,27 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
                 self.numTickets.stringValue = String(v)
                 
             }
+            let formato : NSDateFormatter = NSDateFormatter()
+            formato.dateFormat = "dd / MM / yyyy"
+            self.fecha.stringValue = formato.stringFromDate(self.inicioNSDatePicker.dateValue)
             //self.numeroTickets = Int(v)
         }
+    }
+    
+    func estadisticasTotales(respuesta: [String : AnyObject]) {
+        for (k,v) in respuesta {
+            if k as String == "error" && v as! Int == 1 { // Error en el servidor
+                print("ERROR")
+            } else if k as String == "total_tickets" {
+                self.numTicketsTotal = v as? Int
+            } else if k as String == "euros" {
+                self.totalTotal = v as? Float
+                
+            }
+            self.fecha.stringValue = self.inicioNSDatePicker.stringValue
+            //self.numeroTickets = Int(v)
+        }
+
     }
     
     func imprimirResumen() {
@@ -407,9 +445,6 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         let t : ticketImpreso = ticketImpreso()
         t.print(self.viajeNSView)
     }
-
-    
-  
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         
@@ -426,9 +461,8 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             }
             
             VC.listadoTickets = self.listadoViajes
-            VC.total = Float(self.total.stringValue)!
-            VC.numTickets = Int(self.numTickets.stringValue)!
-            
+            VC.total = self.totalTotal!
+            VC.numTickets = self.numTicketsTotal!
         } else if segue.identifier == "segueMensual_LB" {
             let VC = segue.destinationController as! mensualListadoLBViewController
             VC.numRegistros = self.listadoMensual.count

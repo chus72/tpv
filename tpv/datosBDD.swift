@@ -37,6 +37,7 @@ protocol datosBBD2 {
 
 protocol datosBDD_LB {
     func estadisticas(_ : [String : AnyObject])
+    func estadisticasTotales(_ : [String : AnyObject])
     func listadoLB(_ : [String : AnyObject])
     // Devuelve el resultado de la insercion de un tiquet en LB
     func viajeInsertado(_: [String : AnyObject])
@@ -279,6 +280,31 @@ class webServiceCallAPI_LB: NSObject {
         }
         
     }
+    
+    func LBestadisticasTotales(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasTotales/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.estadisticasTotales(diccionario)
+                }
+                
+        }
+
+    }
+    
+    func LBestadisticasTotalesB(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasTotalesB/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.estadisticasTotales(diccionario)
+                }
+                
+        }
+        
+    }
+
     
     // Inserta un viaje en la BDD de LB. Si blanco = 1 el tiquet es blanco
     func LBinsertar_viaje(precio : Float, tipo : Int, blanco : Int = 1) {

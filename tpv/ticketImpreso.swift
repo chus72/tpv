@@ -20,7 +20,7 @@ class ticketImpreso: NSView {
     }
     
     override func print(sender: AnyObject?) {
-        self.printInfo.printer = NSPrinter(name: "TSP700")!
+       // self.printInfo.printer = NSPrinter(name: "TSP700")!
         self.printInfo.leftMargin  = 0.0
         self.printInfo.rightMargin = 0.0
         self.printInfo.topMargin = 0.0

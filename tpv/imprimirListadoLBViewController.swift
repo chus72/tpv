@@ -85,7 +85,6 @@ class imprimirListadoLBViewController: NSViewController, NSTableViewDataSource, 
         lineaActual = 1
         
         self.boxTotalesNSBox.hidden = true
-        print(self.listadoTickets)
     
     }
     // Metodos del delegado de la tableview
