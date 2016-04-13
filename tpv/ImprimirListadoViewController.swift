@@ -31,7 +31,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     let alturaPagina : Int = 750
     
     var listadoTickets = [[String : AnyObject]]()
-    let numLineas = 32
+    let numLineas = 24
     var lineaActual = 0
     var numPaginas = 1
     var paginaActual = 0

@@ -67,7 +67,7 @@ class webServiceCallApiLB2 : NSObject {
     var delegate : datosBDD_LB2?
     
     
-    func MFlistadoMensualB(mes : Int, ano : Int) {
+    func LBlistadoMensualB(mes : Int, ano : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBlistado_mensualB/" + String(mes) + "/" + String(ano)
         Alamofire.request(.GET, url)
             .responseJSON { response in
@@ -77,7 +77,7 @@ class webServiceCallApiLB2 : NSObject {
         }
     }
     
-    func MFlistadoMensual(mes : Int, ano : Int) {
+    func LBlistadoMensual(mes : Int, ano : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBlistado_mensual/" + String(mes) + "/" + String(ano)
         Alamofire.request(.GET, url)
             .responseJSON { response in
@@ -256,7 +256,7 @@ class webServiceCallAPI_LB: NSObject {
         }
     }
 
-    
+    // Devuelve las estadisticas de la oficina en negro
     func LBestadisticas(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBestadisticas/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
@@ -269,6 +269,7 @@ class webServiceCallAPI_LB: NSObject {
         
     }
     
+    // Devuelve las estadisticas de la oficina en blanco
     func LBestadisticasB(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasB/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
@@ -281,6 +282,7 @@ class webServiceCallAPI_LB: NSObject {
         
     }
     
+    // Devuelve estadisticas totales en negro
     func LBestadisticasTotales(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasTotales/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)
@@ -293,6 +295,7 @@ class webServiceCallAPI_LB: NSObject {
 
     }
     
+    // Devuelve estadisticas totales en blanco
     func LBestadisticasTotalesB(diaI : Int, mesI : Int, anyoI : Int, diaF : Int, mesF : Int, anyoF : Int) {
         let url : String = "http://losbarkitos.herokuapp.com/LBestadisticasTotalesB/" + String(diaI) + "/" + String(mesI) + "/" + String(anyoI) + "/" + String(diaF) + "/" + String(mesF) + "/" + String(anyoF)
         Alamofire.request(.GET, url)

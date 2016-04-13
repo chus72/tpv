@@ -156,14 +156,15 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             webService.LBlistadoB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
         
             webService.LBestadisticasB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
-            webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+            print(self.diaHoy)
+            webService.LBestadisticasTotalesB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
 
             
         } else {
             webService.LBlistado(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
             
             webService.LBestadisticas(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
-            webService.LBestadisticasTotales(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+            webService.LBestadisticasTotales(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
 
 
         }
@@ -216,7 +217,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             
         }
         
-        webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+//        webService.LBestadisticasTotalesB(self.diaHoy.dia, mesI:self.diaHoy.mes, anyoI: self.diaHoy.año, diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
         
         
         self.inicioNSDatePicker.dateValue = NSDate()
@@ -331,6 +332,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     }
     
     func estadisticasTotales(respuesta: [String : AnyObject]) {
+        print(respuesta)
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 { // Error en el servidor
                 print("ERROR")
