@@ -31,8 +31,7 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     let alturaPagina : Int = 750
     
     var listadoTickets = [[String : AnyObject]]()
-    let numLineas = 24
-    var lineaActual = 0
+    let numLineas = 36
     var numPaginas = 1
     var paginaActual = 0
     
@@ -82,7 +81,6 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
         
         super.viewDidLoad()
         numPaginas = self.numTickets / numLineas
-        lineaActual = 1
         
         self.boxTotalesNSBox.hidden = true
     
@@ -92,9 +90,9 @@ class ImprimirListadoViewController: NSViewController, NSTableViewDataSource, NS
     // Metodos del delegado de la tableview
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
-        // El numero de filas = 24 y es constante
+        // El numero de filas  es constante
         //return self.listadoTickets.count ?? 0
-        return numLineas - 2
+        return numLineas 
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
