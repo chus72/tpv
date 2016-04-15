@@ -154,7 +154,7 @@ class mensualListadoLBViewController: NSViewController, datosBDD_LB2, NSTableVie
     }
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return self.listado.count - 2
+        return self.listado.count
     }
     
     

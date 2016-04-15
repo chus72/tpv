@@ -10,6 +10,7 @@ import Alamofire
 import Foundation
 
 protocol datosBDD {
+    
     // Devuelve el resultado de la insercion de un ticket en MF
     func ticketInsertado(_ : [String : AnyObject])
     // Devuelve el resultado de la insercion masiva de tickets
@@ -94,15 +95,7 @@ class webServiceCallApiLB2 : NSObject {
 class webServiceCallAPI: NSObject {
     var delegate : datosBDD?
     
-/*    func MFrequestBDD(url : String) {
-        Alamofire.request(.GET, url)
-            .responseJSON { response in
-                if case let diccionario as [String : AnyObject] = response.result.value {
-                    self.delegate?.respuesta(diccionario)
-                }
-        }
-    }
-*/
+
     // url(r'^MFinsertar_ticket/(\d{1,})/$', MFinsertarTicket),
     // data = {'error' : 1, 'tipo error' : 'Error en la grabacion del ticket'}
     func MFinsertar_ticket(precio : Float, part : Int) {
