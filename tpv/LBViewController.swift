@@ -121,15 +121,11 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBAction func checkNegro(sender: NSButton) {
         if self.checkNegro.state == NSOnState {
             self.blanco = false
+            self.view.layer?.backgroundColor = self.color
         } else {
             self.blanco = true
-        }
-        if self.blanco == true {
             self.view.layer?.backgroundColor = self.colorB
-        } else {
-            self.view.layer?.backgroundColor = self.color
         }
-
     }
     
     @IBAction func swich(sender: NSSegmentedControl) {
@@ -156,7 +152,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             webService.LBlistadoB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
         
             webService.LBestadisticasB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
-            print(self.diaHoy)
+            //print(self.diaHoy)
             webService.LBestadisticasTotalesB(Int(diaI)!, mesI: Int(mesI)!, anyoI: Int(añoI)!, diaF: Int(diaF)!, mesF: Int(mesF)!, anyoF: Int(añoF)!)
 
             
