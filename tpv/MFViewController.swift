@@ -55,6 +55,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var precio_10_Grupos: NSButtonCell!
     @IBOutlet weak var precio_11_Grupos: NSButton!
     @IBOutlet weak var precio_12_Grupos: NSButton!
+    @IBOutlet weak var precio_raro: NSButton!
     
     @IBOutlet weak var precioGruposView: NSView!
     @IBOutlet weak var precioIndividualView: NSView!
@@ -246,7 +247,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         if self.precioIndividualView.hidden ==  false {
             self.precio_12_Individual.title = String(precio)
         } else {
-            self.precio_12_Grupos.title = String(precio)
+            self.precio_raro.title = String(precio)
         }
         self.cambioPrecioNSView.hidden = true
     }

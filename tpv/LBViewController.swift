@@ -13,13 +13,21 @@ public var viajesB: [Viaje] = []
 public var numeroVia : Int = 0
 public var TP : Int = 0 // tipo de barca
 
-public let MARINAFERRY = 1
+public let MARINAFERRY  = 1
 public let MARINAFERRY2 = 5
-public let LOSBARKITOS = 2
+public let LOSBARKITOS  = 2
+
+public let BARKITO   = 1
+public let ELECTRICA = 2
+public let BARCA     = 3
+public let GOLD      = 4
 
 class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NSTableViewDelegate {
 
     var viaje : Viaje = Viaje()
+    var reservas : [Int] = [0,0,0,0]
+    var tipoReserva : Int = 0
+    var numeroReserva : Int = 0
 
     var webService : webServiceCallAPI_LB = webServiceCallAPI_LB()
     
@@ -90,6 +98,8 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         
        
     }
+
+    
     @IBAction func cancelarPrecioPush(sender: NSButton) {
         
         self.preciosNSBox.hidden = true
@@ -255,13 +265,13 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             
             if k != "error" && k != "numero_tickets" {
                 registro["numero"] = v["numero"] as! Int
-                if v["barca"] as! Int == 1 {
+                if v["barca"] as! Int == BARKITO {
                     registro["barca"] = "Barkito"
-                } else if v["barca"] as! Int == 2 {
+                } else if v["barca"] as! Int == ELECTRICA {
                     registro["barca"] = "Eléctrica"
-                } else if v["barca"] as! Int == 3 {
+                } else if v["barca"] as! Int == BARCA {
                     registro["barca"] = "Barca"
-                } else if v["barca"] as! Int == 4 {
+                } else if v["barca"] as! Int == GOLD {
                     registro["barca"] = "Gold"
                 }
 
@@ -332,7 +342,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     }
     
     func estadisticasTotales(respuesta: [String : AnyObject]) {
-        print(respuesta)
+       // print(respuesta)
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 1 { // Error en el servidor
                 print("ERROR")
@@ -347,6 +357,7 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
         }
 
     }
+    
     
     func imprimirResumen() {
         // Impresion de un ticket resumen del dia
@@ -469,6 +480,10 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
             let VC = segue.destinationController as! mensualListadoLBViewController
             VC.numRegistros = self.listadoMensual.count
             VC.listado = self.listadoMensual
+        } else if segue.identifier == "segueReserva" {
+            let VC = segue.destinationController as! Reserva
+             self.tipoReserva = sender!.tag
+            VC.tipo = self.tipoReserva
         }
     }
 

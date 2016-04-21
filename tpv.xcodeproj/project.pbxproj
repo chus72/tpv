@@ -18,6 +18,7 @@
 		BB6E7E2D1CB410880098C9D3 /* imprimirListadoLBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */; };
 		BB97F6E71CB6934400ECFB07 /* mensualListadoLBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97F6E61CB6934400ECFB07 /* mensualListadoLBViewController.swift */; };
 		BBA0510D1C999D3500B643F0 /* ImprimirListadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */; };
+		BBD235AD1CC923120009C762 /* Reserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD235AC1CC923120009C762 /* Reserva.swift */; };
 		BBF3D2D81C5FBEC0004281E6 /* ticketImpreso.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */; };
 		F928A6E51CB5859300EBAE61 /* tpv.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B74E7F41C39482300CA2DC7 /* tpv.xcodeproj */; };
 		F95DF8FA1CABE2FD00FA2AF2 /* mensualListadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95DF8F91CABE2FD00FA2AF2 /* mensualListadoViewController.swift */; };
@@ -108,6 +109,7 @@
 		BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imprimirListadoLBViewController.swift; sourceTree = "<group>"; };
 		BB97F6E61CB6934400ECFB07 /* mensualListadoLBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mensualListadoLBViewController.swift; sourceTree = "<group>"; };
 		BBA0510B1C999D3500B643F0 /* ImprimirListadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImprimirListadoViewController.swift; sourceTree = "<group>"; };
+		BBD235AC1CC923120009C762 /* Reserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reserva.swift; sourceTree = "<group>"; };
 		BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ticketImpreso.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F95DF8F91CABE2FD00FA2AF2 /* mensualListadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mensualListadoViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F9757ADD1C29F5EC00181CD7 /* datosBDD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datosBDD.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				BB6E78E71CB952770088E206 /* LB */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
+				BBD235AC1CC923120009C762 /* Reserva.swift */,
 				BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */,
 				F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */,
 				4B8458C91C295DEF0024C33D /* Info.plist */,
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBD235AD1CC923120009C762 /* Reserva.swift in Sources */,
 				BBA0510D1C999D3500B643F0 /* ImprimirListadoViewController.swift in Sources */,
 				BB97F6E71CB6934400ECFB07 /* mensualListadoLBViewController.swift in Sources */,
 				F9757ADE1C29F5EC00181CD7 /* datosBDD.swift in Sources */,

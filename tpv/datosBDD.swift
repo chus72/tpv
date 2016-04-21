@@ -48,6 +48,10 @@ protocol datosBDD_LB2 {
     func listadoMensualLB(_ : [String : AnyObject])
 }
 
+protocol datosBDD_R {
+    func obtenerNumeroReserva(_ : [String : AnyObject])
+}
+
 class webServiceCallApi2 : NSObject {
     var delegate : datosBBD2?
     
@@ -312,7 +316,22 @@ class webServiceCallAPI_LB: NSObject {
                 }
         }
     }
-    
+}
 
+
+class webServiceCallApiR : NSObject {
+    var delegate : datosBDD_R?
+    
+    func LBnumeroReserva(tipo : Int) {
+        let url : String = "http://losbarkitos.herokuapp.com/reserva/" + String(tipo) + "/1"
+        Alamofire.request(.GET,url)
+            .responseJSON { response in
+                if case let diccionario as [String : AnyObject] = response.result.value {
+                    self.delegate?.obtenerNumeroReserva(diccionario)
+                }
+        }
+        
+        
+    }
 
 }

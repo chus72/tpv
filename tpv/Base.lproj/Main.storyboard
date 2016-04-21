@@ -904,7 +904,7 @@ CQ
                                             <tableColumns>
                                                 <tableColumn identifier="fechaID" width="87" minWidth="40" maxWidth="1000" id="Z9I-gT-USh">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Fecha">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -936,7 +936,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="cantidadID" width="87" minWidth="40" maxWidth="1000" id="pNa-A0-ERP">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cantidad">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -948,7 +948,7 @@ CQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="hOY-yj-t1D">
-                                                            <rect key="frame" x="91" y="0.0" width="87" height="17"/>
+                                                            <rect key="frame" x="92" y="0.0" width="87" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yne-DU-M05">
@@ -968,7 +968,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="baseID" width="89" minWidth="10" maxWidth="3.4028234663852886e+38" id="ERk-k4-bKW">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Base">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -980,7 +980,7 @@ CQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="doT-SK-Jfk">
-                                                            <rect key="frame" x="181" y="0.0" width="89" height="17"/>
+                                                            <rect key="frame" x="183" y="0.0" width="89" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgq-pf-f5y">
@@ -1000,7 +1000,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="ivaID" width="90" minWidth="10" maxWidth="3.4028234663852886e+38" id="UMa-Al-RCw">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="I.V.A.">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -1012,7 +1012,7 @@ CQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="L7I-b9-6c6">
-                                                            <rect key="frame" x="273" y="0.0" width="90" height="17"/>
+                                                            <rect key="frame" x="276" y="0.0" width="90" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83R-Bx-xze">
@@ -1032,7 +1032,7 @@ CQ
                                                 </tableColumn>
                                                 <tableColumn identifier="brutoID" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="FVg-el-BcZ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Bruto">
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -1044,7 +1044,7 @@ CQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="DoZ-0D-q1w">
-                                                            <rect key="frame" x="366" y="0.0" width="130" height="17"/>
+                                                            <rect key="frame" x="369" y="0.0" width="130" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvo-zw-87i">
@@ -1072,7 +1072,7 @@ CQ
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ert-fP-EW1">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="502" width="498" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="HwJ-wR-eMj">
@@ -1163,6 +1163,9 @@ CQ
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" size="30" name="HelveticaNeue-CondensedBold"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="precioGruposPushButton:" target="oxq-Bs-qxr" id="8vh-45-4tF"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNk-Cf-wXZ">
                                         <rect key="frame" x="195" y="252" width="120" height="87"/>
@@ -1475,7 +1478,7 @@ CQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="puntoVentaCellId" id="PfS-ss-s5j">
-                                                                    <rect key="frame" x="95" y="1" width="105" height="17"/>
+                                                                    <rect key="frame" x="95" y="1" width="104" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ihs-8t-xJz">
@@ -1507,7 +1510,7 @@ CQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="fechaCellId" id="aoV-Cn-waS">
-                                                                    <rect key="frame" x="204" y="1" width="187" height="17"/>
+                                                                    <rect key="frame" x="204" y="1" width="186" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wje-X0-WhQ">
@@ -1562,8 +1565,8 @@ CQ
                                             </subviews>
                                             <nil key="backgroundColor"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.18914908109401282" horizontal="YES" id="pd9-ej-hjN">
-                                            <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pd9-ej-hjN">
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="q0k-et-tEs">
@@ -1952,6 +1955,7 @@ DQ
                         <outlet property="precio_8_Individual" destination="aQf-yb-vpj" id="hw6-Iz-NQi"/>
                         <outlet property="precio_9_Grupos" destination="Bz6-lB-feT" id="opA-Tg-IBR"/>
                         <outlet property="precio_9_Individual" destination="8sd-CY-pyu" id="0wm-H2-REJ"/>
+                        <outlet property="precio_raro" destination="toJ-V7-x3I" id="skq-sY-h79"/>
                         <outlet property="salirTicketNSButton" destination="gJy-ln-pYQ" id="xaJ-fA-EJg"/>
                         <outlet property="ticketNSView" destination="kUz-Ce-Ueu" id="aAh-4K-jv9"/>
                         <outlet property="ticketsMasivosNSView" destination="2Em-xh-RJX" id="mXN-k6-eSq"/>
@@ -2041,7 +2045,7 @@ DQ
                                                     </textFieldCell>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="puntoVentaCellId" id="2bB-zp-m1x">
-                                                            <rect key="frame" x="152.52524111572171" y="0.0" width="152" height="17"/>
+                                                            <rect key="frame" x="153" y="0.0" width="152" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qe-6D-v1D">
@@ -2072,7 +2076,7 @@ DQ
                                                     </textFieldCell>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="fechaCellId" id="XDH-sx-1S4">
-                                                            <rect key="frame" x="307.60943609363994" y="0.0" width="173" height="17"/>
+                                                            <rect key="frame" x="309" y="0.0" width="173" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="neG-A9-QYa">
@@ -2103,7 +2107,7 @@ DQ
                                                     </textFieldCell>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="precioCellId" id="scA-Pl-BmA">
-                                                            <rect key="frame" x="484.04735424473739" y="0.0" width="97" height="17"/>
+                                                            <rect key="frame" x="485" y="0.0" width="97" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cjr-zk-Lhv">
@@ -2308,7 +2312,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="tipoCellId" id="iC0-8p-UkF">
-                                                            <rect key="frame" x="171.84149335410211" y="0.0" width="221.84149335410211" height="17"/>
+                                                            <rect key="frame" x="171" y="0.0" width="222" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-1u-m9f">
@@ -2340,7 +2344,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="precioCellId" id="CoL-ct-dfe">
-                                                            <rect key="frame" x="396.68298670820423" y="0.0" width="195.84149335410211" height="17"/>
+                                                            <rect key="frame" x="396" y="0.0" width="195" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swF-cZ-agS">
@@ -2368,7 +2372,7 @@ DQ
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="XDI-qB-wE2">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="483" width="593" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="bUe-Zw-Mz6">
@@ -2766,7 +2770,7 @@ WWW.MARINAFERRY.ES</string>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Waj-ie-oHE">
-                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="6Ku-nX-0ff">
@@ -3193,6 +3197,61 @@ WWW.MARINAFERRY.ES</string>
                                     <action selector="checkNegro:" target="Cib-D4-hYf" id="2Mo-uR-mqm"/>
                                 </connections>
                             </button>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="RESERVAS" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="qer-A4-TdB">
+                                <rect key="frame" x="17" y="50" width="243" height="167"/>
+                                <view key="contentView" id="6uy-Y7-nKN">
+                                    <rect key="frame" x="1" y="1" width="241" height="151"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="uHX-8d-f2m">
+                                            <rect key="frame" x="128" y="86" width="93" height="45"/>
+                                            <buttonCell key="cell" type="square" title="Barca" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y28-Em-veh">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reservaBarcaPushButton:" target="Cib-D4-hYf" id="iAo-1a-5Wt"/>
+                                                <segue destination="FrF-4g-H3A" kind="show" identifier="segueReserva" id="2aa-iv-Zep"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="wVN-yR-OGC">
+                                            <rect key="frame" x="20" y="86" width="93" height="45"/>
+                                            <buttonCell key="cell" type="square" title="Barkito" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mKX-mk-XKr">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reservaBarcaPushButton:" target="Cib-D4-hYf" id="9DM-6m-jcm"/>
+                                                <segue destination="FrF-4g-H3A" kind="show" identifier="segueReserva" id="m0E-0o-waz"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="pNQ-ag-3Of">
+                                            <rect key="frame" x="20" y="20" width="93" height="45"/>
+                                            <buttonCell key="cell" type="square" title="Eléctrica" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rvL-oe-mSb">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reservaBarcaPushButton:" target="Cib-D4-hYf" id="Rfc-en-gMU"/>
+                                                <segue destination="FrF-4g-H3A" kind="show" identifier="segueReserva" id="Hr6-Xo-7qJ"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-J9-gmT">
+                                            <rect key="frame" x="128" y="20" width="93" height="45"/>
+                                            <buttonCell key="cell" type="square" title="Gold" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jxL-P7-new">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reservaBarcaPushButton:" target="Cib-D4-hYf" id="byo-pa-bmU"/>
+                                                <segue destination="FrF-4g-H3A" kind="show" identifier="segueReserva" id="84Q-X1-VNA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
@@ -3226,6 +3285,65 @@ WWW.MARINAFERRY.ES</string>
                 <customObject id="nbA-o1-JbP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13.5" y="2054"/>
+        </scene>
+        <!--Reserva-->
+        <scene sceneID="s0J-ID-eHV">
+            <objects>
+                <viewController id="FrF-4g-H3A" customClass="Reserva" customModule="tpv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="POu-mt-WHh">
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="313"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhq-qo-cea">
+                                <rect key="frame" x="0.0" y="0.0" width="190" height="313"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-Zn-BcR">
+                                        <rect key="frame" x="-2" y="247" width="194" height="46"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="EOU-ia-A4s">
+                                            <font key="font" metaFont="system" size="19"/>
+                                            <string key="title">LosBarkitos 
+d' Empuriabrava</string>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCb-qS-ZTs">
+                                        <rect key="frame" x="31" y="217" width="129" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Reserva MarinaFerry" id="3IQ-1R-LWE">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIi-9L-N2e">
+                                        <rect key="frame" x="-2" y="145" width="194" height="51"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="90" id="ocn-a7-Fkj">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-Ul-VIt">
+                                        <rect key="frame" x="-2" y="125" width="194" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tipo Barca" id="fxF-6Y-tbq">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="imprimirVista" destination="bhq-qo-cea" id="2bS-jN-N9G"/>
+                        <outlet property="numeroReserva" destination="bIi-9L-N2e" id="dOZ-eg-VRG"/>
+                        <outlet property="tipoBarca" destination="bpT-Ul-VIt" id="KcT-LN-Gph"/>
+                    </connections>
+                </viewController>
+                <customObject id="kFB-bc-ydA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-483" y="2679.5"/>
         </scene>
         <!--Mensual ListadoLB View Controller-->
         <scene sceneID="j5O-fm-WlV">
@@ -3380,7 +3498,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="cantidadID" id="xPP-td-43f">
-                                                            <rect key="frame" x="104" y="0.0" width="85" height="17"/>
+                                                            <rect key="frame" x="105" y="0.0" width="85" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxH-QO-XSn">
@@ -3412,7 +3530,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="baseID" id="gHU-Cx-dEe">
-                                                            <rect key="frame" x="192" y="0.0" width="101" height="17"/>
+                                                            <rect key="frame" x="193" y="0.0" width="100" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-JC-n3K">
@@ -3444,7 +3562,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="ivaID" id="D3q-R8-Pc6">
-                                                            <rect key="frame" x="295" y="0.0" width="101" height="17"/>
+                                                            <rect key="frame" x="297" y="0.0" width="100" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-PJ-Q1i">
@@ -3476,7 +3594,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="brutoID" id="sAI-4M-k72">
-                                                            <rect key="frame" x="398" y="0.0" width="98" height="17"/>
+                                                            <rect key="frame" x="401" y="0.0" width="98" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKc-Ut-st0">
@@ -3504,7 +3622,7 @@ WWW.MARINAFERRY.ES</string>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Ri3-bJ-nFh">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="520" width="498" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fg7-gG-GPN">
@@ -3618,4 +3736,7 @@ WWW.MARINAFERRY.ES</string>
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="84Q-X1-VNA"/>
+    </inferredMetricsTieBreakers>
 </document>
