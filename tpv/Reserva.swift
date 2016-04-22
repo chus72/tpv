@@ -23,6 +23,7 @@ class Reserva: NSViewController, datosBDD_R {
     @IBOutlet weak var numeroReserva: NSTextField!
     @IBOutlet weak var tipoBarca: NSTextField!
     @IBOutlet weak var imprimirVista: NSView!
+    @IBOutlet weak var horaReserva: NSTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,19 +73,16 @@ class Reserva: NSViewController, datosBDD_R {
             tipo = "GOLD"
             self.numeroReserva.stringValue = String(self.reservas[3])
         }
-        
-        imprimirReserva(HR, HP: HP, tipo: tipo)
+        self.horaReserva.stringValue = HR
+        self.tipoBarca.stringValue = tipo
+        imprimirReserva()
         self.dismissController(self)
     }
     
-    func imprimirReserva(HR : String, HP : String , tipo : String) {
+    func imprimirReserva() {
         
-        self.tipoBarca.stringValue = tipo
-                
         let t : ticketImpreso = ticketImpreso()
         t.print(self.imprimirVista as NSView)
-        
     }
-
     
 }
