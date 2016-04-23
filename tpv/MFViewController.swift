@@ -629,6 +629,20 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             default : break
             }
         }
+        self.numeroTicketNSTextField.stringValue  = String(tic.numero)
+        self.baseTicketNSTextField.stringValue    = NSString(format: "%.02f", tic.base()) as String
+        self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
+        self.totalEurosTicketNSTextField.stringValue  = NSString(format: "%.02f", tic.precio) as String
+        self.ivaTicketNSTextField.stringValue     = NSString(format: "%.02f", tic.iva()) as String
+        
+        if tic.particular == true {
+            self.grupoParticularTicketNSTextField.stringValue = "PARTICULAR"
+            self.descripcionTicketNSTextField.stringValue = "1 ticket adulto particular"
+        } else {
+            self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
+            self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
+        }
+
 
     }
     
