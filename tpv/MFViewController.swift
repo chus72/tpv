@@ -572,6 +572,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         self.botonesTicketNSview.alphaValue = 1
         self.modificarTicketNSButton.enabled = false
         
+    //    self.performSegueWithIdentifier("segue_ticket", sender: nil)
+        
     }
     
     
@@ -627,13 +629,6 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             default : break
             }
         }
-        self.numeroTicketNSTextField.stringValue  = String(tic.numero)
-        self.baseTicketNSTextField.stringValue    = NSString(format: "%.02f", tic.base()) as String
-        self.fechaTicketNSTextField.stringValue   = String(tic.fecha)
-        self.totalEurosTicketNSTextField.stringValue  = NSString(format: "%.02f", tic.precio) as String
-        self.ivaTicketNSTextField.stringValue     = NSString(format: "%.02f", tic.iva()) as String
-        self.grupoParticularTicketNSTextField.stringValue = "GRUPO"
-        self.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
 
     }
     
@@ -672,6 +667,18 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             let VC = segue.destinationController as! mensualListadoViewController
             VC.numRegistros = self.listadoMensual.count
             VC.listado = self.listadoMensual
+        } else if segue.identifier == "segue_ticket" {
+            let VC = segue.destinationController as! TicketViewController
+        
+            
+            VC.numeroTicketNSTextField.stringValue  = String(tic.numero)
+            VC.baseTicketNSTextField.stringValue    = NSString(format: "%.02f", tic.base()) as String
+            VC.fechaTicketNSTextField.stringValue   = String(tic.fecha)
+            VC.totalEurosTicketNSTextField.stringValue  = NSString(format: "%.02f", tic.precio) as String
+            VC.ivaTicketNSTextField.stringValue     = NSString(format: "%.02f", tic.iva()) as String
+            VC.grupoParticularTicketNSTextField.stringValue = "GRUPO"
+            VC.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
+
         }
     }
 }

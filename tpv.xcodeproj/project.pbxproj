@@ -13,6 +13,7 @@
 		4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8458C01C295DEF0024C33D /* AppDelegate.swift */; };
 		4BCAFCB81CBFEACD000736F6 /* barkito.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BCAFCB71CBFEACD000736F6 /* barkito.jpg */; };
 		4BCAFCD11CBFEC5A000736F6 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCAFCC81CBFEC07000736F6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BB19219E1CCA7F2A000A30F5 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19219D1CCA7F2A000A30F5 /* TicketViewController.swift */; };
 		BB33DB771CAAA67C002C9FB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C61C295DEF0024C33D /* Main.storyboard */; };
 		BB33DB781CAAA682002C9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8458C41C295DEF0024C33D /* Assets.xcassets */; };
 		BB4A16411CB27ED6002C7DF1 /* Viaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A16401CB27ED6002C7DF1 /* Viaje.swift */; };
@@ -107,6 +108,7 @@
 		4B8458C91C295DEF0024C33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BCAFCB71CBFEACD000736F6 /* barkito.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = barkito.jpg; sourceTree = "<group>"; };
 		4BCAFCB91CBFEC07000736F6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../../Downloads/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		BB19219D1CCA7F2A000A30F5 /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		BB4A16401CB27ED6002C7DF1 /* Viaje.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viaje.swift; sourceTree = "<group>"; };
 		BB6E7E2C1CB410880098C9D3 /* imprimirListadoLBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imprimirListadoLBViewController.swift; sourceTree = "<group>"; };
 		BB97F6E61CB6934400ECFB07 /* mensualListadoLBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mensualListadoLBViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				BB6E78E71CB952770088E206 /* LB */,
 				4B8458C41C295DEF0024C33D /* Assets.xcassets */,
 				4B8458C61C295DEF0024C33D /* Main.storyboard */,
+				BB19219D1CCA7F2A000A30F5 /* TicketViewController.swift */,
 				BBD235AC1CC923120009C762 /* Reserva.swift */,
 				BBF3D2D71C5FBEC0004281E6 /* ticketImpreso.swift */,
 				F9CF5E991C99E90300A598C3 /* listadoImpreso.swift */,
@@ -353,6 +356,7 @@
 				4B603D941C4E940900B47139 /* DocumentPrint.swift in Sources */,
 				BB6E7E2D1CB410880098C9D3 /* imprimirListadoLBViewController.swift in Sources */,
 				4B0B84E71C4BECC700216C7F /* Tickets.swift in Sources */,
+				BB19219E1CCA7F2A000A30F5 /* TicketViewController.swift in Sources */,
 				F95DF8FA1CABE2FD00FA2AF2 /* mensualListadoViewController.swift in Sources */,
 				4B8458C11C295DEF0024C33D /* AppDelegate.swift in Sources */,
 				F9CF5E9A1C99E90300A598C3 /* listadoImpreso.swift in Sources */,
