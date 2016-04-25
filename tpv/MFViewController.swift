@@ -387,10 +387,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         //print("respuesta del servidor : \(respuesta)")
         
         for (k,v) in respuesta {
-            if k as String == "numero" {
-                print("REGISTRO \(v as! String) BORRADO CORRECTAMENTE")
+            if k as String == "error" && v as! Int == 0 { // No hay error
+                print("REGISTRO  BORRADO CORRECTAMENTE")
+                
             }
         }
+        
         if modo == "MODIFICAR" { // es una modificacion
             self.tic.numero = Int(self.numeroTicketNSTextField.stringValue)!
             self.tic.precio = Float(self.totalEurosTicketNSTextField.stringValue)!
@@ -403,6 +405,12 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             }
             webService.MFmodificar_ticket(self.tic.numero, precio: self.tic.precio)
         }
+        
+        webService.MFlistado(self.diaHoy.dia, mesI: self.diaHoy.mes, anyoI: self.diaHoy.año,
+                             diaF: self.diaHoy.dia, mesF: self.diaHoy.mes, anyoF: self.diaHoy.año)
+
+
+    
     }
     
     func ticketModificado(respuesta : [String : AnyObject]) {
