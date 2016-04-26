@@ -1931,7 +1931,7 @@ DQ
                         <outlet property="ivaTicketNSTextField" destination="PxE-6v-jZY" id="DWL-Sp-elS"/>
                         <outlet property="listadoTableView" destination="M5L-X4-opX" id="FxN-cy-pHP"/>
                         <outlet property="listadoView" destination="q6T-mE-Whw" id="DBG-Nj-HvO"/>
-                        <outlet property="listarNSButton" destination="bnD-yg-0VF" id="65q-UP-Btc"/>
+                        <outlet property="listarNSButton" destination="bnD-yg-0VF" id="bvP-3l-cto"/>
                         <outlet property="listarNSPushButton" destination="UOE-3C-fbJ" id="dmJ-K4-SCV"/>
                         <outlet property="media" destination="ssW-Lb-Lre" id="K6n-kH-uv8"/>
                         <outlet property="mediaNSTextField" destination="ssW-Lb-Lre" id="RA9-xN-WzX"/>
@@ -3439,6 +3439,7 @@ WWW.MARINAFERRY.ES</string>
                         <outlet property="ivaTicketNSTextField" destination="fg7-Oh-Non" id="Pia-d2-iH1"/>
                         <outlet property="listadoTableView" destination="eJa-XD-s7W" id="t1q-89-Nrg"/>
                         <outlet property="listadoView" destination="HI1-DP-oKb" id="jcF-ZN-dR2"/>
+                        <outlet property="listarNSPushButton" destination="SfP-Ms-HyG" id="6dI-D2-o62"/>
                         <outlet property="media" destination="lgV-9B-xBp" id="ejO-Wo-7gc"/>
                         <outlet property="numTickets" destination="P6g-VJ-BZt" id="Wqq-mI-Mmd"/>
                         <outlet property="numeroTicketNSTextField" destination="XPj-AG-aeH" id="fDq-QZ-iKK"/>

@@ -93,6 +93,8 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     @IBOutlet weak var totalEurosTicketNSTextField: NSTextField!
     @IBOutlet weak var grupoParticularTicketNSTextField: NSTextField!
     
+    @IBOutlet weak var listarNSPushButton: NSButton!
+    
     
     
     // Botones control ticket
@@ -365,6 +367,7 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
         }
         
         self.rellenarTicketsMasivos(respuesta)
+      
         for var c = cantidad; c > 0 ; c -= 1 {
             self.numeroTicketNSTextField.stringValue = String(numeroTic - c + 1)
             self.imprimirTicket()
@@ -384,12 +387,11 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
     
     func ticketBorrado(respuesta: [String : AnyObject], modo : String) {
         
-        //print("respuesta del servidor : \(respuesta)")
-        
         for (k,v) in respuesta {
             if k as String == "error" && v as! Int == 0 { // No hay error
-                print("REGISTRO  BORRADO CORRECTAMENTE")
-                
+                self.alerta("TICKET BORRADO", descripcion: "El ticket ha sido borrado correctamente", tipo: "Información")
+                self.ticketNSView.alphaValue = 0
+                self.botonesTicketNSview.alphaValue = 0
             }
         }
         
@@ -702,5 +704,22 @@ class MFViewController: NSViewController, datosBDD, NSTableViewDataSource, NSTab
             VC.descripcionTicketNSTextField.stringValue = "1 ticket adulto grupo"
 
         }
+    }
+    
+    func alerta(titulo : String, descripcion : String, tipo : String) -> Bool {
+        
+        let alerta : NSAlert = NSAlert()
+        alerta.messageText = titulo
+        alerta.informativeText = descripcion
+        if tipo == "Información" {
+            alerta.alertStyle = NSAlertStyle.InformationalAlertStyle
+        } else if tipo == "Warning" {
+            alerta.alertStyle = NSAlertStyle.WarningAlertStyle
+        }
+        alerta.addButtonWithTitle("Ok?")
+        _ = alerta.runModal()
+        
+        return true
+        
     }
 }

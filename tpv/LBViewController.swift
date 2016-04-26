@@ -115,6 +115,9 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     @IBOutlet weak var inicioNSDatePicker: NSDatePicker!
     @IBOutlet weak var finalNSDatePicker: NSDatePicker!
     
+    @IBOutlet weak var listarNSPushButton: NSButton!
+    
+    
     // Resumen de los listados - Afecta a la Celia
     @IBOutlet weak var resumenNSBox: NSBox!
     @IBOutlet weak var numTickets: NSTextField!
@@ -126,15 +129,18 @@ class LBViewController: NSViewController, datosBDD_LB, NSTableViewDataSource, NS
     var numTicketsTotal : Int?
     var totalTotal : Float?
     ///////////////////////////////////////
-    
+
 
     @IBAction func checkNegro(sender: NSButton) {
+       
         if self.checkNegro.state == NSOnState {
             self.blanco = false
             self.view.layer?.backgroundColor = self.color
+            self.listarNSButton(self.listarNSPushButton)
         } else {
             self.blanco = true
             self.view.layer?.backgroundColor = self.colorB
+            self.listarNSButton(self.listarNSPushButton)
         }
     }
     
