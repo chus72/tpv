@@ -1072,7 +1072,7 @@ CQ
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ert-fP-EW1">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="502" width="498" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="HwJ-wR-eMj">
@@ -1565,8 +1565,8 @@ CQ
                                             </subviews>
                                             <nil key="backgroundColor"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pd9-ej-hjN">
-                                            <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
+                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="pd9-ej-hjN">
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="q0k-et-tEs">
@@ -1993,10 +1993,11 @@ LOSBARKITOS</string>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcZ-xY-pp3">
-                                        <rect key="frame" x="10" y="206" width="173" height="39"/>
+                                        <rect key="frame" x="10" y="204" width="173" height="52"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="L9g-Xk-eX5">
                                             <font key="font" size="8" name="HelveticaNeue"/>
-                                            <string key="title">c/ Carmançó, 1 - 17487 Empuriabrava
+                                            <string key="title">Canal Vahimar S.L.
+c/ Carmançó, 1 - 17487 Empuriabrava
 tel. 972.45.25.79 - fax. 972.45.63.24
 C.I.F. B-17496761</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2138,7 +2139,7 @@ WWW.MARINAFERRY.ES</string>
                 </viewController>
                 <customObject id="uTg-44-xdg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="1585.5"/>
+            <point key="canvasLocation" x="653" y="1633.5"/>
         </scene>
         <!--Imprimir Listado View Controller-->
         <scene sceneID="yr7-Y0-zOE">
@@ -2552,7 +2553,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="tipoCellId" id="iC0-8p-UkF">
-                                                            <rect key="frame" x="171" y="0.0" width="222" height="17"/>
+                                                            <rect key="frame" x="172" y="0.0" width="222" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-1u-m9f">
@@ -2584,7 +2585,7 @@ WWW.MARINAFERRY.ES</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="precioCellId" id="CoL-ct-dfe">
-                                                            <rect key="frame" x="396" y="0.0" width="195" height="17"/>
+                                                            <rect key="frame" x="397" y="0.0" width="195" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swF-cZ-agS">
@@ -2612,7 +2613,7 @@ WWW.MARINAFERRY.ES</string>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="XDI-qB-wE2">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="547" width="593" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="bUe-Zw-Mz6">
@@ -2662,10 +2663,11 @@ WWW.MARINAFERRY.ES</string>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vc6-fx-TKT" userLabel="c/ Carmançó, 1 - 17487 Empuriabrava tel. 972.45.25.79 - fax. 972.45.63.24 C.I.F. B-17496761">
-                                        <rect key="frame" x="10" y="206" width="173" height="39"/>
+                                        <rect key="frame" x="10" y="193" width="173" height="60"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="VWt-QD-DBC">
                                             <font key="font" size="8" name="HelveticaNeue"/>
-                                            <string key="title">c/ Carmançó, 1 - 17487 Empuriabrava
+                                            <string key="title">Canal Vahimar S.L.
+c/ Carmançó, 1 - 17487 Empuriabrava
 tel. 972.45.25.79 - fax. 972.45.63.24
 C.I.F. B-17825134</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2760,7 +2762,7 @@ C.I.F. B-17825134</string>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bU0-YG-6e3">
                                         <rect key="frame" x="13" y="184" width="57" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Oficina -" id="dgx-yY-tj9">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Oficina" id="dgx-yY-tj9">
                                             <font key="font" size="11" name="HelveticaNeue"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2939,7 +2941,7 @@ WWW.MARINAFERRY.ES</string>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Waj-ie-oHE">
-                                            <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                            <rect key="frame" x="1" y="463" width="548" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="6Ku-nX-0ff">
@@ -3530,7 +3532,7 @@ d' Empuriabrava</string>
                 </viewController>
                 <customObject id="kFB-bc-ydA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-483" y="2731.5"/>
+            <point key="canvasLocation" x="-483" y="3033.5"/>
         </scene>
         <!--Mensual ListadoLB View Controller-->
         <scene sceneID="j5O-fm-WlV">
@@ -3809,7 +3811,7 @@ d' Empuriabrava</string>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Ri3-bJ-nFh">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="520" width="498" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fg7-gG-GPN">
